@@ -1,0 +1,46 @@
+<git으로 협업하기>
+
+레포지토리 생성
+
+git switch -c"ye" (브랜치 생성 후 ye브랜치로 들어가기)
+
+git add .
+
+git commit -m"ye1"
+
+git push origin ye
+
+머지 요청하기
+
+-> 상대방 변경 후 
+
+git switch master
+
+git pull origin master
+
+git switch -c "ye2"
+
+git add .
+
+git commit -m"add2"
+
+git push origin ye2
+
+git branch -D ye ye2 (브랜치 삭제)
+
+
+<git fork>
+
+git remote add upstream https://lab.ssafy.com/s12/d01/ssafy12-fork.git
+
+git remote -v
+
+git switch -c yjjeong
+
+touch yjjeong.txt
+
+git add .
+
+git commit -m 'yjjenog'
+
+git push origin yjjeong
