@@ -14,7 +14,7 @@ API_KEY = settings.API_KEY
 URL = f'http://finlife.fss.or.kr/finlifeapi/depositProductsSearch.json?auth={API_KEY}&topFinGrpNo=020000&pageNo=1'
 
 
-# Create your views here.
+# 금융 상품 API 데이터 저장
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def save_financial_products(request):
