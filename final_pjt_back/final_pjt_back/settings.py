@@ -42,6 +42,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'finlife',
     'accounts',
    'rest_framework',
     'rest_framework.authtoken',
