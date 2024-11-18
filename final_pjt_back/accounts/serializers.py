@@ -1,7 +1,7 @@
-# from .models import User
-# from rest_framework import serializers
-# from dj_rest_auth.registration.serializers import RegisterSerializer
-# from django.contrib.auth import get_user_model
+from .models import User
+from rest_framework import serializers
+from dj_rest_auth.registration.serializers import RegisterSerializer
+from django.contrib.auth import get_user_model
 
 
 # class CustomRegisterSerializer(RegisterSerializer):
@@ -13,7 +13,7 @@
 #         # user.address = self.validated_data.get('address', None)
 #         user.save()
 
-# class UserSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = get_user_model()
-#         fields = ['username', 'email', 'birth_date', 'address']  # 수정 가능한 필드들
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = ['username', 'email', 'birth_date', 'address']  # 수정 가능한 필드들

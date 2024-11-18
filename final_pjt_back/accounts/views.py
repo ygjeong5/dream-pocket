@@ -1,12 +1,12 @@
-# from rest_framework import status
-# from rest_framework.response import Response
-# from rest_framework.decorators import api_view
-# from rest_framework import permissions
-# from rest_framework.generics import UpdateAPIView
-# from django.contrib.auth.models import User
-# from django.contrib.auth import get_user_model
-# from .serializers import UserSerializer
-# from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework import permissions
+from rest_framework.generics import UpdateAPIView
+from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+from .serializers import UserSerializer
+from rest_framework_simplejwt.tokens import RefreshToken
 
 # @api_view(['POST'])
 # def signup(request):
@@ -35,14 +35,14 @@
     
 #     return Response({"detail": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
 
-# class UpdateUserView(UpdateAPIView):
-#     permission_classes = [permissions.IsAuthenticated]
-#     queryset = get_user_model().objects.all()
-#     serializer_class = UserSerializer
+class UpdateUserView(UpdateAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer
 
-#     def get_object(self):
-#         return self.request.user  # 로그인한 사용자의 정보만 수정하도록 설정
+    def get_object(self):
+        return self.request.user  # 로그인한 사용자의 정보만 수정하도록 설정
 
-#     def perform_update(self, serializer):
-#         # 사용자 정보 저장
-#         serializer.save()
+    def perform_update(self, serializer):
+        # 사용자 정보 저장
+        serializer.save()
