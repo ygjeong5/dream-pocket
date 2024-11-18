@@ -44,5 +44,4 @@ class UpdateUserView(UpdateAPIView):
         return self.request.user  # 로그인한 사용자의 정보만 수정하도록 설정
 
     def perform_update(self, serializer):
-        # 사용자 정보 저장
-        serializer.save()
+        serializer.save()           # 사용자 정보 저장
