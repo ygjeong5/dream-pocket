@@ -42,16 +42,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'finlife',
     'accounts',
-   'rest_framework',
+    'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_simplejwt',
     'dj_rest_auth',
+    'dj_rest_auth.registration',
     'corsheaders',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.google',
     'dj_rest_auth.registration',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -67,10 +69,12 @@ REST_FRAMEWORK = {
     # Authentication
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',  # JWT 인증 사용
     ],
     # permission
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
+        # 'rest_framework.permissions.AllowAny',    # 누구나 접근 가능
+        'rest_framework.permissions.IsAuthenticated',  # 기본 권한을 인증된 사용자로 설정
     ],
 }
 
@@ -166,3 +170,25 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.User'
+
+REST_AUTH_REGISTER_SERIALIZER = 'accounts.serializers.CustomRegisterSerializer'
+
+
+from datetime import timedelta
+# JWT 관련 설정
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),  # 액세스 토큰 유효 기간 (15분)
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # 리프레시 토큰 유효 기간 (1일)
+    'ROTATE_REFRESH_TOKENS': True,  # 리프레시 토큰 갱신 여부
+    'BLACKLIST_AFTER_ROTATION': True,  # 갱신된 리프레시 토큰을 블랙리스트에 추가 여부
+    'ALGORITHM': 'HS256',  # JWT 서명 알고리즘
+    'SIGNING_KEY': 'your_secret_key',  # 비밀 키 (Django SECRET_KEY 사용 가능)
+    'USER_ID_FIELD': 'id',  # 사용자 ID 필드
+    'USER_ID_CLAIM': 'user_id',  # JWT 내 사용자 ID 정보
+}
+
+# dj_rest_auth에서 JWT 사용을 활성화
+REST_USE_JWT = True
+
+# 세션 인증 비활성화 (옵션, 기본값은 True)
+SESSION_COOKIE_AGE = 3600  # 세션 만료 시간 (1시간)
