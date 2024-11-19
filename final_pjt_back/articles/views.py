@@ -18,7 +18,7 @@ def article_list(request):
     if request.method == 'GET':
         articles = Article.objects.all()
         serializer = ArticleSerializer(articles, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data) 
     
     # 게시글 생성
     elif request.method == 'POST':
