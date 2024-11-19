@@ -1,13 +1,13 @@
 <template>
 
-  <!-- License Title -->
-  <div class="license-content">
+  <div class="license">
     
+    <!-- License Title -->
     <h3>다음 내용에 동의해주세요</h3>
     
-    <div class="check-all">
-      <div class="check-all-content">
-          <input type="checkbox" name="check-all" id="check-all-button">
+    <div class="all-check">
+      <div class="all-check-content">
+          <input type="checkbox" name="check-all" id="check-all-button" class="btn">
           <label for="">모두 동의</label>
           <span>회원가입 약관에 모두 동의합니다</span>
       </div>
@@ -16,16 +16,15 @@
   <!-- License Content -->
     <div class="check-content">
         <div class="check-button">
-          <input type="checkbox" name="check-all">
+          <input type="checkbox" name="check-btn" class="btn">
+          <span>[필수]</span>
           <label for="">이용약관 동의</label>
-          <span>(필수)</span>
         </div>
         
         <!-- 스크롤 -->
         <v-card 
           class="overflow-y-auto text-box" 
           max-height="600"
-          v-scroll.self="onScroll"
         >
           <v-card-text >
             <textarea>
@@ -289,17 +288,18 @@
           </v-card-text>
       </v-card>
     </div>
+    
     <div class="check-content">
       <div class="check-button">
-        <input type="checkbox" name="check-all" id="">
+        <input type="checkbox" name="check" id="check-btn" class="btn">
+        <span>[필수]</span>
         <label for="">개인정보 수집 및 이용 동의</label>
-        <span>(필수)</span>
+      
       </div>
           <!-- 스크롤 -->
         <v-card 
           class="overflow-y-auto text-box" 
           max-height="600"
-          v-scroll.self="onScroll"
         >
           <v-card-text >
             <textarea>
@@ -458,58 +458,68 @@
 
 <style  scoped> 
 
-  .license-content {
-    margin: 50px auto 0;
-    padding: 70px 40px;
-    padding-bottom: 80px;
-    text-align: center;
-    width: 800px;
+  .license {
+    background-color: #fdf9f9;
     border: 1px solid #e5e5e5;
-    vertical-align: baseline;
+    margin: 50px auto 0;
+    padding: 70px 40px 70px;
+    width: 800px; 
+    font-family: 'GmarketSansMedium';
+    text-align: center;
   }
   
   h3 { 
-    font-size: 30px;
-    padding: 0 0 10px 0;
     border-bottom: 2px solid #000000;
+    padding: 0 0 10px 0;
+    font-size: 30px;
+    font-weight: 650;
   }
 
-  .check-all {
-    margin-top: 50px;
+  .all-check {
     margin-bottom: 7px;
+    margin-top: 50px;
     max-width: 100%;
-
-    padding: 16px 24px;
+    padding:  16px 24px;
     text-align: start;
   }
 
-  .check-all-content {
-    padding: 24px;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 0.75;
+  .all-check-content {
     background-color: #ffffff;
     border: 1px solid #e5e5e5;
+    line-height: 0.75;
+    padding: 024px;
+    font-size: 20px;
+    font-weight: 600;
   }
 
-  .check-all-content span {
-    font-size: 14px;
+  .all-check-content span {
     line-height: 2;
     padding-left: 12px;
     color: #666666;
+    font-family: 'Pretendard-Regular';
+    font-size: 14px;
+    font-weight: 580;
   }
 
   .check-content {
+    border-bottom: 1px solid #e5e5e5;
     margin: 0 auto;
     font-weight: 600;
     padding: 24px;
-    border-bottom: 1px solid #e5e5e5;
     text-align: start;  
-    line-height: ;
+    line-height: 2;
+    font-size: 16px;
   }
   
   .check-button {
-    margin-bottom: 20px ;
+    margin-bottom: 5px ;
+  }
+
+  .check-button span {
+    margin: auto 5px ;
+    color: red;
+    font-size: 16px;
+    font-weight: 500;
   }
 
   .text-box {
@@ -518,15 +528,24 @@
 
   textarea {
     width: 100%;
-    height: 150px;
-
-    line-height: 1.6em;
+    height: 200px;
+    resize: none;
+    color: #666666;
+    font-family: 'Pretendard-Regular';
+    font-size: 15px;
+    font-weight: 350;
+    line-height: 1.8em;
+  
   }
 
   .submit-btn {
     padding: 30px 20px;
     text-align: center;
 
+  }
+
+  .btn {
+    width: 1px;
   }
   
   .submit-btn input {
@@ -537,4 +556,19 @@
     color: white;
   }
   
+  @font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 </style>
