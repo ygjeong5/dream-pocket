@@ -44,6 +44,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'accounts',
     'finlife',
+    'articles',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
