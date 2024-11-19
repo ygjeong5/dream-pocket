@@ -1,0 +1,132 @@
+[
+  {
+      "model": "accounts.user",
+      "pk": 1,
+      "fields": {
+          "username": "user1",
+          "password": "pbkdf2_sha256$216000$examplepasswordhash",
+          "email": "user1@example.com",
+          "age": 25,
+          "gender": 1,
+          "goal_amount": 500000,
+          "products": []
+      }
+  },
+  {
+      "model": "accounts.user",
+      "pk": 2,
+      "fields": {
+          "username": "user2",
+          "password": "pbkdf2_sha256$216000$examplepasswordhash",
+          "email": "user2@example.com",
+          "age": 20,
+          "gender": 2,
+          "goal_amount": 200000,
+          "products": []
+      }
+  },
+  {
+      "model": "accounts.user",
+      "pk": 3,
+      "fields": {
+          "username": "user3",
+          "password": "pbkdf2_sha256$216000$examplepasswordhash",
+          "email": "user3@example.com",
+          "age": 22,
+          "gender": 0,
+          "goal_amount": null,
+          "products": []
+      }
+  },
+  {
+      "model": "accounts.user",
+      "pk": 4,
+      "fields": {
+          "username": "user4",
+          "password": "pbkdf2_sha256$216000$examplepasswordhash",
+          "email": "user4@example.com",
+          "age": 18,
+          "gender": 1,
+          "goal_amount": 1000000,
+          "products": []
+      }
+  },
+  {
+      "model": "accounts.user",
+      "pk": 5,
+      "fields": {
+          "username": "user5",
+          "password": "pbkdf2_sha256$216000$examplepasswordhash",
+          "email": "user5@example.com",
+          "age": 28,
+          "gender": 2,
+          "goal_amount": null,
+          "products": []
+      }
+  },
+  {
+      "model": "accounts.user",
+      "pk": 6,
+      "fields": {
+          "username": "user6",
+          "password": "pbkdf2_sha256$216000$examplepasswordhash",
+          "email": "user6@example.com",
+          "age": 19,
+          "gender": 0,
+          "goal_amount": 750000,
+          "products": []
+      }
+  },
+  {
+      "model": "accounts.user",
+      "pk": 7,
+      "fields": {
+          "username": "user7",
+          "password": "pbkdf2_sha256$216000$examplepasswordhash",
+          "email": "user7@example.com",
+          "age": 24,
+          "gender": 1,
+          "goal_amount": 300000,
+          "products": []
+      }
+  },
+  {
+      "model": "accounts.user",
+      "pk": 8,
+      "fields": {
+          "username": "user8",
+          "password": "pbkdf2_sha256$216000$examplepasswordhash",
+          "email": "user8@example.com",
+          "age": 21,
+          "gender": 2,
+          "goal_amount": null,
+          "products": []
+      }
+  },
+  {
+      "model": "accounts.user",
+      "pk": 9,
+      "fields": {
+          "username": "user9",
+          "password": "pbkdf2_sha256$216000$examplepasswordhash",
+          "email": "user9@example.com",
+          "age": 27,
+          "gender": 1,
+          "goal_amount": 400000,
+          "products": []
+      }
+  },
+  {
+      "model": "accounts.user",
+      "pk": 10,
+      "fields": {
+          "username": "user10",
+          "password": "pbkdf2_sha256$216000$examplepasswordhash",
+          "email": "user10@example.com",
+          "age": 30,
+          "gender": 2,
+          "goal_amount": 800000,
+          "products": []
+      }
+  }
+]
