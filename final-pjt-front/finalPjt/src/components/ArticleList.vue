@@ -2,8 +2,7 @@
   <div>
     <h2>ArticleList</h2>
     <ArticleListItem
-    v-for="article in store.articles"
-    :key="article.id"
+    :v-for="article in store.articles"
     :article="article"/>
   </div>
 </template>

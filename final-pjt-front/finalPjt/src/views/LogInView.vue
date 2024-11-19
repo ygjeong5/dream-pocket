@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="singUp">
+    <form @submit.prevent="logIn">
       <label for="username">username :</label>
       <input type="text" id="username" v-model.trim="username"><br>
 
@@ -14,7 +14,6 @@
 
 <script setup>
   import { ref } from 'vue';
-  import axios from 'axios';
   import { useEggStore } from '@/stores/egg';
 
   const store = useEggStore()
@@ -23,24 +22,17 @@
   const username = ref(null)
   const password = ref(null)
 
-  const API_URL = store.API_URL
-  
-  const singUp = function() {
-
-  axios({
-    method: 'post',
-    url: `${API_URL}accounts/login/`,
-    data: {
+  const logIn = function() {
+    const payload = {
       username: username.value,
-      password: password.value,
+      password: password.value
     }
-  }) 
-  .then((res)=> {
-    token.value = res.data.key
-    console.log('로그인 완료')
-    console.log(token.value)
-  })
+    store.logIn(payload)
   }
+  
+
+
+ 
 </script>
 
 <style scoped>
