@@ -15,9 +15,9 @@
 <script setup>
   import { ref } from 'vue';
   import axios from 'axios';
-  import { useCounterStore } from '@/stores/counter';
+  import { useEggStore } from '@/stores/egg';
 
-  const store = useCounterStore()
+  const store = useEggStore()
   const token = ref(null)
 
   const username = ref(null)

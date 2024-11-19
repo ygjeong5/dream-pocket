@@ -7,9 +7,6 @@ export const useCounterStore = defineStore('counter', () => {
   function increment() {
     count.value++
   }
-  
-  const API_URL = ref('http://127.0.0.1:8000/')
 
-
-  return { count, doubleCount, increment, API_URL}
+  return { count, doubleCount, increment }
 })
