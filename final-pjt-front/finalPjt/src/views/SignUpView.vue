@@ -1,13 +1,52 @@
 <template>
   <div class="license-content">
   <h3>회원가입</h3>
+  <form @submit.prevent="singUp">
+    <label for="username">username :</label>
+    <input type="text" id="username" v-model.trim="username"><br>
 
+    <label for="password1">password1 : </label>
+    <input type="password" id="password1" v-model.trim="password1"><br>
+
+    <label for="password2">password2 : </label>
+    <input type="password" id="password2" v-model.trim="password2"><br>
+
+    <input type="submit" value="SignUp">
+  </form>
   
   
   </div>
 </template>
   
-<script setup>
+<script setup> 
+  import { ref } from 'vue';
+  import axios from 'axios';
+  import { useCounterStore } from '@/stores/counter';
+
+  const store = useCounterStore()
+
+  const username = ref(null)
+  const password1 = ref(null)
+  const password2 = ref(null)
+  const API_URL = store.API_URL
+  
+  const singUp = function() {
+
+  axios({
+    method: 'post',
+    url: `${API_URL}accounts/signup/`,
+    data: {
+      username: username.value,
+      password1: password1.value,
+      password2: password2.value,
+    }
+  }) 
+  .then((res)=> {
+    console.log('회원가입 완료')
+  })
+  }
+ 
+  
 
 </script>
 
