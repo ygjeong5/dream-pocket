@@ -8,3 +8,10 @@ from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.http import JsonResponse
 import requests
+
+@api_view(['GET'])
+def user_info(request):
+    if request.method == 'GET':
+        user = request.user
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
