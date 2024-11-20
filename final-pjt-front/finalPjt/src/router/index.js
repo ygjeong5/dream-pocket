@@ -4,6 +4,8 @@ import LicenseView from '@/views/LicenseView.vue'
 import SignUpView from '@/views/SignUpView.vue'
 import LogInView from '@/views/LogInView.vue'
 import ArticleView from '@/views/ArticleView.vue'
+import ProfileUpdate from '@/components/profile/ProfileUpdate.vue'
+import ProfileView from '@/views/ProfileView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +30,17 @@ const router = createRouter({
       name: 'ArticleView',
       component: ArticleView,
     },
+    {
+      path: '/profile/update',
+      name: 'ProfileUpdate',
+      component: ProfileUpdate,
+    },
+    {
+      path: '/profile',
+      name: 'ProfileView',
+      component: ProfileView,
+    },
+    
   ],
 })
 

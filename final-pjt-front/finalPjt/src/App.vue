@@ -6,6 +6,9 @@
       </div>
       
       <div class="topRight">
+        <div>
+          <RouterLink :to="{ name: 'ProfileView' }">회원정보</RouterLink>
+        </div>
         <div class="signUp">
           <RouterLink :to="{ name: 'SignUpView' }">회원가입</RouterLink>
         </div>
