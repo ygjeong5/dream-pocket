@@ -4,6 +4,12 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
+
+
+
 // vuetify
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
@@ -30,7 +36,7 @@ library.add(faUserSecret)
 const app = createApp(App)
 
 app.component('font-awesome-icon', FontAwesomeIcon)
-app.use(createPinia())
-app.use(router)
 
+app.use(router)
+app.use(pinia)
 app.use(vuetify).mount('#app')
