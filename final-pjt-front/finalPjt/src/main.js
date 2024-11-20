@@ -15,12 +15,15 @@ const vuetify = createVuetify({
   directives,
 })
 
-/* import the fontawesome core */
+// font awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-/* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+
+// bootstrap
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 library.add(faUserSecret)
 
