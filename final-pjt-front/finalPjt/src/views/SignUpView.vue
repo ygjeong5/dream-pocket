@@ -22,6 +22,7 @@
   import { ref } from 'vue';
   import axios from 'axios';
   import { useEggStore } from '@/stores/egg';
+import router from '@/router';
 
   const store = useEggStore()
 
@@ -30,6 +31,8 @@
   const password2 = ref(null)
   const API_URL = store.API_URL
   
+
+  // 회원가입 (유저 정보 생성)
   const singUp = function() {
 
   axios({
@@ -43,6 +46,10 @@
   }) 
   .then((res)=> {
     console.log('회원가입 완료')
+    const password = password1.value
+    // 자동 로그인 기능 
+    store.logIn({ username: username.value, password})
+    
   })
   }
  
