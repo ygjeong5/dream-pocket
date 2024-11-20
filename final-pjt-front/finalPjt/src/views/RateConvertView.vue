@@ -1,6 +1,5 @@
 <template>
   <div>
-    <RateConverter/>
     <RateList />
   </div>
 </template>

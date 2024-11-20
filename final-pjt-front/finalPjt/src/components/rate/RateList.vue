@@ -1,7 +1,12 @@
 <template>
   <div>
+    <RateConverter :exchange-list="exchangeList" />
     <h2>환율 정보</h2>
-    {{ excahngList }}
+    <div>
+      <pre>
+        {{ exchangeList }}
+      </pre>
+    </div>
   </div>
 </template>
 
@@ -10,10 +15,11 @@ import axios from 'axios'
 import { ref } from 'vue'
 import { useEggStore } from '@/stores/egg'
 import { onMounted } from 'vue'
+import RateConverter from '@/components/rate/RateConverter.vue'
 
 const store = useEggStore()
 
-const excahngList = ref([])
+const exchangeList = ref([])
 
 const getExchangRate = function () {
   axios({
@@ -24,7 +30,7 @@ const getExchangRate = function () {
     }
   })
     .then(res => {
-      excahngList.value = res.data
+      exchangeList.value = res.data
     })
     .catch(err => {
       console.log(err)
