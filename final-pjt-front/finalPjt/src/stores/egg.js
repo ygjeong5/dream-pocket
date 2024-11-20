@@ -97,7 +97,7 @@ export const useEggStore = defineStore('counter', () => {
       token.value = res.data.key
       console.log('로그인성공')
       // 로그인 성공 시 홈으로 이동
-      router.push({ name: 'home'})
+      router.push({ name: 'Home'})
     })
   }
 
@@ -112,7 +112,6 @@ export const useEggStore = defineStore('counter', () => {
 
   // 로그아웃
   const logOut = function () {
-    console.log('gg')
     axios({
       method: 'post',
       url: `${API_URL.value}accounts/logout/`,
@@ -137,7 +136,9 @@ export const useEggStore = defineStore('counter', () => {
     deleteArticle,
     updateArticle,
     logIn, 
+    logOut,
     token,
+    isLogin,
     API_URL
   }
 
