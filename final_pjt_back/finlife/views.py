@@ -11,6 +11,7 @@ from .models import FinancialOptions, FinancialProducts
 from .serializers import FinancialOptionsSerializer, FinancialProductsSerializer
 
 API_KEY = settings.API_KEY
+API_KEY_EXCHANGE = settings.API_KEY_EXCHANGE
 URL = f'http://finlife.fss.or.kr/finlifeapi/depositProductsSearch.json?auth={API_KEY}&topFinGrpNo=020000&pageNo=1'
 
 
@@ -61,3 +62,14 @@ def save_financial_products(request):
             serializer.save()
             
     return JsonResponse({'message' : '저장 성공'})
+
+
+@api_view(['GET'])
+def exchange_rate(reaquest):
+    url = 'https://www.koreaexim.go.kr/site/program/financial/exchangeJSON'
+    params = {
+        'authkey': API_KEY_EXCHANGE,
+        'data': 'AP01',
+    }
+    response = requests.get(url, params=params, verify=False)
+    return Response(response.json())

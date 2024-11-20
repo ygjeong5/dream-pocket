@@ -1,14 +1,19 @@
 <template>
   <div>
+    <div>
+      <form @submit.prevent="logOut">
+      <input type="submit" value="Logout">
+      </form>
+    </div>   
+    <div>
+      <RouterLink :to="{ name: 'ProfileView' }">회원정보</RouterLink>
+    </div>
     <div class="top"> 
       <div class="topMiddle">
         베너 넣을 예정
       </div>
       
       <div class="topRight">
-        <div>
-          <RouterLink :to="{ name: 'ProfileView' }">회원정보</RouterLink>
-        </div>
         <div class="signUp">
           <RouterLink :to="{ name: 'SignUpView' }">회원가입</RouterLink>
         </div>
@@ -18,7 +23,6 @@
           </button>
         </div>
       </div>   
-    
     </div>
 
     <!-- Nav bar  -->
@@ -34,7 +38,7 @@
           <RouterLink :to="{ name: 'LicenseView'}">라이센스</RouterLink>
         </li>
         <li class="nav-item">
-          <a class="nav-link" >Link</a>
+          <RouterLink :to="{ name: 'RateConvertView' }">환율 계산</RouterLink>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -78,6 +82,16 @@
 
 <script setup>
   import { RouterLink, RouterView } from 'vue-router';
+  import { useEggStore } from './stores/egg';
+
+  const store = useEggStore()
+
+  const logOut = function () {
+    store.logOut()
+  }
+
+
+
 </script>
 
 <style  scoped>

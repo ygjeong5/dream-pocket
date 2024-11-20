@@ -1,6 +1,8 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import axios from 'axios'
+import router from '@/router'
+import { faL } from '@fortawesome/free-solid-svg-icons'
 
 export const useEggStore = defineStore('counter', () => {
   const count = ref(0)
@@ -9,7 +11,6 @@ export const useEggStore = defineStore('counter', () => {
   const API_URL = ref('http://127.0.0.1:8000/')
   const token = ref(null)
 
-  // 게시글 목록 불러오기
   const getArticles = function() {
     token.value = 'b1515d11967ba47d1e295572da7cf4b0e5b7c2c7'
     axios({
@@ -82,7 +83,6 @@ export const useEggStore = defineStore('counter', () => {
     })
   }
 
-  // 로그인
   const logIn = function(payload) {
     const username = payload.username
     const password = payload.password
@@ -95,12 +95,40 @@ export const useEggStore = defineStore('counter', () => {
     }) 
     .then((res)=> {
       token.value = res.data.key
-      articles.value = res.data
-      console.log('성공')
+      console.log('로그인성공')
+      // 로그인 성공 시 홈으로 이동
+      router.push({ name: 'home'})
     })
   }
 
-  return { 
+  // 로그인 상태 표시 
+  const isLogin = computed(() => {
+    if (token.value === null) {
+      return false
+    } else {
+      return true
+    }
+  })
+
+  // 로그아웃
+  const logOut = function () {
+    console.log('gg')
+    axios({
+      method: 'post',
+      url: `${API_URL.value}accounts/logout/`,
+    })
+      .then((res) => {
+        console.log(res.data)
+        window.alert('로그아웃 되었습니다.')
+        token.value = null
+        router.push({ name: 'home' })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+   return { 
     count,
     articles, 
     article,
@@ -112,4 +140,5 @@ export const useEggStore = defineStore('counter', () => {
     token,
     API_URL
   }
+
 }, { persist: true})
