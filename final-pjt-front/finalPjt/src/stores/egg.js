@@ -4,21 +4,18 @@ import axios from 'axios'
 import router from '@/router'
 import { faL } from '@fortawesome/free-solid-svg-icons'
 
-
 export const useEggStore = defineStore('counter', () => {
   const count = ref(0)
-  
   const articles = ref([])
+  const article = ref(null)
   const API_URL = ref('http://127.0.0.1:8000/')
-  
   const token = ref(null)
 
-
   const getArticles = function() {
-    console.log(token.value)
+    token.value = 'b1515d11967ba47d1e295572da7cf4b0e5b7c2c7'
     axios({
       method: 'get',
-      url: `${API_URL.value}api/v1/articles/`,
+      url: `${API_URL.value}articles/`,
       headers: {
         Authorization: `Token ${token.value}`
       }
@@ -26,11 +23,66 @@ export const useEggStore = defineStore('counter', () => {
     .then(res=>{
       console.log('성공')
       articles.value = res.data
-      console.log(articles.value)
     })
   }
 
-  // 로그인 로직
+  // 게시글 상세 정보 불러오기
+  const getArticleDetail = function(articleId) {
+    token.value = 'b1515d11967ba47d1e295572da7cf4b0e5b7c2c7'
+    console.log('요청 URL:', `${API_URL.value}articles/${articleId}`)  // URL 확인용
+    return axios({
+      method: 'get',
+      url: `${API_URL.value}articles/${articleId}`,  // 끝의 슬래시(/) 제거
+      headers: {
+        Authorization: `Token ${token.value}`
+      }
+    })
+    .then(res => {
+      console.log('서버 응답:', res.data)  // 응답 데이터 확인용
+      article.value = res.data
+      return article.value
+    })
+    .catch(error => {
+      console.error('API 요청 에러:', error.response)  // 자세한 에러 정보 확인
+      throw error
+    })
+  }
+
+  // 게시글 삭제
+  const deleteArticle = function(articleId) {
+    token.value = 'b1515d11967ba47d1e295572da7cf4b0e5b7c2c7'
+    return axios({
+      method: 'delete',
+      url: `${API_URL.value}articles/${articleId}`,
+      headers: {
+        Authorization: `Token ${token.value}`
+      }
+    })
+    .then(() => {
+      console.log('게시글 삭제 성공')
+      // 게시글 목록 새로고침
+      return this.getArticles()
+    })
+  }
+
+  // 게시글 수정
+  const updateArticle = function(articleId, articleData) {
+    token.value = 'b1515d11967ba47d1e295572da7cf4b0e5b7c2c7'
+    return axios({
+      method: 'put',
+      url: `${API_URL.value}articles/${articleId}`,
+      data: articleData,
+      headers: {
+        Authorization: `Token ${token.value}`
+      }
+    })
+    .then(res => {
+      console.log('게시글 수정 성공')
+      article.value = res.data
+      return res.data
+    })
+  }
+
   const logIn = function(payload) {
     const username = payload.username
     const password = payload.password
@@ -76,5 +128,17 @@ export const useEggStore = defineStore('counter', () => {
       })
   }
 
-  return { API_URL, articles, getArticles, logIn, logOut, isLogin, token}
+   return { 
+    count,
+    articles, 
+    article,
+    getArticles, 
+    getArticleDetail,
+    deleteArticle,
+    updateArticle,
+    logIn, 
+    token,
+    API_URL
+  }
+
 }, { persist: true})

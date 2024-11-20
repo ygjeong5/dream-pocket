@@ -1,6 +1,9 @@
+import ArticleCreate from '@/components/article/ArticleCreate.vue'
+import ArticleList from '@/components/article/ArticleList.vue'
+import ArticleUpdate from '@/components/article/ArticleUpdate.vue'
+import ArticleListDetail from '@/components/article/ArticleListDetail.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { useEggStore } from '@/stores/egg'
-
 import LicenseView from '@/views/LicenseView.vue'
 import SignUpView from '@/views/SignUpView.vue'
 import LogInView from '@/views/LogInView.vue'
@@ -10,9 +13,9 @@ import ProfileView from '@/views/ProfileView.vue'
 import RateConvertView from '@/views/RateConvertView.vue'
 import MainView from '@/views/MainView.vue'
 
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
+// Define Routes
+
+ const routes: [
     {
     path: '/',
     name: 'home',
@@ -35,10 +38,30 @@ const router = createRouter({
       component: LogInView,
     },
     {
-      path: '/article',
-      name: 'ArticleView',
-      component: ArticleView,
-    },
+    path: '/',
+    name: 'ArticleView',
+    component: ArticleView,
+  },
+  {
+    path: '/article/list',
+    name: 'ArticleList',
+    component: ArticleList,
+  },  
+  {
+    path: '/article/detail/:id',
+    name: 'ArticleListDetail',
+    component: ArticleListDetail,
+  },
+  {
+    path: '/article/create',
+    name: 'ArticleCreate',
+    component: ArticleCreate,
+  },
+  {
+    path: '/article/update/:id',
+    name: 'ArticleUpdate',
+    component: ArticleUpdate,
+  },
     {
       path: '/profile/update',
       name: 'ProfileUpdate',
@@ -73,3 +96,4 @@ router.beforeEach((to, from) => {
 })
 
 export default router
+
