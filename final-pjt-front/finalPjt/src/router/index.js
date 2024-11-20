@@ -6,6 +6,7 @@ import LogInView from '@/views/LogInView.vue'
 import ArticleView from '@/views/ArticleView.vue'
 import ProfileUpdate from '@/components/profile/ProfileUpdate.vue'
 import ProfileView from '@/views/ProfileView.vue'
+import RateConvertView from '@/views/RateConvertView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,6 +40,11 @@ const router = createRouter({
       path: '/profile',
       name: 'ProfileView',
       component: ProfileView,
+    },
+    {
+      path: '/rate-convert',
+      name: 'RateConvertView',
+      component: RateConvertView,
     },
     
   ],
