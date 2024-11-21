@@ -45,7 +45,7 @@ const createArticle = () => {
     url: `${store.API_URL}articles/`,
     data: formData.value,
     headers: {
-      Authorization: `Token b1515d11967ba47d1e295572da7cf4b0e5b7c2c7`
+      Authorization: `Token ${store.token}`
     }
   })
     .then((res) => {

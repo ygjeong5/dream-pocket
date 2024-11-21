@@ -49,13 +49,17 @@
           <div class="navItem">
             <RouterLink :to="{ name: 'RateConvertView' }">환율 계산</RouterLink>
           </div>
+          <div>
+            <RouterLink :to="{ name:'FinancialProductView'}">금융상품리스트</RouterLink>
+          </div>
         </div>
 
         <div class="mainLogo navItem">
           <RouterLink :to="{name: 'Home'}">Home</RouterLink>
         </div>
             
-            
+        
+        
             <!-- 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
