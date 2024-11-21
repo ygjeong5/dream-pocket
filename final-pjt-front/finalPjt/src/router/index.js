@@ -12,6 +12,7 @@ import ProfileUpdate from '@/components/profile/ProfileUpdate.vue'
 import ProfileView from '@/views/ProfileView.vue'
 import RateConvertView from '@/views/RateConvertView.vue'
 import MainView from '@/views/MainView.vue'
+import MapView from '@/views/MapView.vue'
 
 // Define Routes
 
@@ -78,6 +79,11 @@ import MainView from '@/views/MainView.vue'
       path: '/rate-convert',
       name: 'RateConvertView',
       component: RateConvertView,
+    },
+    {
+      path: '/map',
+      name: 'map',
+      component: MapView,
     },
   ],  
 })
