@@ -233,7 +233,6 @@
   height: 100%;
   padding: 0;
   margin: 0;
-
 }
 
 /* .d-flex{
@@ -244,7 +243,7 @@
 } */
 
 .mainContent {
-  margin-top: 100px;
+  margin-top: 68px;
 }
   
 @font-face {

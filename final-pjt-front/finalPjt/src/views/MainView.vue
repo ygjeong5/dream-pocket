@@ -45,7 +45,7 @@
 
   .carousel-item, .carousel-item > img{
     height: 560px;
-    min-width: 100%;
+    min-width:40%;
   }
 
 </style>
