@@ -13,6 +13,10 @@
       >
         <h3>{{ article.title }}</h3>
         <p>{{ article.content }}</p>
+        <span class="like-info">
+            <span class="heart-icon">❤️</span>
+            <span class="like-count">{{ article.like_count || 0 }}</span>
+          </span>
       </div>
     </div>
     <div v-else>

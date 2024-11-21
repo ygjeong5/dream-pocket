@@ -4,6 +4,7 @@ import axios from 'axios'
 import router from '@/router'
 import { faL } from '@fortawesome/free-solid-svg-icons'
 
+
 export const useEggStore = defineStore('counter', () => {
   const count = ref(0)
   const articles = ref([])
@@ -30,7 +31,7 @@ export const useEggStore = defineStore('counter', () => {
     console.log('요청 URL:', `${API_URL.value}articles/${articleId}`)  // URL 확인용
     return axios({
       method: 'get',
-      url: `${API_URL.value}articles/${articleId}`,  // 끝의 슬래시(/) 제거
+      url: `${API_URL.value}articles/${articleId}`,
       headers: {
         Authorization: `Token ${token.value}`
       }
@@ -66,7 +67,7 @@ export const useEggStore = defineStore('counter', () => {
   const updateArticle = function(articleId, articleData) {
     return axios({
       method: 'put',
-      url: `${API_URL.value}articles/${articleId}`,
+      url: `${API_URL.value}articles/${articleId}/`,
       data: articleData,
       headers: {
         Authorization: `Token ${token.value}`
@@ -77,6 +78,49 @@ export const useEggStore = defineStore('counter', () => {
       article.value = res.data
       return res.data
     })
+    .catch(error => {
+      console.error('게시글 수정 실패:', error)
+      throw error
+    })
+  }
+
+  // 댓글 작성
+  const createComment = async (commentData) => {
+    try {
+      const response = await axios.post(
+        `${API_URL.value}articles/comments/`,
+        commentData,
+        {
+          headers: {
+            Authorization: `Token ${token}`
+          }
+        }
+      )
+      console.log('댓글 작성 성공')
+      return response.data
+    } catch (error) {
+      console.error('댓글 작성 실패:', error)
+      throw error
+    }
+  }
+
+  
+
+  // 댓글 삭제
+  const deleteComment = async (commentId) => {
+    try {
+      await axios({
+        method: 'delete',
+        url: `${API_URL.value}/articles/comments/${commentId}/`,
+        headers: {
+          Authorization: `Token ${token.value}`
+        }
+      })
+      console.log('댓글 삭제 성공')
+    } catch (error) {
+      console.error('댓글 삭제 실패:', error)
+      throw error
+    }
   }
 
   const logIn = function(payload) {
@@ -131,6 +175,8 @@ export const useEggStore = defineStore('counter', () => {
     getArticleDetail,
     deleteArticle,
     updateArticle,
+    createComment,
+    deleteComment,
     logIn, 
     logOut,
     token,
