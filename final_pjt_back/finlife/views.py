@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework import status
 from django.http import JsonResponse
 import requests
 from .models import FinancialOptions, FinancialProducts
@@ -61,7 +62,7 @@ def save_financial_products(request):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             
-    return JsonResponse({'message' : '저장 성공'})
+    return JsonResponse({'message' : '저장 성공', 'response':response})
 
 
 @api_view(['GET'])
@@ -73,3 +74,25 @@ def exchange_rate(reaquest):
     }
     response = requests.get(url, params=params, verify=False)
     return Response(response.json())
+
+
+@api_view(['GET'])
+def financial_products_list(request):
+    products = FinancialProducts.objects.all()
+    serializer = FinancialProductsSerializer(products, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+def financial_product_detail(request, product_pk):
+    product = FinancialProducts.objects.get(pk=product_pk)
+    options = FinancialOptions.objects.filter(product=product_pk)
+    product_serializer = FinancialProductsSerializer(product)
+    option_serializer = FinancialOptionsSerializer(options, many=True)
+
+    serializer = {
+        "product" : product_serializer.data,
+       "options" : option_serializer.data
+    }
+
+    return Response(serializer, status=status.HTTP_200_OK)

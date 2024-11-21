@@ -12,6 +12,8 @@ import ProfileUpdate from '@/components/profile/ProfileUpdate.vue'
 import ProfileView from '@/views/ProfileView.vue'
 import RateConvertView from '@/views/RateConvertView.vue'
 import MainView from '@/views/MainView.vue'
+import FinancialProductView from '@/views/FinancialProductView.vue'
+import FinancialProductDetail from '@/components/financialproduct/FinancialProductDetail.vue'
 
 // Define Routes
 
@@ -78,6 +80,16 @@ import MainView from '@/views/MainView.vue'
       path: '/rate-convert',
       name: 'RateConvertView',
       component: RateConvertView,
+    },
+    {
+      path: '/financial-product-list',
+      name: 'FinancialProductView',
+      component: FinancialProductView,
+    },
+    {
+      path: '/financial-product/detail/:id',
+      name: 'FinancialProductDetail',
+      component: FinancialProductDetail,
     },
   ],  
 })
