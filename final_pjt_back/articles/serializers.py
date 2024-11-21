@@ -1,12 +1,15 @@
 from rest_framework import serializers
 from .models import Article, Comment, Like, View, ViewCount 
 from accounts.models import User
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 # 유저 정보 조회
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'age', ...)
+        fields = ('id', 'username', 'age',)
 
 # 게시글 생성 및 조회
 class ArticleSerializer(serializers.ModelSerializer):
