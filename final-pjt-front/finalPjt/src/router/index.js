@@ -15,13 +15,15 @@ import MainView from '@/views/MainView.vue'
 
 // Define Routes
 
- const routes: [
+ const router = createRouter({
+    history : createWebHistory(import.meta.env.BASE_URL),
+    routes: [
     {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: MainView,
-
     },
+    
     {
       path: '/signup/license',
       name: 'LicenseView',
@@ -77,21 +79,18 @@ import MainView from '@/views/MainView.vue'
       name: 'RateConvertView',
       component: RateConvertView,
     },
-    
-  ],
+  ],  
 })
 
 router.beforeEach((to, from) => {
   const store = useEggStore()
-  console.log(to.name)
-  console.log(store.isLogin)
-  if ((to.name !== 'LogInView' && to.name !== 'SignUpView' ) && !store.isLogin) {
+  if ((to.name !== 'LogInView' && to.name !== 'SignUpView' && to.name !== 'Home' ) && !store.isLogin) {
     window.alert('로그인이 필요합니다.')
     return { name: 'LogInView'}
   }
   if ((to.name === 'LogInView' || to.name === 'SignUpView') && store.isLogin) {
     window.alert('로그인 되어 있습니다.')
-    return { name: 'home'}
+    return { name: 'Home'}
   }
 })
 
