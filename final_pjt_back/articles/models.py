@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 
+
 # 게시글 모델
 class Article(models.Model):
     user = models.ForeignKey(
@@ -21,18 +22,18 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return f"Comment by {self.user} on {self.article}"
 
 # 좋아요 모델
 class Like(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name="likes")
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f"Like by {self.user} on {self.article}"
+    class Meta:
+        unique_together = ('user', 'article')
 
+
+# 댓글 좋아요 모델
 class CommentLike(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name="likes")
