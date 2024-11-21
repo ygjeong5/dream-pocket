@@ -25,6 +25,7 @@ environ.Env.read_env(
 )
 
 API_KEY = env('API_KEY')
+API_KEY_EXCHANGE = env('API_KEY_EXCHANGE')
 
 
 # Quick-start development settings - unsuitable for production

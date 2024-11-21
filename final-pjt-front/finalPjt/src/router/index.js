@@ -1,38 +1,45 @@
-import { createRouter, createWebHistory } from 'vue-router';
-
-// Import Views and Components
-import LicenseView from '@/views/LicenseView.vue';
-import SignUpView from '@/views/SignUpView.vue';
-import LogInView from '@/views/LogInView.vue';
-import ArticleView from '@/views/ArticleView.vue';
-import ProfileUpdate from '@/components/profile/ProfileUpdate.vue';
-import ProfileView from '@/views/ProfileView.vue';
-import ArticleCreate from '@/components/article/ArticleCreate.vue';
-import ArticleList from '@/components/article/ArticleList.vue';
-import ArticleUpdate from '@/components/article/ArticleUpdate.vue';
-import ArticleListDetail from '@/components/article/ArticleListDetail.vue';
+import ArticleCreate from '@/components/article/ArticleCreate.vue'
+import ArticleList from '@/components/article/ArticleList.vue'
+import ArticleUpdate from '@/components/article/ArticleUpdate.vue'
+import ArticleListDetail from '@/components/article/ArticleListDetail.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import { useEggStore } from '@/stores/egg'
+import LicenseView from '@/views/LicenseView.vue'
+import SignUpView from '@/views/SignUpView.vue'
+import LogInView from '@/views/LogInView.vue'
+import ArticleView from '@/views/ArticleView.vue'
+import ProfileUpdate from '@/components/profile/ProfileUpdate.vue'
+import ProfileView from '@/views/ProfileView.vue'
+import RateConvertView from '@/views/RateConvertView.vue'
+import MainView from '@/views/MainView.vue'
 
 // Define Routes
-const routes = [
-  // 회원가입 및 로그인 관련
-  {
-    path: '/signup/license',
-    name: 'LicenseView',
-    component: LicenseView,
-  },
-  {
-    path: '/signup',
-    name: 'SignUpView',
-    component: SignUpView,
-  },
-  {
-    path: '/login',
-    name: 'LogInView',
-    component: LogInView,
-  },
 
-  // 메인 페이지 및 게시글 관련
-  {
+ const router = createRouter({
+    history : createWebHistory(import.meta.env.BASE_URL),
+    routes: [
+    {
+    path: '/',
+    name: 'Home',
+    component: MainView,
+    },
+    
+    {
+      path: '/signup/license',
+      name: 'LicenseView',
+      component: LicenseView,
+    },
+    {
+      path: '/signup',
+      name: 'SignUpView',
+      component: SignUpView,
+    },
+    {
+      path: '/login',
+      name: 'LogInView',
+      component: LogInView,
+    },
+    {
     path: '/',
     name: 'ArticleView',
     component: ArticleView,
@@ -57,24 +64,35 @@ const routes = [
     name: 'ArticleUpdate',
     component: ArticleUpdate,
   },
+    {
+      path: '/profile/update',
+      name: 'ProfileUpdate',
+      component: ProfileUpdate,
+    },
+    {
+      path: '/profile',
+      name: 'ProfileView',
+      component: ProfileView,
+    },
+    {
+      path: '/rate-convert',
+      name: 'RateConvertView',
+      component: RateConvertView,
+    },
+  ],  
+})
 
-  // 프로필 관련
-  {
-    path: '/profile',
-    name: 'ProfileView',
-    component: ProfileView,
-  },
-  {
-    path: '/profile/update',
-    name: 'ProfileUpdate',
-    component: ProfileUpdate,
-  },
-];
+router.beforeEach((to, from) => {
+  const store = useEggStore()
+  if ((to.name !== 'LogInView' && to.name !== 'SignUpView' && to.name !== 'Home' ) && !store.isLogin) {
+    window.alert('로그인이 필요합니다.')
+    return { name: 'LogInView'}
+  }
+  if ((to.name === 'LogInView' || to.name === 'SignUpView') && store.isLogin) {
+    window.alert('로그인 되어 있습니다.')
+    return { name: 'Home'}
+  }
+})
 
-// Create Router
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
-});
+export default router
 
-export default router;
