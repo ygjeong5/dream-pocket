@@ -16,7 +16,7 @@ from .serializers import UserSerializer
 def article_list(request):
     # 게시글 목록 조회
     if request.method == 'GET':
-        articles = get_list_or_404(Article)
+        articles = Article.objects.all()
         serializer = ArticleSerializer(articles, many=True)
         return Response(serializer.data) 
     
