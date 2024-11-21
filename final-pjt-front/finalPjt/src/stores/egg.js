@@ -12,7 +12,6 @@ export const useEggStore = defineStore('counter', () => {
   const token = ref(null)
 
   const getArticles = function() {
-    token.value = 'b1515d11967ba47d1e295572da7cf4b0e5b7c2c7'
     axios({
       method: 'get',
       url: `${API_URL.value}articles/`,
@@ -28,7 +27,6 @@ export const useEggStore = defineStore('counter', () => {
 
   // 게시글 상세 정보 불러오기
   const getArticleDetail = function(articleId) {
-    token.value = 'b1515d11967ba47d1e295572da7cf4b0e5b7c2c7'
     console.log('요청 URL:', `${API_URL.value}articles/${articleId}`)  // URL 확인용
     return axios({
       method: 'get',
@@ -50,7 +48,6 @@ export const useEggStore = defineStore('counter', () => {
 
   // 게시글 삭제
   const deleteArticle = function(articleId) {
-    token.value = 'b1515d11967ba47d1e295572da7cf4b0e5b7c2c7'
     return axios({
       method: 'delete',
       url: `${API_URL.value}articles/${articleId}`,
@@ -67,7 +64,6 @@ export const useEggStore = defineStore('counter', () => {
 
   // 게시글 수정
   const updateArticle = function(articleId, articleData) {
-    token.value = 'b1515d11967ba47d1e295572da7cf4b0e5b7c2c7'
     return axios({
       method: 'put',
       url: `${API_URL.value}articles/${articleId}`,

@@ -40,7 +40,7 @@ import MainView from '@/views/MainView.vue'
       component: LogInView,
     },
     {
-    path: '/',
+    path: '/article',
     name: 'ArticleView',
     component: ArticleView,
   },
