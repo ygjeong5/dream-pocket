@@ -19,7 +19,8 @@
         :infoWindow= marker.infoWindow
         :clickable="true"
         @onClickKakaoMapMarker="onClickMapMarker(marker)"
-        @mouse-over-kakao-map-marker="console.log(marker)"
+        @mouseOverKakaoMapMarker="mouseOverKakaoMapMarker(marker)"
+        @mouseOutKakaoMapMarker="mouseOutKakaoMapMarker(marker)"
       />
     </KakaoMap>
 
@@ -78,7 +79,7 @@ const searchPlace = () => {
         // 지도 중심 이동
         map.value?.setCenter(new kakao.maps.LatLng(centerLat.value, centerLng.value)).panTo();
       }
-        // map.value.panTo(new kakao.maps.LatLng(centerLat.value, centerLat.value))
+      
     
     } else {
       alert('해당 장소를 찾을 수 없습니다.');
@@ -138,9 +139,15 @@ const onClickMapMarker = (markerItem: KakaoMapMarkerListItem): void => {
   } else {
     markerItem.infoWindow.visible = true;
   }
+
 };
+const mouseOverKakaoMapMarker = (markerList: KakaoMapMarkerListItem): void => {
+  markerList.infoWindow.visible = true
+}
 
-
+const mouseOutKakaoMapMarker = (markerList: KakaoMapMarkerListItem): void => {
+  markerList.infoWindow.visible = false
+}
 
 </script>
 
