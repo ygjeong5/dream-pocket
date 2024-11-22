@@ -16,11 +16,13 @@
         :key="marker.key === undefined ? index : marker.key"
         :lat="marker.lat"
         :lng="marker.lng"
-        :infoWindow="marker.infoWindow"
+        :infoWindow= marker.infoWindow
         :clickable="true"
         @onClickKakaoMapMarker="onClickMapMarker(marker)"
+        @mouse-over-kakao-map-marker="console.log(marker)"
       />
     </KakaoMap>
+
   </div>
 </template>
 
@@ -28,6 +30,7 @@
 <script setup lang="ts">
 import { KakaoMap, KakaoMapMarker, type KakaoMapMarkerListItem } from 'vue3-kakao-maps';
 import { ref } from 'vue';
+
 
 
 // 지도와 마커 관련 상태
@@ -41,14 +44,14 @@ const placeKeyword = ref(''); // 사용자가 입력한 장소 검색 키워드
 
 
 // 은행 검색
-const searchBanks = (lat: number, lng: number) => {
+const searchBanks = (lat: number, lng: number, radius: number) => {
   const ps = new kakao.maps.services.Places();
   ps.keywordSearch(
-    '국민은행',
+    '은행',
     placesSearchCB,
     {
       location: new kakao.maps.LatLng(lat, lng),
-      radius: 1000 // 반경 1000m
+      radius: radius, // 반경 1000m
     }
   );
 };
@@ -70,16 +73,19 @@ const searchPlace = () => {
         centerLng.value = parseFloat(firstResult.x);
 
         // 은행 검색 실행
-        searchBanks(centerLat.value, centerLng.value);
+        searchBanks(centerLat.value, centerLng.value, 1000);
 
         // 지도 중심 이동
-        map.value?.setCenter(new kakao.maps.LatLng(centerLat.value, centerLng.value));
+        map.value?.setCenter(new kakao.maps.LatLng(centerLat.value, centerLng.value)).panTo();
       }
+        // map.value.panTo(new kakao.maps.LatLng(centerLat.value, centerLat.value))
+    
     } else {
       alert('해당 장소를 찾을 수 없습니다.');
     }
   });
 };
+
 
 // 키워드 검색 완료 시 호출되는 콜백 함수
 const placesSearchCB = (data: kakao.maps.services.PlacesSearchResult, status: kakao.maps.services.Status): void => {
@@ -97,6 +103,7 @@ const placesSearchCB = (data: kakao.maps.services.PlacesSearchResult, status: ka
         }
       };
       markerList.value.push(markerItem);
+      // console.log(markerList.value)
       bounds.extend(new kakao.maps.LatLng(Number(marker.y), Number(marker.x)));
     }
 
@@ -110,16 +117,30 @@ const onLoadKakaoMap = (mapRef: kakao.maps.Map) => {
   map.value = mapRef;
 
   // 초기 은행 검색 실행
-  searchBanks(centerLat.value, centerLng.value);
+  searchBanks(centerLat.value, centerLng.value, 500);
+
+  kakao.maps.event.addListener(map.value, 'click', function (mouseEvent: kakao.maps.event.MouseEvent){
+    const latlng = mouseEvent.latLng
+    centerLat.value = latlng.getLat()
+    centerLng.value = latlng.getLng()
+    searchBanks(centerLat.value, centerLng.value,)
+    
+  })
+
 };
+
 
 // 마커 클릭 시 인포윈도우의 visible 값을 반전시킵니다
 const onClickMapMarker = (markerItem: KakaoMapMarkerListItem): void => {
+  console.log(markerItem)
   if (markerItem.infoWindow?.visible !== null && markerItem.infoWindow?.visible !== undefined) {
     markerItem.infoWindow.visible = !markerItem.infoWindow.visible;
   } else {
     markerItem.infoWindow.visible = true;
   }
 };
+
+
+
 </script>
 

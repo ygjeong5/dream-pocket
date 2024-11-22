@@ -38,14 +38,68 @@
 
 <style scoped>
 
-  .carousel-inner > .carousel-item {
-    text-align: center;
-    background-color: rgb(133, 132, 132);
-  }
+.mainPage {
+  background-color: #f8f9fa;
+}
 
-  .carousel-item, .carousel-item > img{
-    height: 560px;
-    min-width:40%;
-  }
+.carousel {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 20px auto;
+  max-width: 1400px;
+}
+
+.carousel-inner > .carousel-item {
+  text-align: center;
+  background: linear-gradient(135deg, #1a237e, #0d47a1);
+}
+
+.carousel-item, .carousel-item > img {
+  height: 600px;
+  min-width: 100%;
+  object-fit: cover;
+}
+
+.custom-indicator {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border: none !important;
+  margin: 0 6px !important;
+}
+
+.custom-indicator.active {
+  background-color: #ffffff !important;
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+}
+
+/* 네비게이션 버튼 스타일 */
+.custom-carousel-control {
+  width: 5%;
+  background: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.custom-carousel-control:hover {
+  opacity: 1;
+}
+
+.carousel-control-prev {
+  background: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+}
+
+.carousel-control-next {
+  background: linear-gradient(-90deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
+}
+
+@media (max-width: 768px) {
+  .carousel-item, .carousel-item > img {
+    height: 400px;
+}
+}
 
 </style>
