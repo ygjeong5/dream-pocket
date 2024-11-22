@@ -106,12 +106,12 @@ import ProductsView from '@/views/ProductsView.vue'
       name: 'FinancialProductDetail',
       component: FinancialProductDetail,
     },
-
     {
       path: '/chatbot',
       name: 'ChatbotView',
       component: ChatbotView,
       meta: { requiresAuth: true }  // 로그인 필요한 경우
+    },
     { 
       path: '/saving-products',
       name: 'SavingProductsView',
