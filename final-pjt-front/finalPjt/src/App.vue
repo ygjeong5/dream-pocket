@@ -92,12 +92,25 @@
     <RouterView/>
   </div>
 
+  <!-- 챗봇 버튼 및 창 추가 -->
+  <div class="chat-view">
+  <div class="chat-window">
+    <div class="chat-header">
+      <span>금융 상담사</span>
+    </div>
+    <ChatBot />
+    </div>
+  </div>
+
+
 </div>
 </template>
 
 <script setup>
   import { RouterLink, RouterView } from 'vue-router';
   import { useEggStore } from './stores/egg';
+  import { ref } from 'vue';
+  import ChatBot from './components/chatbot/Chatbot.vue';
 
   const store = useEggStore()
 
@@ -114,6 +127,12 @@
         const a = event.currentTarget.querySelector('a')
     a.style.color = 'black'
   }
+
+  const isChatOpen = ref(false)
+
+  const toggleChat = () => {
+  isChatOpen.value = !isChatOpen.value
+}
   
 </script>
 

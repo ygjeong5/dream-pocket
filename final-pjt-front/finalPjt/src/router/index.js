@@ -15,7 +15,7 @@ import MainView from '@/views/MainView.vue'
 import MapView from '@/views/MapView.vue'
 import FinancialProductView from '@/views/FinancialProductView.vue'
 import FinancialProductDetail from '@/components/financialproduct/FinancialProductDetail.vue'
-
+import ChatbotView from '@/views/ChatbotView.vue'
 
 // Define Routes
 
@@ -97,6 +97,12 @@ import FinancialProductDetail from '@/components/financialproduct/FinancialProdu
       path: '/financial-product/detail/:id',
       name: 'FinancialProductDetail',
       component: FinancialProductDetail,
+    },
+    {
+      path: '/chatbot',
+      name: 'ChatbotView',
+      component: ChatbotView,
+      meta: { requiresAuth: true }  // 로그인 필요한 경우
     },
   ],  
 })
