@@ -35,13 +35,13 @@ const router = useRouter()
 
 // store의 articles 변화를 감지
 watchEffect(() => {
-  console.log('현재 게시글 목록:', store.articles)
+  // console.log('현재 게시글 목록:', store.articles)
 })
 
 const getArticles = async () => {
   try {
     await store.getArticles()
-    console.log('불러온 게시글:', store.articles)
+    // console.log('불러온 게시글:', store.articles)
   } catch (error) {
     console.error('게시글 불러오기 실패:', error)
   }
