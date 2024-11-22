@@ -50,7 +50,7 @@
             <RouterLink :to="{ name: 'RateConvertView' }">환율 계산</RouterLink>
           </div>
           <div>
-            <RouterLink :to="{ name:'FinancialProductView'}">금융상품리스트</RouterLink>
+            <RouterLink :to="{ name:'ProductsView'}">금융 상품 리스트</RouterLink>
           </div>
         </div>
 
