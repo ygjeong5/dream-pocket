@@ -167,6 +167,8 @@ export const useEggStore = defineStore('counter', () => {
       })
   }
 
+  
+
    return { 
     count,
     articles, 

@@ -15,10 +15,10 @@ import MainView from '@/views/MainView.vue'
 import MapView from '@/views/MapView.vue'
 import FinancialProductsView from '@/views/FinancialProductsView.vue'
 import FinancialProductDetail from '@/components/financialproduct/FinancialProductDetail.vue'
+import ChatbotView from '@/views/ChatbotView.vue'
 import SavingProductsView from '@/views/SavingProductsView.vue'
 import SavingProductDetail from '@/components/financialproduct/SavingProductDetail.vue'
 import ProductsView from '@/views/ProductsView.vue'
-
 
 // Define Routes
 
@@ -106,6 +106,12 @@ import ProductsView from '@/views/ProductsView.vue'
       name: 'FinancialProductDetail',
       component: FinancialProductDetail,
     },
+
+    {
+      path: '/chatbot',
+      name: 'ChatbotView',
+      component: ChatbotView,
+      meta: { requiresAuth: true }  // 로그인 필요한 경우
     { 
       path: '/saving-products',
       name: 'SavingProductsView',
