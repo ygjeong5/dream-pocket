@@ -22,4 +22,6 @@ urlpatterns = [
     path('finlife/', include('finlife.urls')),
     path('accounts/', include('accounts.urls')),
     path('articles/', include('articles.urls')),
+    path('chatbot/', include('chatbot.urls')),
+
 ]

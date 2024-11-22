@@ -17,6 +17,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 import os
 import environ
+from dotenv import load_dotenv
+
 
 env = environ.Env(DEBUG=(bool, True))
 
@@ -24,8 +26,10 @@ environ.Env.read_env(
     env_file=os.path.join(BASE_DIR, '.env')
 )
 
+load_dotenv()
 API_KEY = env('API_KEY')
 API_KEY_EXCHANGE = env('API_KEY_EXCHANGE')
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 
 # Quick-start development settings - unsuitable for production
@@ -46,6 +50,7 @@ INSTALLED_APPS = [
     'accounts',
     'finlife',
     'articles',
+    'chatbot',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
