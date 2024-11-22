@@ -53,12 +53,15 @@
             <RouterLink :to="{ name:'FinancialProductView'}">금융상품리스트</RouterLink>
           </div>
         </div>
-
+        
         <div class="mainLogo navItem">
           <RouterLink :to="{name: 'Home'}">Home</RouterLink>
         </div>
             
-        
+        <div>
+          <RouterLink :to="{name: 'map'}">map</RouterLink>
+
+        </div>
         
             <!-- 
               <li class="nav-item dropdown">

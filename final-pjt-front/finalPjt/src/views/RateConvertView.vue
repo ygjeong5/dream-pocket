@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="rate-convert-container ">
     <RateList />
   </div>
 </template>
@@ -10,5 +10,10 @@ import RateList from '@/components/rate/RateList.vue'
 </script>
 
 <style scoped>
+.rate-convert-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 </style>

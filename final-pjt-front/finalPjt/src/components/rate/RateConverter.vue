@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>환율 변환기</h3>
+    <h3 class="page-title">환율 변환기</h3>
     <div>
       <label for="country">나라 선택:</label>
       <select v-model="selectedCurrency" id="country">
@@ -67,6 +67,12 @@ watch(
 </script>
 
 <style scoped>
+.page-title {
+  color: #2c3e50;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
 label {
   margin-right: 8px;
 }
