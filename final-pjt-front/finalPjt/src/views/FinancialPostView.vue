@@ -32,8 +32,10 @@
 import axios from 'axios'
 import { ref, onMounted } from 'vue'
 import { useEggStore } from "@/stores/egg"
+import { useRouter } from 'vue-router'
 
 
+const router = useRouter()
 const store = useEggStore()
 const posts = ref([])
 const videos = ref([])
