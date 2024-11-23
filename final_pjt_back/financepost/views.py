@@ -19,3 +19,14 @@ def financial_post(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+
+@api_view(['GET'])
+def financial_post_detail(request, pk):
+    """
+    특정 게시글의 상세 정보를 반환합니다.
+    """
+    post = FinancialPost.objects.get(pk=pk)
+    serializer = FinancialPostSerializer(post)
+    return Response(serializer.data, status=status.HTTP_200_OK)

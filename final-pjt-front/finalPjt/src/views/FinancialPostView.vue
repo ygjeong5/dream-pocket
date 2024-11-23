@@ -5,7 +5,7 @@
         <div v-if="posts.length">
             <h2>게시글 목록</h2>
             <ul>
-                <li v-for="post in posts" :key="post.id">
+                <li v-for="post in posts" :key="post.id" @click="goToDetail(post.id)" style="cursor: pointer;">
                     <h3>{{ post.title }}</h3>
                     <p>{{ post.content }}</p>
                 </li>
@@ -81,4 +81,9 @@ onMounted(() => {
     fetchPosts()
     fetchYouTubeVideos()
 })
+
+const goToDetail = (id) => {
+    router.push(`/financial-posts/${id}`) // 상세 페이지로 이동
+}
+
 </script>
