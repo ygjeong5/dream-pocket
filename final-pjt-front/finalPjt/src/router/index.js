@@ -128,6 +128,11 @@ import FinancialPostView from '@/views/FinancialPostView.vue'
       name: 'FinancialPostView',
       component: FinancialPostView,
     },
+    {
+      path: '/financial-posts/:id',
+      name: 'FinancialPostDetail',
+      component: FinancialPostDetail,
+    },
   ],  
 })
 
