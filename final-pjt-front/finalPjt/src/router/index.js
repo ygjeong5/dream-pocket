@@ -19,6 +19,7 @@ import ChatbotView from '@/views/ChatbotView.vue'
 import SavingProductsView from '@/views/SavingProductsView.vue'
 import SavingProductDetail from '@/components/financialproduct/SavingProductDetail.vue'
 import ProductsView from '@/views/ProductsView.vue'
+import FinancialPostView from '@/views/FinancialPostView.vue'
 
 // Define Routes
 
@@ -121,6 +122,11 @@ import ProductsView from '@/views/ProductsView.vue'
       path: '/saving-product/detail/:id',
       name: 'SavingProductDetail',
       component: SavingProductDetail,
+    },
+    {
+      path: '/financial-post',
+      name: 'FinancialPostView',
+      component: FinancialPostView,
     },
   ],  
 })
