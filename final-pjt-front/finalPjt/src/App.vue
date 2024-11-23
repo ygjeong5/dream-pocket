@@ -144,6 +144,7 @@
 .top {
   position: relative;
   z-index: 1000;
+
 }
 
 .topContent{
@@ -216,9 +217,12 @@
 .navbar {
   position: absolute;
   z-index: 1001; 
-  min-width: 100%; 
+  background: linear-gradient(to right, #ffffff, #f8f9fa);
+  border-radius: 10px;
+  min-width: 100%;
   height: 61px;
-  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
 }
 
 .navContainer {
