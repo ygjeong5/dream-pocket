@@ -21,6 +21,7 @@ import SavingProductDetail from '@/components/financialproduct/SavingProductDeta
 import ProductsView from '@/views/ProductsView.vue'
 import FinancialPostView from '@/views/FinancialPostView.vue'
 import ProductComparison from '@/components/financialproduct/ProductComparison.vue'
+import Ledger from '@/components/profile/Ledger.vue'
 
 // Define Routes
 
@@ -138,6 +139,11 @@ import ProductComparison from '@/components/financialproduct/ProductComparison.v
       path: '/porduct-comparison',
       name: 'ProductComparison',
       component: ProductComparison,
+    },
+    {
+      path: '/ledger',
+      name: 'Ledger',
+      component: Ledger,
     },
   ],  
 })
