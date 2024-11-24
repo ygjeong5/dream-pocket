@@ -1,0 +1,394 @@
+[
+    {
+        "model": "quiz_game.quiz",
+        "pk": 1,
+        "fields": {
+            "title": "디레버리징",
+            "body": "과도한 부채를 줄이고 재무 구조를 안정적으로 개선하는 과정을 무엇이라 할까요?",
+            "choice_a": "디레버리징",
+            "choice_b": "헤지",
+            "choice_c": "레버리지",
+            "choice_d": "공매도",
+            "correct_answer": "A"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 2,
+        "fields": {
+            "title": "파생상품",
+            "body": "기초 자산의 가치 변동에 따라 가격이 결정되며 선물, 옵션 등이 대표적인 이 금융 상품은?",
+            "choice_a": "ETF",
+            "choice_b": "파생상품",
+            "choice_c": "레버리지",
+            "choice_d": "옵션",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 3,
+        "fields": {
+            "title": "선물(Futures)",
+            "body": "특정 자산을 미래 일정 시점에 정해진 가격으로 사고팔기로 약정한 계약을 무엇이라 할까요?",
+            "choice_a": "옵션",
+            "choice_b": "선물",
+            "choice_c": "스왑",
+            "choice_d": "헤지",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 4,
+        "fields": {
+            "title": "옵션(Options)",
+            "body": "특정 자산을 미래에 정해진 가격으로 사고팔 권리를 부여하는 금융 상품은?",
+            "choice_a": "옵션",
+            "choice_b": "선물",
+            "choice_c": "리츠",
+            "choice_d": "레버리지",
+            "correct_answer": "A"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 5,
+        "fields": {
+            "title": "신용스프레드",
+            "body": "국채와 회사채 간의 금리 차이를 의미하며 신용 위험의 척도가 되는 이 개념은?",
+            "choice_a": "듀레이션",
+            "choice_b": "신용스프레드",
+            "choice_c": "수익률 곡선",
+            "choice_d": "레버리지",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 6,
+        "fields": {
+            "title": "듀레이션",
+            "body": "채권에서 원금과 이자가 회수되는 평균 기간으로, 금리 변동에 대한 민감도를 측정하는 개념은?",
+            "choice_a": "신용스프레드",
+            "choice_b": "듀레이션",
+            "choice_c": "레버리지",
+            "choice_d": "펀더멘털",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 7,
+        "fields": {
+            "title": "수익률 곡선",
+            "body": "만기별 채권 수익률의 관계를 나타내며 경제 상황을 예측하는 데 사용되는 곡선은?",
+            "choice_a": "수익률 곡선",
+            "choice_b": "벤치마크",
+            "choice_c": "알파와 베타",
+            "choice_d": "헤지",
+            "correct_answer": "A"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 8,
+        "fields": {
+            "title": "헤지(Hedge)",
+            "body": "자산 가격 변동 위험을 줄이기 위해 반대 방향으로 포지션을 취하는 투자 전략은?",
+            "choice_a": "헤지",
+            "choice_b": "레버리지",
+            "choice_c": "공매도",
+            "choice_d": "옵션",
+            "correct_answer": "A"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 9,
+        "fields": {
+            "title": "공매도(Short Selling)",
+            "body": "주가 하락을 예상하고 주식을 빌려 판 뒤 가격이 하락하면 다시 사서 갚는 투자 방식을 무엇이라 할까요?",
+            "choice_a": "공매도",
+            "choice_b": "헤지",
+            "choice_c": "레버리지",
+            "choice_d": "스왑",
+            "correct_answer": "A"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 10,
+        "fields": {
+            "title": "레버리지(Leverage)",
+            "body": "부채를 활용해 투자 규모를 확대하여 수익을 극대화하는 전략은?",
+            "choice_a": "헤지",
+            "choice_b": "공매도",
+            "choice_c": "레버리지",
+            "choice_d": "디레버리징",
+            "correct_answer": "C"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 11,
+        "fields": {
+            "title": "알파와 베타",
+            "body": "시장 수익률을 초과한 성과를 알파라고 하고, 시장 변동성에 민감한 정도를 베타라고 합니다. 이를 합친 용어는?",
+            "choice_a": "듀레이션",
+            "choice_b": "알파와 베타",
+            "choice_c": "레버리지",
+            "choice_d": "벤치마크",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 12,
+        "fields": {
+            "title": "벤치마크",
+            "body": "펀드나 투자 성과를 비교하기 위한 기준으로 사용되는 지수는?",
+            "choice_a": "수익률 곡선",
+            "choice_b": "벤치마크",
+            "choice_c": "듀레이션",
+            "choice_d": "신용스프레드",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 13,
+        "fields": {
+            "title": "금리스왑(Interest Rate Swap)",
+            "body": "고정금리와 변동금리를 서로 교환하는 계약으로 금리 리스크를 관리하는 데 사용되는 금융 계약은?",
+            "choice_a": "금리스왑",
+            "choice_b": "옵션",
+            "choice_c": "선물",
+            "choice_d": "리츠",
+            "correct_answer": "A"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 14,
+        "fields": {
+            "title": "펀더멘털",
+            "body": "기업의 재무 상태, 수익성, 시장 점유율 등을 기반으로 내재적 가치를 평가하는 요소를 무엇이라 할까요?",
+            "choice_a": "듀레이션",
+            "choice_b": "펀더멘털",
+            "choice_c": "레버리지",
+            "choice_d": "벤치마크",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 15,
+        "fields": {
+            "title": "IPO(기업공개)",
+            "body": "기업이 처음으로 주식을 발행해 일반 투자자에게 판매하는 과정을 무엇이라 할까요?",
+            "choice_a": "IPO",
+            "choice_b": "M&A",
+            "choice_c": "공매도",
+            "choice_d": "인덱스펀드",
+            "correct_answer": "A"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 16,
+        "fields": {
+            "title": "M&A(인수합병)",
+            "body": "기업이 다른 기업을 인수하거나 합병하여 사업을 확장하는 전략을 무엇이라 할까요?",
+            "choice_a": "IPO",
+            "choice_b": "M&A",
+            "choice_c": "크라우드펀딩",
+            "choice_d": "벤치마크",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 17,
+        "fields": {
+            "title": "모기지(Mortgage)",
+            "body": "부동산을 담보로 대출을 받는 금융 상품은?",
+            "choice_a": "리츠",
+            "choice_b": "모기지",
+            "choice_c": "자산유동화",
+            "choice_d": "레버리지",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 18,
+        "fields": {
+            "title": "리츠(REITs)",
+            "body": "부동산에서 발생하는 수익을 투자자들에게 분배하는 투자 신탁 상품은?",
+            "choice_a": "모기지",
+            "choice_b": "리츠",
+            "choice_c": "선물",
+            "choice_d": "옵션",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 19,
+        "fields": {
+            "title": "크라우드펀딩",
+            "body": "대중으로부터 소규모 자금을 모아 프로젝트를 진행하는 방식을 무엇이라 할까요?",
+            "choice_a": "M&A",
+            "choice_b": "크라우드펀딩",
+            "choice_c": "공매도",
+            "choice_d": "펀더멘털",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 20,
+        "fields": {
+            "title": "부채비율",
+            "body": "기업의 총 자산 대비 부채의 비율로 재무 건전성을 평가하는 기준은?",
+            "choice_a": "신용스프레드",
+            "choice_b": "부채비율",
+            "choice_c": "듀레이션",
+            "choice_d": "레버리지",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 21,
+        "fields": {
+            "title": "주식바이백(Share Buyback)",
+            "body": "기업이 자사 주식을 다시 사들여 주가를 높이는 행위를 무엇이라 할까요?",
+            "choice_a": "레버리지",
+            "choice_b": "공매도",
+            "choice_c": "주식바이백",
+            "choice_d": "벤치마크",
+            "correct_answer": "C"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 22,
+        "fields": {
+            "title": "자산유동화(ABS)",
+            "body": "부동산이나 매출채권 같은 비유동 자산을 증권화하여 자금을 조달하는 방법은?",
+            "choice_a": "크라우드펀딩",
+            "choice_b": "자산유동화",
+            "choice_c": "모기지",
+            "choice_d": "선물",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 23,
+        "fields": {
+            "title": "성장투자(Growth Investing)",
+            "body": "높은 성장 가능성을 가진 기업에 투자하는 방식을 무엇이라 할까요?",
+            "choice_a": "가치투자",
+            "choice_b": "성장투자",
+            "choice_c": "레버리지",
+            "choice_d": "공매도",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 24,
+        "fields": {
+            "title": "가치투자(Value Investing)",
+            "body": "내재 가치 대비 저평가된 주식에 투자하는 전략은?",
+            "choice_a": "성장투자",
+            "choice_b": "가치투자",
+            "choice_c": "퀀트 투자",
+            "choice_d": "인덱스펀드",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 25,
+        "fields": {
+            "title": "퀀트 투자(Quantitative Investment)",
+            "body": "데이터를 기반으로 투자 전략을 설계하고 실행하는 방식을 무엇이라 할까요?",
+            "choice_a": "가치투자",
+            "choice_b": "퀀트 투자",
+            "choice_c": "벤치마크",
+            "choice_d": "알파와 베타",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 26,
+        "fields": {
+            "title": "인덱스펀드(Index Fund)",
+            "body": "특정 주가지수를 추종하도록 설계된 펀드는?",
+            "choice_a": "리츠",
+            "choice_b": "가치투자",
+            "choice_c": "인덱스펀드",
+            "choice_d": "크라우드펀딩",
+            "correct_answer": "C"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 27,
+        "fields": {
+            "title": "경상수지",
+            "body": "무역, 서비스, 소득 등의 국제 거래에서 발생한 수입과 지출의 차이를 무엇이라 할까요?",
+            "choice_a": "자본수지",
+            "choice_b": "경상수지",
+            "choice_c": "수익률 곡선",
+            "choice_d": "신용스프레드",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 28,
+        "fields": {
+            "title": "자본수지",
+            "body": "한 나라의 자본 유입과 유출을 기록한 국제수지 항목은?",
+            "choice_a": "경상수지",
+            "choice_b": "자본수지",
+            "choice_c": "수익률 곡선",
+            "choice_d": "듀레이션",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 29,
+        "fields": {
+            "title": "글로벌채권",
+            "body": "여러 나라에서 발행되거나 거래되는 채권을 무엇이라 할까요?",
+            "choice_a": "모기지",
+            "choice_b": "글로벌채권",
+            "choice_c": "리츠",
+            "choice_d": "파생상품",
+            "correct_answer": "B"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 30,
+        "fields": {
+            "title": "통화스왑(Currency Swap)",
+            "body": "서로 다른 통화를 일정 기간 동안 교환하기로 약정하는 금융 계약은?",
+            "choice_a": "금리스왑",
+            "choice_b": "통화스왑",
+            "choice_c": "옵션",
+            "choice_d": "파생상품",
+            "correct_answer": "B"
+        }
+    }
+]
+    
+

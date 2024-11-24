@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'finlife',
     'articles',
     'chatbot',
+    'quiz_game',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_simplejwt',

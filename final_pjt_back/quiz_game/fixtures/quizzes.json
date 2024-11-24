@@ -1,0 +1,1265 @@
+[
+    {
+        "model": "quiz_game.quiz",
+        "pk": 1,
+        "fields": {
+            "title": "금리의 정의",
+            "body": "은행에서 대출을 받을 때 내야 하는 이자율을 무엇이라고 할까요?",
+            "choice_a": "수수료",
+            "choice_b": "금리",
+            "choice_c": "배당",
+            "choice_d": "대출료",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 2,
+        "fields": {
+            "title": "예금의 종류",
+            "body": "은행에 돈을 맡기고 일정 기간 후 원금과 이자를 받는 상품은?",
+            "choice_a": "적금",
+            "choice_b": "예금",
+            "choice_c": "펀드",
+            "choice_d": "보험",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 3,
+        "fields": {
+            "title": "복리의 개념",
+            "body": "원금과 이전 이자에 추가로 이자가 붙는 방식을 무엇이라고 할까요?",
+            "choice_a": "단리",
+            "choice_b": "복리",
+            "choice_c": "이자율",
+            "choice_d": "수익률",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 4,
+        "fields": {
+            "title": "채권의 역할",
+            "body": "정부나 기업이 자금을 조달하기 위해 발행하는 채무증서는?",
+            "choice_a": "주식",
+            "choice_b": "채권",
+            "choice_c": "수표",
+            "choice_d": "어음",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 5,
+        "fields": {
+            "title": "주식의 의미",
+            "body": "기업의 일부를 소유할 수 있는 증서는 무엇일까요?",
+            "choice_a": "채권",
+            "choice_b": "수표",
+            "choice_c": "주식",
+            "choice_d": "어음",
+            "correct_answer": "C",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 6,
+        "fields": {
+            "title": "포트폴리오",
+            "body": "다양한 자산에 분산 투자하여 리스크를 줄이는 것을 무엇이라고 할까요?",
+            "choice_a": "포트폴리오",
+            "choice_b": "헤지펀드",
+            "choice_c": "자산운용",
+            "choice_d": "배당관리",
+            "correct_answer": "A",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 7,
+        "fields": {
+            "title": "가계수지",
+            "body": "가구의 수입과 지출을 비교하여 남거나 부족한 금액을 무엇이라고 할까요?",
+            "choice_a": "가계소득",
+            "choice_b": "가계수지",
+            "choice_c": "저축율",
+            "choice_d": "부채",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 8,
+        "fields": {
+            "title": "경제성장률",
+            "body": "한 나라의 경제가 일정 기간 동안 얼마나 성장했는지 나타내는 지표는?",
+            "choice_a": "환율",
+            "choice_b": "경제성장률",
+            "choice_c": "소비자물가지수",
+            "choice_d": "금리",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 9,
+        "fields": {
+            "title": "환율의 개념",
+            "body": "한 나라의 돈을 다른 나라의 돈으로 교환할 때 적용되는 비율은?",
+            "choice_a": "환율",
+            "choice_b": "금리",
+            "choice_c": "GDP",
+            "choice_d": "수익률",
+            "correct_answer": "A",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 10,
+        "fields": {
+            "title": "금융상품의 이해",
+            "body": "정해진 기간 동안 일정 금액을 매달 납입하는 상품은?",
+            "choice_a": "예금",
+            "choice_b": "적금",
+            "choice_c": "채권",
+            "choice_d": "주식",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 11,
+        "fields": {
+            "title": "인플레이션",
+            "body": "상품과 서비스의 가격이 전반적으로 상승하는 현상을 무엇이라 할까요?",
+            "choice_a": "디플레이션",
+            "choice_b": "인플레이션",
+            "choice_c": "스태그플레이션",
+            "choice_d": "리세션",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 12,
+        "fields": {
+            "title": "채권의 안정성",
+            "body": "다음 중 안정적인 수익을 추구하는 투자 방법은?",
+            "choice_a": "주식",
+            "choice_b": "채권",
+            "choice_c": "선물",
+            "choice_d": "파생상품",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 13,
+        "fields": {
+            "title": "대출의 개념",
+            "body": "금융기관에서 돈을 빌리고 이자를 갚는 행위를 무엇이라 할까요?",
+            "choice_a": "투자",
+            "choice_b": "대출",
+            "choice_c": "보험",
+            "choice_d": "예금",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 14,
+        "fields": {
+            "title": "금융기관의 역할",
+            "body": "돈을 빌려주거나 보관해주는 기관은?",
+            "choice_a": "금융기관",
+            "choice_b": "회계사무소",
+            "choice_c": "주식회사",
+            "choice_d": "자산관리사",
+            "correct_answer": "A",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 15,
+        "fields": {
+            "title": "리스크의 의미",
+            "body": "투자에서 발생할 수 있는 손실의 가능성을 무엇이라고 할까요?",
+            "choice_a": "이익",
+            "choice_b": "리스크",
+            "choice_c": "배당",
+            "choice_d": "수익률",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 16,
+        "fields": {
+            "title": "보험의 역할",
+            "body": "미래의 불확실한 사고나 재해에 대비하기 위해 가입하는 금융 상품은?",
+            "choice_a": "예금",
+            "choice_b": "적금",
+            "choice_c": "보험",
+            "choice_d": "펀드",
+            "correct_answer": "C",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 17,
+        "fields": {
+            "title": "가계부채",
+            "body": "가정이 빚진 모든 금액을 무엇이라고 할까요?",
+            "choice_a": "저축",
+            "choice_b": "소득",
+            "choice_c": "부채",
+            "choice_d": "재산",
+            "correct_answer": "C",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 18,
+        "fields": {
+            "title": "신용카드",
+            "body": "미리 정해진 한도 내에서 돈을 빌려 쓸 수 있는 결제 수단은?",
+            "choice_a": "직불카드",
+            "choice_b": "체크카드",
+            "choice_c": "신용카드",
+            "choice_d": "기프트카드",
+            "correct_answer": "C",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 19,
+        "fields": {
+            "title": "경제활동인구",
+            "body": "일을 할 능력과 의사를 가진 15세 이상 인구를 무엇이라고 할까요?",
+            "choice_a": "경제활동인구",
+            "choice_b": "노동인구",
+            "choice_c": "생산인구",
+            "choice_d": "소비자",
+            "correct_answer": "A",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 20,
+        "fields": {
+            "title": "GDP의 정의",
+            "body": "한 나라 안에서 일정 기간 동안 생산된 재화와 서비스의 총액은?",
+            "choice_a": "국내총생산(GDP)",
+            "choice_b": "총소득",
+            "choice_c": "무역수지",
+            "choice_d": "재정적자",
+            "correct_answer": "A",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 21,
+        "fields": {
+            "title": "리세션",
+            "body": "경제활동이 둔화되고 실업률이 증가하는 현상을 무엇이라 할까요?",
+            "choice_a": "인플레이션",
+            "choice_b": "리세션",
+            "choice_c": "스태그플레이션",
+            "choice_d": "디플레이션",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 22,
+        "fields": {
+            "title": "배당",
+            "body": "기업이 이익을 주주들에게 나눠주는 금액은 무엇일까요?",
+            "choice_a": "이자",
+            "choice_b": "수익",
+            "choice_c": "배당",
+            "choice_d": "보너스",
+            "correct_answer": "C",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 23,
+        "fields": {
+            "title": "적립식 투자",
+            "body": "정기적으로 일정 금액을 납입하여 투자하는 방식을 무엇이라 할까요?",
+            "choice_a": "일시납 투자",
+            "choice_b": "적립식 투자",
+            "choice_c": "단기 투자",
+            "choice_d": "분산 투자",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 24,
+        "fields": {
+            "title": "금융감독원",
+            "body": "금융기관을 감독하고 관리하는 기관은 어디일까요?",
+            "choice_a": "금융위원회",
+            "choice_b": "금융감독원",
+            "choice_c": "한국은행",
+            "choice_d": "재무부",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 25,
+        "fields": {
+            "title": "공적자금",
+            "body": "정부가 금융기관을 지원하기 위해 사용하는 자금을 무엇이라 할까요?",
+            "choice_a": "공적자금",
+            "choice_b": "세금",
+            "choice_c": "국가예산",
+            "choice_d": "정부지원금",
+            "correct_answer": "A",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 26,
+        "fields": {
+            "title": "신용점수",
+            "body": "개인의 대출 상환 능력을 평가하는 점수를 무엇이라 할까요?",
+            "choice_a": "신용점수",
+            "choice_b": "대출한도",
+            "choice_c": "리스크 지수",
+            "choice_d": "금리등급",
+            "correct_answer": "A",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 27,
+        "fields": {
+            "title": "펀드 투자",
+            "body": "여러 사람의 자금을 모아 전문가가 운영하는 투자 방식은?",
+            "choice_a": "주식",
+            "choice_b": "펀드",
+            "choice_c": "채권",
+            "choice_d": "보험",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 28,
+        "fields": {
+            "title": "연금의 정의",
+            "body": "퇴직 후 생활비로 활용하기 위해 정기적으로 지급받는 금액은?",
+            "choice_a": "보험",
+            "choice_b": "적금",
+            "choice_c": "연금",
+            "choice_d": "예금",
+            "correct_answer": "C",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 29,
+        "fields": {
+            "title": "전자지갑",
+            "body": "스마트폰으로 결제할 수 있는 디지털 결제 수단은?",
+            "choice_a": "체크카드",
+            "choice_b": "전자지갑",
+            "choice_c": "신용카드",
+            "choice_d": "현금",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 30,
+        "fields": {
+            "title": "외환보유고",
+            "body": "한 나라가 외환위기에 대비해 보유하고 있는 외화는?",
+            "choice_a": "환율",
+            "choice_b": "외환보유고",
+            "choice_c": "국가채무",
+            "choice_d": "무역수지",
+            "correct_answer": "B",
+            "level": "beginner"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 31,
+        "fields": {
+            "title": "기준금리",
+            "body": "중앙은행이 설정하는 금리로, 경제 전반의 금리 수준을 조절하여 물가 안정과 경제 성장에 영향을 줍니다. 이 금리는 무엇일까요?",
+            "choice_a": "명목금리",
+            "choice_b": "기준금리",
+            "choice_c": "실질금리",
+            "choice_d": "대출금리",
+            "correct_answer": "B",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 32,
+        "fields": {
+            "title": "국내총생산(GDP)",
+            "body": "일정 기간 동안 한 나라에서 생산된 모든 재화와 서비스의 시장 가치를 합한 지표로, 경제 규모를 나타냅니다. 이 지표는?",
+            "choice_a": "CPI",
+            "choice_b": "경상수지",
+            "choice_c": "GDP",
+            "choice_d": "PPI",
+            "correct_answer": "C",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 33,
+        "fields": {
+            "title": "명목금리",
+            "body": "물가 상승률을 고려하지 않은 이자율로, 금융 거래에서 표면적으로 적용되는 금리입니다. 이 금리는?",
+            "choice_a": "명목금리",
+            "choice_b": "실질금리",
+            "choice_c": "기준금리",
+            "choice_d": "배당수익률",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 34,
+        "fields": {
+            "title": "실질금리",
+            "body": "명목금리에서 물가 상승률을 차감한 금리로, 자금의 실제 구매력을 보여줍니다. 이 금리를 무엇이라 할까요?",
+            "choice_a": "명목금리",
+            "choice_b": "기준금리",
+            "choice_c": "실질금리",
+            "choice_d": "시장금리",
+            "correct_answer": "C",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 35,
+        "fields": {
+            "title": "물가안정목표제",
+            "body": "중앙은행이 물가를 일정 수준으로 유지하기 위해 설정하는 정책 목표는?",
+            "choice_a": "물가안정목표제",
+            "choice_b": "금융안정목표",
+            "choice_c": "재정정책",
+            "choice_d": "통화정책",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 36,
+        "fields": {
+            "title": "소비자물가지수(CPI)",
+            "body": "소비자가 구매하는 재화와 서비스의 가격 변동을 측정한 지표로, 인플레이션을 판단하는 데 사용됩니다. 이 지표는?",
+            "choice_a": "GDP",
+            "choice_b": "PPI",
+            "choice_c": "CPI",
+            "choice_d": "금리",
+            "correct_answer": "C",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 37,
+        "fields": {
+            "title": "생산자물가지수(PPI)",
+            "body": "생산자가 판매하는 상품의 가격 변동을 측정한 지표로, 소비자 물가에 선행하는 경향이 있습니다. 이 지표는?",
+            "choice_a": "PPI",
+            "choice_b": "CPI",
+            "choice_c": "GDP",
+            "choice_d": "경상수지",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 38,
+        "fields": {
+            "title": "경상수지",
+            "body": "한 나라의 수출입, 투자 수익, 이전 소득을 포함한 국제 거래의 결과로, 외환 보유고와 밀접한 관련이 있습니다. 이 항목은?",
+            "choice_a": "자본수지",
+            "choice_b": "경상수지",
+            "choice_c": "GDP",
+            "choice_d": "CPI",
+            "correct_answer": "B",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 39,
+        "fields": {
+            "title": "자본수지",
+            "body": "한 나라의 자본 유입과 유출을 기록한 국제 거래 항목으로, 외국인 투자와 밀접한 관계가 있습니다. 이 항목은?",
+            "choice_a": "경상수지",
+            "choice_b": "자본수지",
+            "choice_c": "PPI",
+            "choice_d": "GDP",
+            "correct_answer": "B",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 40,
+        "fields": {
+            "title": "금융안정",
+            "body": "금융 시스템이 외부 충격에도 정상적으로 작동할 수 있는 상태를 의미합니다. 이를 무엇이라 할까요?",
+            "choice_a": "금융안정",
+            "choice_b": "통화안정",
+            "choice_c": "시장안정",
+            "choice_d": "유동성 관리",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 41,
+        "fields": {
+            "title": "헤지",
+            "body": "자산의 가격 변동 위험을 줄이기 위해 다른 자산에 투자하는 전략은?",
+            "choice_a": "헤지",
+            "choice_b": "레버리지",
+            "choice_c": "분산투자",
+            "choice_d": "리스크 관리",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 42,
+        "fields": {
+            "title": "디레버리징",
+            "body": "과도한 부채를 줄여 재무 구조를 개선하는 과정을 의미합니다. 이를 무엇이라 할까요?",
+            "choice_a": "레버리지",
+            "choice_b": "디레버리징",
+            "choice_c": "리스크 관리",
+            "choice_d": "헤지",
+            "correct_answer": "B",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 43,
+        "fields": {
+            "title": "듀레이션",
+            "body": "채권의 평균 회수 기간을 나타내는 지표로, 금리 변화에 대한 민감도를 측정합니다. 이 지표는?",
+            "choice_a": "듀레이션",
+            "choice_b": "수익률 곡선",
+            "choice_c": "포트폴리오",
+            "choice_d": "배당수익률",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 44,
+        "fields": {
+            "title": "수익률 곡선",
+            "body": "만기별 채권 수익률의 관계를 나타낸 곡선으로, 경제 상황을 예측하는 데 사용됩니다. 이 곡선은?",
+            "choice_a": "수익률 곡선",
+            "choice_b": "배당수익률",
+            "choice_c": "듀레이션",
+            "choice_d": "금리 스왑",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 45,
+        "fields": {
+            "title": "포트폴리오",
+            "body": "여러 자산을 조합하여 투자 위험을 분산시키는 전략을 무엇이라 할까요?",
+            "choice_a": "포트폴리오",
+            "choice_b": "리스크 관리",
+            "choice_c": "레버리지",
+            "choice_d": "헤지",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 46,
+        "fields": {
+            "title": "ETF(상장지수펀드)",
+            "body": "주식시장에 상장된 펀드로, 특정 지수를 추종하며 거래가 가능합니다. 이 금융 상품은?",
+            "choice_a": "ETF",
+            "choice_b": "채권",
+            "choice_c": "파생상품",
+            "choice_d": "옵션",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 47,
+        "fields": {
+            "title": "리스크 관리",
+            "body": "투자와 금융 활동에서 손실 가능성을 줄이기 위한 과정을 무엇이라 할까요?",
+            "choice_a": "리스크 관리",
+            "choice_b": "헤지",
+            "choice_c": "레버리지",
+            "choice_d": "분산투자",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 48,
+        "fields": {
+            "title": "레버리지",
+            "body": "부채를 활용해 투자 수익률을 높이는 전략을 의미합니다. 이 전략은?",
+            "choice_a": "레버리지",
+            "choice_b": "헤지",
+            "choice_c": "리스크 관리",
+            "choice_d": "디레버리징",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 49,
+        "fields": {
+            "title": "신용스프레드",
+            "body": "동일한 만기의 국채와 회사채 간의 금리 차이를 의미하는 이 용어는?",
+            "choice_a": "듀레이션",
+            "choice_b": "신용스프레드",
+            "choice_c": "수익률 곡선",
+            "choice_d": "금리 스왑",
+            "correct_answer": "B",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 50,
+        "fields": {
+            "title": "주가수익비율(PER)",
+            "body": "주가를 주당순이익(EPS)으로 나눈 값으로, 주식의 가치 평가에 사용되는 이 비율은?",
+            "choice_a": "PBR",
+            "choice_b": "PER",
+            "choice_c": "배당수익률",
+            "choice_d": "CPI",
+            "correct_answer": "B",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 51,
+        "fields": {
+            "title": "주가순자산비율(PBR)",
+            "body": "주가를 주당순자산(BPS)으로 나눈 값으로, 기업의 자산 가치를 평가하는 데 사용됩니다. 이 비율은?",
+            "choice_a": "PER",
+            "choice_b": "CPI",
+            "choice_c": "PBR",
+            "choice_d": "배당수익률",
+            "correct_answer": "C",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 52,
+        "fields": {
+            "title": "알파와 베타",
+            "body": "투자 성과가 시장 평균을 초과한 정도를 나타내는 것은 알파, 시장 변동에 민감한 정도를 나타내는 것은?",
+            "choice_a": "알파와 감마",
+            "choice_b": "알파와 베타",
+            "choice_c": "베타와 감마",
+            "choice_d": "듀레이션과 베타",
+            "correct_answer": "B",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 53,
+        "fields": {
+            "title": "파생상품",
+            "body": "기초 자산의 가격 변동에 따라 가치가 결정되는 금융 상품으로, 선물과 옵션이 대표적인 이 상품은?",
+            "choice_a": "파생상품",
+            "choice_b": "채권",
+            "choice_c": "ETF",
+            "choice_d": "레버리지",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 54,
+        "fields": {
+            "title": "선물(Futures)",
+            "body": "미래의 특정 시점에 정해진 가격으로 자산을 사고팔기로 약속한 계약을 무엇이라 할까요?",
+            "choice_a": "선물",
+            "choice_b": "옵션",
+            "choice_c": "레버리지",
+            "choice_d": "파생상품",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 55,
+        "fields": {
+            "title": "옵션(Options)",
+            "body": "특정 자산을 미래에 정해진 가격으로 사고팔 권리를 부여하는 금융 상품은?",
+            "choice_a": "선물",
+            "choice_b": "옵션",
+            "choice_c": "파생상품",
+            "choice_d": "ETF",
+            "correct_answer": "B",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 56,
+        "fields": {
+            "title": "유동성",
+            "body": "자산을 빠르고 쉽게 현금으로 전환할 수 있는 정도를 의미하는 이 개념은?",
+            "choice_a": "유동성",
+            "choice_b": "레버리지",
+            "choice_c": "리스크 관리",
+            "choice_d": "신용스프레드",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 57,
+        "fields": {
+            "title": "벤치마크",
+            "body": "펀드나 투자 성과를 비교하기 위한 기준으로 사용되는 지수는?",
+            "choice_a": "벤치마크",
+            "choice_b": "CPI",
+            "choice_c": "PBR",
+            "choice_d": "GDP",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 58,
+        "fields": {
+            "title": "배당수익률",
+            "body": "주가 대비 배당금의 비율로, 투자자가 주식으로부터 얻는 수익성을 평가합니다. 이 비율은?",
+            "choice_a": "PER",
+            "choice_b": "배당수익률",
+            "choice_c": "PBR",
+            "choice_d": "듀레이션",
+            "correct_answer": "B",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 59,
+        "fields": {
+            "title": "금리 스왑",
+            "body": "두 당사자가 서로 다른 금리를 교환하는 금융 계약을 무엇이라 할까요?",
+            "choice_a": "레버리지",
+            "choice_b": "헤지",
+            "choice_c": "금리 스왑",
+            "choice_d": "파생상품",
+            "correct_answer": "C",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 60,
+        "fields": {
+            "title": "국채",
+            "body": "정부가 발행하는 채권으로, 신용 위험이 낮아 안전한 투자로 간주됩니다. 이 채권은?",
+            "choice_a": "국채",
+            "choice_b": "회사채",
+            "choice_c": "PPI",
+            "choice_d": "ETF",
+            "correct_answer": "A",
+            "level": "intermediate"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 61,
+        "fields": {
+            "title": "디레버리징",
+            "body": "과도한 부채를 줄이고 재무 구조를 안정적으로 개선하는 과정을 무엇이라 할까요?",
+            "choice_a": "디레버리징",
+            "choice_b": "헤지",
+            "choice_c": "레버리지",
+            "choice_d": "공매도",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 62,
+        "fields": {
+            "title": "파생상품",
+            "body": "기초 자산의 가치 변동에 따라 가격이 결정되며 선물, 옵션 등이 대표적인 이 금융 상품은?",
+            "choice_a": "ETF",
+            "choice_b": "파생상품",
+            "choice_c": "레버리지",
+            "choice_d": "옵션",
+            "correct_answer": "B",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 63,
+        "fields": {
+            "title": "선물(Futures)",
+            "body": "특정 자산을 미래 일정 시점에 정해진 가격으로 사고팔기로 약정한 계약을 무엇이라 할까요?",
+            "choice_a": "옵션",
+            "choice_b": "선물",
+            "choice_c": "스왑",
+            "choice_d": "헤지",
+            "correct_answer": "B",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 64,
+        "fields": {
+            "title": "옵션(Options)",
+            "body": "특정 자산을 미래에 정해진 가격으로 사고팔 권리를 부여하는 금융 상품은?",
+            "choice_a": "옵션",
+            "choice_b": "선물",
+            "choice_c": "리츠",
+            "choice_d": "레버리지",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 65,
+        "fields": {
+            "title": "신용스프레드",
+            "body": "국채와 회사채 간의 금리 차이를 의미하며 신용 위험의 척도가 되는 이 개념은?",
+            "choice_a": "듀레이션",
+            "choice_b": "신용스프레드",
+            "choice_c": "수익률 곡선",
+            "choice_d": "레버리지",
+            "correct_answer": "B",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 66,
+        "fields": {
+            "title": "듀레이션",
+            "body": "채권에서 원금과 이자가 회수되는 평균 기간으로, 금리 변동에 대한 민감도를 측정하는 개념은?",
+            "choice_a": "신용스프레드",
+            "choice_b": "듀레이션",
+            "choice_c": "레버리지",
+            "choice_d": "펀더멘털",
+            "correct_answer": "B",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 67,
+        "fields": {
+            "title": "수익률 곡선",
+            "body": "만기별 채권 수익률의 관계를 나타내며 경제 상황을 예측하는 데 사용되는 곡선은?",
+            "choice_a": "수익률 곡선",
+            "choice_b": "벤치마크",
+            "choice_c": "알파와 베타",
+            "choice_d": "헤지",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 68,
+        "fields": {
+            "title": "헤지(Hedge)",
+            "body": "자산 가격 변동 위험을 줄이기 위해 반대 방향으로 포지션을 취하는 투자 전략은?",
+            "choice_a": "헤지",
+            "choice_b": "레버리지",
+            "choice_c": "공매도",
+            "choice_d": "옵션",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 69,
+        "fields": {
+            "title": "공매도(Short Selling)",
+            "body": "주가 하락을 예상하고 주식을 빌려 판 뒤 가격이 하락하면 다시 사서 갚는 투자 방식을 무엇이라 할까요?",
+            "choice_a": "공매도",
+            "choice_b": "헤지",
+            "choice_c": "레버리지",
+            "choice_d": "스왑",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 70,
+        "fields": {
+            "title": "레버리지(Leverage)",
+            "body": "부채를 활용해 투자 규모를 확대하여 수익을 극대화하는 전략은?",
+            "choice_a": "헤지",
+            "choice_b": "공매도",
+            "choice_c": "레버리지",
+            "choice_d": "디레버리징",
+            "correct_answer": "C",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 71,
+        "fields": {
+            "title": "알파와 베타",
+            "body": "시장 수익률을 초과한 성과를 알파라고 하고, 시장 변동성에 민감한 정도를 베타라고 합니다. 이를 합친 용어는?",
+            "choice_a": "듀레이션",
+            "choice_b": "알파와 베타",
+            "choice_c": "레버리지",
+            "choice_d": "벤치마크",
+            "correct_answer": "B",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 72,
+        "fields": {
+            "title": "벤치마크",
+            "body": "펀드나 투자 성과를 비교하기 위한 기준으로 사용되는 지수는?",
+            "choice_a": "수익률 곡선",
+            "choice_b": "벤치마크",
+            "choice_c": "듀레이션",
+            "choice_d": "신용스프레드",
+            "correct_answer": "B",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 73,
+        "fields": {
+            "title": "금리스왑(Interest Rate Swap)",
+            "body": "고정금리와 변동금리를 서로 교환하는 계약으로 금리 리스크를 관리하는 데 사용되는 금융 계약은?",
+            "choice_a": "금리스왑",
+            "choice_b": "옵션",
+            "choice_c": "선물",
+            "choice_d": "리츠",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 74,
+        "fields": {
+            "title": "펀더멘털",
+            "body": "기업의 재무 상태, 수익성, 시장 점유율 등을 기반으로 내재적 가치를 평가하는 요소를 무엇이라 할까요?",
+            "choice_a": "듀레이션",
+            "choice_b": "펀더멘털",
+            "choice_c": "레버리지",
+            "choice_d": "벤치마크",
+            "correct_answer": "B",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 75,
+        "fields": {
+            "title": "IPO(기업공개)",
+            "body": "기업이 처음으로 주식을 발행해 일반 투자자에게 판매하는 과정을 무엇이라 할까요?",
+            "choice_a": "IPO",
+            "choice_b": "M&A",
+            "choice_c": "공매도",
+            "choice_d": "인덱스펀드",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 76,
+        "fields": {
+            "title": "M&A(인수합병)",
+            "body": "기업이 다른 기업을 인수하거나 합병하여 사업을 확장하는 전략을 무엇이라 할까요?",
+            "choice_a": "IPO",
+            "choice_b": "M&A",
+            "choice_c": "크라우드펀딩",
+            "choice_d": "벤치마크",
+            "correct_answer": "B",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 77,
+        "fields": {
+            "title": "리츠(REITs)",
+            "body": "부동산 자산에 투자하는 펀드로, 주식처럼 거래되는 투자상품은 무엇이라 할까요?",
+            "choice_a": "리츠(REITs)",
+            "choice_b": "펀더멘털",
+            "choice_c": "금리스왑",
+            "choice_d": "헤지",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 78,
+        "fields": {
+            "title": "ETF(상장지수펀드)",
+            "body": "주식처럼 거래되며, 특정 지수나 자산에 투자하는 펀드는 무엇인가요?",
+            "choice_a": "리츠",
+            "choice_b": "ETF",
+            "choice_c": "펀더멘털",
+            "choice_d": "금리스왑",
+            "correct_answer": "B",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 79,
+        "fields": {
+            "title": "크라우드펀딩",
+            "body": "많은 사람들로부터 적은 금액씩 자금을 모집하는 방식은 무엇이라 할까요?",
+            "choice_a": "IPO",
+            "choice_b": "크라우드펀딩",
+            "choice_c": "레버리지",
+            "choice_d": "M&A",
+            "correct_answer": "B",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 80,
+        "fields": {
+            "title": "적립식 투자",
+            "body": "정기적으로 일정 금액을 투자하여 자산을 분할 투자하는 방식을 무엇이라 할까요?",
+            "choice_a": "적립식 투자",
+            "choice_b": "적립형 적금",
+            "choice_c": "헤지",
+            "choice_d": "디레버리징",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 81,
+        "fields": {
+            "title": "다각화",
+            "body": "위험을 분산시키기 위해 다양한 자산에 분산 투자하는 전략을 무엇이라 할까요?",
+            "choice_a": "다각화",
+            "choice_b": "레버리지",
+            "choice_c": "디레버리징",
+            "choice_d": "벤치마크",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 82,
+        "fields": {
+            "title": "모멘텀 투자",
+            "body": "자산의 가격 추세가 지속될 것이라고 믿고, 상승하는 자산을 매수하고 하락하는 자산을 매도하는 전략은?",
+            "choice_a": "모멘텀 투자",
+            "choice_b": "헤지",
+            "choice_c": "공매도",
+            "choice_d": "적립식 투자",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 83,
+        "fields": {
+            "title": "리밸런싱",
+            "body": "포트폴리오 내 자산 비중을 일정하게 유지하기 위해 자산을 재조정하는 전략은?",
+            "choice_a": "리밸런싱",
+            "choice_b": "레버리지",
+            "choice_c": "다각화",
+            "choice_d": "옵션",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 84,
+        "fields": {
+            "title": "벤처 캐피탈",
+            "body": "새로운 사업 아이템이나 혁신적 기술을 가진 스타트업에 투자하는 방식은?",
+            "choice_a": "벤처 캐피탈",
+            "choice_b": "헤지",
+            "choice_c": "공매도",
+            "choice_d": "디레버리징",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 85,
+        "fields": {
+            "title": "인덱스펀드",
+            "body": "주식 시장의 주요 지수를 추종하는 펀드로, 보통 낮은 수수료를 특징으로 하는 투자 방식은?",
+            "choice_a": "인덱스펀드",
+            "choice_b": "ETF",
+            "choice_c": "리츠",
+            "choice_d": "벤처 캐피탈",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 86,
+        "fields": {
+            "title": "크레딧 스프레드",
+            "body": "채권의 금리 차이를 의미하는 이 용어는 무엇인가요?",
+            "choice_a": "크레딧 스프레드",
+            "choice_b": "공매도",
+            "choice_c": "옵션",
+            "choice_d": "헤지",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 87,
+        "fields": {
+            "title": "헤지펀드",
+            "body": "기관 투자자들로부터 자금을 모아 다양한 금융 상품에 투자하는 방식은 무엇인가요?",
+            "choice_a": "헤지펀드",
+            "choice_b": "벤처 캐피탈",
+            "choice_c": "인덱스펀드",
+            "choice_d": "크라우드펀딩",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 88,
+        "fields": {
+            "title": "상장지수펀드(ETF)",
+            "body": "지수나 자산에 투자하는 펀드로, 주식처럼 거래되는 투자 상품은 무엇인가요?",
+            "choice_a": "펀더멘털",
+            "choice_b": "ETF",
+            "choice_c": "리츠",
+            "choice_d": "금리스왑",
+            "correct_answer": "B",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 89,
+        "fields": {
+            "title": "자산배분",
+            "body": "다양한 자산에 투자하여 위험을 분산시키는 전략은 무엇인가요?",
+            "choice_a": "자산배분",
+            "choice_b": "다각화",
+            "choice_c": "리밸런싱",
+            "choice_d": "모멘텀 투자",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    },
+    {
+        "model": "quiz_game.quiz",
+        "pk": 90,
+        "fields": {
+            "title": "장기투자",
+            "body": "시간이 지남에 따라 투자 자산의 가치 상승을 기대하는 전략은 무엇인가요?",
+            "choice_a": "장기투자",
+            "choice_b": "단기투자",
+            "choice_c": "적립식 투자",
+            "choice_d": "레버리지",
+            "correct_answer": "A",
+            "level": "advanced"
+        }
+    }
+]
+
+
+
