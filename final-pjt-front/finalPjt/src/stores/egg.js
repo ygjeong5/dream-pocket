@@ -167,6 +167,15 @@ export const useEggStore = defineStore('counter', () => {
       })
   }
 
+  const financialCartList = ref([])
+  const financialCart = function (productId) {
+    financialCartList.value.push(productId)
+  }
+
+  const savingCartList = ref([])
+  const savingCart = function (productId) {
+    savingCartList.value.push(productId)
+  }
   
 
    return { 
@@ -183,7 +192,11 @@ export const useEggStore = defineStore('counter', () => {
     logOut,
     token,
     isLogin,
-    API_URL
+    API_URL,
+    financialCart,
+    financialCartList,
+    savingCart,
+    savingCartList
   }
 
 }, { persist: true})

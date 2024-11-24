@@ -20,6 +20,7 @@ import SavingProductsView from '@/views/SavingProductsView.vue'
 import SavingProductDetail from '@/components/financialproduct/SavingProductDetail.vue'
 import ProductsView from '@/views/ProductsView.vue'
 import FinancialPostView from '@/views/FinancialPostView.vue'
+import ProductComparison from '@/components/financialproduct/ProductComparison.vue'
 
 // Define Routes
 
@@ -131,7 +132,12 @@ import FinancialPostView from '@/views/FinancialPostView.vue'
     {
       path: '/financial-posts/:id',
       name: 'FinancialPostDetail',
-      component: FinancialPostDetail,
+      component: FinancialProductDetail,
+    },
+    {
+      path: '/porduct-comparison',
+      name: 'ProductComparison',
+      component: ProductComparison,
     },
   ],  
 })
