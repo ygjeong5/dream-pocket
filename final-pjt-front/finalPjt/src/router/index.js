@@ -21,6 +21,7 @@ import SavingProductDetail from '@/components/financialproduct/SavingProductDeta
 import ProductsView from '@/views/ProductsView.vue'
 import FinancialPostView from '@/views/FinancialPostView.vue'
 import ProductComparison from '@/components/financialproduct/ProductComparison.vue'
+import QuizGame from '@/views/QuizGame.vue'
 
 // Define Routes
 
@@ -139,12 +140,18 @@ import ProductComparison from '@/components/financialproduct/ProductComparison.v
       name: 'ProductComparison',
       component: ProductComparison,
     },
+      {
+        path: '/quiz-game',
+        name: 'QuizGame',
+        component: QuizGame,
+        meta: { requiresAuth: true }  // 로그인 필요한 경우
+      },
   ],  
 })
 
 router.beforeEach((to, from) => {
   const store = useEggStore()
-  if ((to.name !== 'LogInView' && to.name !== 'SignUpView' && to.name !== 'Home' ) && !store.isLogin) {
+  if ((to.name !== 'LogInView' && to.name !== 'SignUpView' && to.name !== 'Home' && to.name !== 'QuizGame') && !store.isLogin) {
     window.alert('로그인이 필요합니다.')
     return { name: 'LogInView'}
   }
