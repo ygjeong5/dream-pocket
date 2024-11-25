@@ -1,5 +1,6 @@
 <template>
     <div>
+        <button @click="handleDelete" >삭제</button>
         <h1>{{ productInfo.fin_prdt_nm  }}</h1>
         <p>가입 방법 : {{ productInfo.join_way }}</p>
         <p>가입 대상 : {{ productInfo.join_member }}</p>
@@ -26,13 +27,13 @@ const productInfo = ref({})
 const productOptions = ref({})
 
 const props = defineProps({
-    saveProduct : Object
+    saveProduct : Number
 })
 
 const getProductInfo = function () {
     axios({
     method: 'get',
-    url:`${store.API_URL}finlife/saving-product/detail/${props.productId}/`,
+    url:`${store.API_URL}finlife/saving-product/detail/${props.saveProduct}/`,
     headers:{
       Authorization: `Token ${store.token}`
     }
@@ -44,6 +45,10 @@ const getProductInfo = function () {
   .catch(err => {
     console.log(err)
   })
+}
+
+const handleDelete = function () {
+    store.savingListDelete(props.saveProduct)
 }
 
 onMounted(() => {

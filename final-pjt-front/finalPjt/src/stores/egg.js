@@ -169,14 +169,24 @@ export const useEggStore = defineStore('counter', () => {
 
   const financialCartList = ref([])
   const financialCart = function (productId) {
-    financialCartList.value.push(productId)
+    if (!financialCartList.value.includes(productId)) {
+        financialCartList.value.push(productId)
+    }
+  }
+  const financialListDelete = function (productId) {
+    financialCartList.value.filter((id) => id !== productId)
   }
 
   const savingCartList = ref([])
   const savingCart = function (productId) {
-    savingCartList.value.push(productId)
+    if (!savingCartList.value.includes(productId)){
+      savingCartList.value.push(productId)
+    }
   }
   
+  const savingListDelete = function (productId) {
+    savingCartList.value = savingCartList.value.filter((id) => id !== productId)
+  }
 
    return { 
     count,
@@ -196,7 +206,9 @@ export const useEggStore = defineStore('counter', () => {
     financialCart,
     financialCartList,
     savingCart,
-    savingCartList
+    savingCartList,
+    financialListDelete,
+    savingListDelete
   }
 
 }, { persist: true})
