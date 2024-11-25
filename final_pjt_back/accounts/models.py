@@ -14,3 +14,19 @@ class User(AbstractUser):
     gender = models.IntegerField(choices=GENDER_CHOICES, default=0)
     goal_amount = models.IntegerField(blank=True, null=True)
     products = models.ManyToManyField(FinancialProducts, blank=True)
+
+
+class Ledger(models.Model):
+    CATEGORY_CHOICES = [
+        ('income', 'Income'),
+        ('expense', 'Expense'),
+    ]
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='ledgers')
+    date = models.DateField()
+    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.category} - {self.amount}"

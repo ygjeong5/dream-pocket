@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User
+from .models import User, Ledger
 from finlife.serializers import FinancialProductsSerializer
 from finlife.models import FinancialProducts
 
@@ -13,3 +13,10 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'age', 'gender', 'goal_amount', 'products')
+
+
+class LedgerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ledger
+        fields = ['id', 'user', 'date', 'category', 'amount', 'description']
+        read_only_fields = ['user']

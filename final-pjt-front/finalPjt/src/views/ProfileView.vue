@@ -3,7 +3,8 @@
     <h1>회원 정보</h1>
     <RouterLink :to="{ name:'ProfileUpdate' }">
       <button>회원 정보 수정</button>
-    </RouterLink>
+    </RouterLink> |
+    <RouterLink :to="{ name: 'Ledger' }">가계부 작성</RouterLink>
     <Profile
       :user-info="userInfo"
     />

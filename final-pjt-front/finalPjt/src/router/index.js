@@ -22,6 +22,7 @@ import ProductsView from '@/views/ProductsView.vue'
 import FinancialPostView from '@/views/FinancialPostView.vue'
 import ProductComparison from '@/components/financialproduct/ProductComparison.vue'
 import QuizGame from '@/views/QuizGameView.vue'
+import Ledger from '@/components/profile/Ledger.vue'
 
 // Define Routes
 
@@ -146,6 +147,11 @@ import QuizGame from '@/views/QuizGameView.vue'
         component: QuizGame,
         meta: { requiresAuth: true }  // 로그인 필요한 경우
       },
+    {
+      path: '/ledger',
+      name: 'Ledger',
+      component: Ledger,
+    },
   ],  
 })
 
