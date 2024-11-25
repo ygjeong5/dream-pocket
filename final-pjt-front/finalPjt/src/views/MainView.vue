@@ -27,8 +27,21 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
-   
+      
     </div>
+  </div>
+  <div>chatbot</div>
+  <div class="mainContent">
+    
+    <div class="chatbot">
+      chatbot
+    </div>
+    <div class="mypage">
+      mypage
+    </div>
+  </div>
+  <div class="youtube">
+    youtube
   </div>
 </template>
 
@@ -44,20 +57,20 @@
 
 .carousel {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  /* border-radius: 8px; */
   overflow: hidden;
-  margin: 20px auto;
-  max-width: 1400px;
+  /* margin: 20px auto; */
+  /* max-width: 1400px; */
 }
 
 .carousel-inner > .carousel-item {
   text-align: center;
-  background: linear-gradient(135deg, #1a237e, #0d47a1);
+
 }
 
 .carousel-item, .carousel-item > img {
-  height: 600px;
-  min-width: 100%;
+  height: 500px;
+  min-width: 80%;
   object-fit: cover;
 }
 
@@ -102,4 +115,23 @@
 }
 }
 
+.mainContent {
+  display: flex;
+  height: 300px;
+}
+
+.chatbot{
+  width: 50%;
+  border: 1px black solid;
+}
+
+.mypage{
+  border: 1px black solid;
+  width: 50%;
+}
+
+.youtube{
+  border: 1px black solid;
+  height: 300px;
+}
 </style>

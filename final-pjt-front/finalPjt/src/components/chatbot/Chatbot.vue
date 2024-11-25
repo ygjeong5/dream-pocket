@@ -1,13 +1,5 @@
 <template>
   <div class="chat-container">
-    <div class="chat-area" ref="chatContainer">
-      <div v-for="(chat, index) in chats" 
-           :key="index" 
-           :class="['chat', `${chat.type}-chat`]">
-        {{ chat.content }}
-      </div>
-    </div>
-    
     <div class="chat-input-container">
       <input 
         v-model="userInput"
@@ -26,6 +18,14 @@
         전송
       </button>
     </div>
+    <div class="chat-area" ref="chatContainer">
+      <div v-for="(chat, index) in chats" 
+           :key="index" 
+           :class="['chat', `${chat.type}-chat`]">
+        {{ chat.content }}
+      </div>
+    </div>
+    
   </div>
 </template>
 
