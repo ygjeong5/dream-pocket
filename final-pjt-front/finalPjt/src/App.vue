@@ -113,7 +113,7 @@
 <style  scoped>
 
 .mainPage{
-  background-color: rgb(255, 255, 255);
+  background-color: #f5f7fa;
   min-height: 100vh;
   min-width: 1000px; /* Set the minimum width */
   
@@ -127,6 +127,8 @@
   height: 100px;
   width: 1080;
   padding-bottom: 0;
+  background: #e8f1f8;
+  border-bottom: 3px solid #7fb3d5;
 }
 
 .topContent{
@@ -176,6 +178,7 @@
   line-height: 1.1; /* 텍스트 줄 간격 조정 */
 }
 
+
 .topMiddle img{
   width: 50px; /* 이미지 크기 조정 */
   height: auto; /* 비율 유지 */
@@ -220,19 +223,22 @@
 }
 
 .logInBtn, .logOutBtn {
-  border: 3px solid rgb(106, 107, 121);
-  color: rgb(106, 107, 121);
+  border: 3px solid #7fb3d5;
+  color: #2980b9;
   border-radius: 19px;
   padding: 4px 13px;
   text-align: center;
   min-width: 85px;
-  
+  background: white;
+  box-shadow: 0 4px 0 #85929e;
+  transition: all 0.2s ease;
 }
 .logInBtn:hover, .logOutBtn:hover {
-  background-color : #1E90FF;
-  border: 3px solid #2e8ceb91;
-  font-weight: 1200;
+  background: linear-gradient(145deg, #2980b9, #3498db);
+  border: 3px solid #7fb3d5;
   color: white;
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #85929e;
 }
 
 
@@ -247,13 +253,14 @@
   position: sticky;
   top: 0; 
   z-index: 1001; 
-  background-color: #34343f;
+  background: linear-gradient(145deg, #e8f1f8, #d4e6f1);
   width: 800px;
   min-width: 100%;
-  border: 1px solid black;
+  border: none;
+  border-bottom: 3px solid #7fb3d5;
   height: 70px;
   padding: 0;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .navContainer {
@@ -280,28 +287,29 @@
   position: absolute; /* 부모(navItem) 기준으로 위치 */
   top: 100%; /* 부모 아래에 위치 */
   left: 0;
-  background-color: #58595be2;
+  background-color: #f8f9fa;
   list-style-type: none; /* 리스트 스타일 제거 */
   padding: 10px 0;
   margin: 0;
   width: 100%;
   z-index: -1; /* 다른 요소 위에 표시되도록 */
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border: 3px solid #7fb3d5;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 4px 0 #85929e;
 }
 
 .navItem ul li {
   padding: 10px 20px;
-  color: #767c8b;
+  color: #34343f;
   font-family: 'DNFBitBitv2';
   font-size: 14px;
   white-space: nowrap; /* 긴 텍스트가 줄바꿈되지 않도록 설정 */
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .navItem ul li:hover {
-  background-color:  #1E90FF;
-  color: #fff;
+  background: linear-gradient(145deg, #2980b9, #3498db);
+  color: white;
 }
 
 .navItem:hover ul {
@@ -313,7 +321,7 @@
   justify-self: center;
   padding: 0 50px;
   text-decoration: none;
-  color: #767c8b;
+  color: #34343f;
   font-family:'DNFBitBitv2' ;
   font-size: 15px;
   font-weight: 400;
@@ -323,11 +331,11 @@
 }
 
 .navItem:hover {
-  border-bottom: 5px solid rgb(234, 240, 247);
+  border-bottom: 5px solid #1E90FF;
 }
 
 .navItem a:hover {
-  color: rgb(241, 240, 238);
+  color: #1E90FF;
   font-size: 16px;
   transition: color 0.1s ease, font-size 0.1s ease;
 }
@@ -356,7 +364,7 @@
 
 .mainContent::before{
     content: '';
-    background-color: #e7e7eb;
+    background-color: #f5f7fa;
     background-size: contain;
     position: absolute;
     z-index: -1;

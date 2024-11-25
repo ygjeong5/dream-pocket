@@ -175,21 +175,9 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.article-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 0.5rem;
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.author {
-  font-weight: 500;
-}
-
 .article-container {
   max-width: 1200px;
+  min-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
 }
@@ -201,43 +189,65 @@ onMounted(async () => {
   margin-bottom: 2rem;
   flex-wrap: wrap;
   gap: 1rem;
+  background: #e8f1f8;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 0 #7fb3d5;
+  border: 3px solid #2980b9;
 }
 
 .header-section h1 {
-  color: #1a237e;
+  font-family: 'DNFBitBitv2', sans-serif;
   font-size: 2.5rem;
-  font-weight: 700;
   margin: 0;
-}
-
-.header-section a {
-  text-decoration-line: none;
+  color: transparent;
+  background: linear-gradient(to left top, #1E90FF, #00bfff);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 2px #1e90ff;
 }
 
 .create-btn {
-  background: linear-gradient(135deg, #1a237e, #0d47a1);
+  background: linear-gradient(145deg, #2980b9, #3498db);
   color: white;
   border: none;
   padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-radius: 19px;
+  font-family: 'DNFBitBitv2';
+  font-size: 15px;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 0 #1a5f7a;
+  border: 3px solid #7fb3d5;
 }
 
 .create-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(26, 35, 126, 0.2);
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #145999;
 }
 
-.article-list {
-  display: grid;
-  gap: 1.5rem;
+.category-btn {
+  padding: 0.5rem 1rem;
+  border: 3px solid #87ceeb;
+  border-radius: 19px;
+  background: white;
+  color: #1E90FF;
+  font-family: 'DNFBitBitv2';
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 0 #5a5d68;
 }
 
+.category-btn.active {
+  background: linear-gradient(145deg, #1E90FF, #1a75cc);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 0 #145999;
+}
+
+.category-btn:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #5a5d68;
+}
 
 .article-item {
   background: white;
@@ -245,137 +255,89 @@ onMounted(async () => {
   padding: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 3px solid #7fb3d5;
+  box-shadow: 0 6px 0 #85929e;
+  margin-bottom: 8px;
 }
 
 .article-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-  border-color: #1a237e;
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 #d0d0d0;
+  border-color: #2980b9;
 }
 
 .article-content h3 {
-  color: #1a237e;
-  margin: 0 0 0.5rem 0;
-  font-size: 1.25rem;
-}
-
-.category-buttons {
-  display: flex;
-  gap: 1rem;
-  margin: 0 2rem;
-}
-
-.category-btn {
-  padding: 0.5rem 1rem;
-  border: 1px solid #1a237e;
-  border-radius: 20px;
-  background: white;
-  color: #1a237e;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.category-btn.active {
-  background: #1a237e;
-  color: white;
-}
-
-.category-btn:hover {
-  background: #1a237e15;
+  font-family: 'DNFBitBitv2';
+  color: #34343f;
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
 }
 
 .category-tag {
   display: inline-block;
   padding: 0.3rem 0.8rem;
-  background: #e8eaf6;
+  background: linear-gradient(145deg, #e8eaf6, #c5cae9);
   color: #1a237e;
   border-radius: 15px;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
+  font-family: 'DNFBitBitv2';
+  box-shadow: 0 2px 0 #b2b5cc;
 }
 
 .stats-info {
   display: flex;
   align-items: center;
   gap: 1rem;
+  font-family: 'DNFBitBitv2';
 }
 
-.comment-info {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.comment-icon {
-  font-size: 1em;
-  color: #666;
-}
-
-.comment-count {
-  font-size: 0.9em;
-  color: #666;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-  gap: 1rem;
-}
-
-.page-btn {
-  padding: 0.5rem 1rem;
-  border: 1px solid #1a237e;
-  border-radius: 4px;
+/* 페이지네이션 스타일 수정 */
+.page-btn, .page-num-btn {
+  border: 3px solid #767c8b;
+  border-radius: 19px;
   background: white;
-  color: #1a237e;
-  cursor: pointer;
+  color: #767c8b;
+  font-family: 'DNFBitBitv2';
+  padding: 0.5rem 1rem;
   transition: all 0.2s ease;
-  min-width: 70px;  /* 버튼 너비 통일 */
+  box-shadow: 0 4px 0 #5a5d68;
 }
 
-.page-btn:disabled {
-  border-color: #ccc;
-  color: #ccc;
-  cursor: not-allowed;
-}
-
-.page-btn:not(:disabled):hover {
-  background: #1a237e;
+.page-btn:hover:not(:disabled), 
+.page-num-btn:hover:not(.active) {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #5a5d68;
+  background: linear-gradient(145deg, #1E90FF, #1a75cc);
   color: white;
-}
-
-.page-info {
-  display: none;  /* 페이지 정보 숨김 */
-}
-
-.page-numbers {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.page-num-btn {
-  padding: 0.5rem 1rem;
-  border: 1px solid #1a237e;
-  border-radius: 4px;
-  background: white;
-  color: #1a237e;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  min-width: 40px;
-}
-
-.page-num-btn:hover {
-  background: #1a237e15;
+  border-color: transparent;
 }
 
 .page-num-btn.active {
-  background: #1a237e;
+  background: linear-gradient(145deg, #1E90FF, #1a75cc);
   color: white;
-  cursor: default;
+  border-color: transparent;
+  box-shadow: 0 4px 0 #145999;
 }
 
+/* 좋아요/댓글 아이콘 스타일 */
+.like-info, .comment-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #f5f5f5;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  box-shadow: 0 2px 0 #e0e0e0;
+}
+
+.empty-state {
+  text-align: center;
+  font-family: 'DNFBitBitv2';
+  color: #767c8b;
+  padding: 2rem;
+  background: #f5f5f5;
+  border-radius: 12px;
+  box-shadow: 0 4px 0 #e0e0e0;
+}
 </style>
