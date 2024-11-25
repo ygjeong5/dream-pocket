@@ -43,17 +43,32 @@
     <!-- Nav bar  -->
     <nav class="navbar">
       <div class="navContainer">
-          <div class="navItem">
+          <div class="navItem ">
             <RouterLink :to="{ name: 'ArticleView'}">Articles</RouterLink>
+            <ul>
+              <li>금융 뉴스</li>
+              <li>온라인 교육</li>
+              <li>환율이란?</li>
+            </ul>
           </div>
           <div class="navItem">
             <RouterLink :to="{ name: 'LicenseView'}">라이센스</RouterLink>
+            <ul>
+              <li>금융 상식</li>
+              <li>금융 퀴즈</li>
+              <li>금융 게임</li>
+            </ul>
           </div>
           <div class="navItem">
             <RouterLink :to="{ name: 'RateConvertView' }">환율 계산</RouterLink>
           </div>
           <div class="navItem">
             <RouterLink :to="{ name:'ProductsView'}">금융 상품 리스트</RouterLink>
+            <ul>
+              <li>예적금 리스트</li>
+              <li>금융상품 추천</li>
+              <li>가계부 작성</li>
+            </ul>
           </div>
           <div class="navItem">
             <RouterLink :to="{ name: 'QuizGame' }">퀴즈 게임</RouterLink>
@@ -252,21 +267,58 @@
 }
 
 .navItem{
-  height: 100%;
-  text-decoration: none; /* Removes underline from links */
-  padding: 0 10px; /* Adds horizontal padding around text */
+  position: relative;
+  padding: 0 10px;
+  cursor: pointer;
+  height: 100%; /* 기본 높이를 유지 */
   display: flex;
-  align-items: center; /* 자식 요소를 세로(수직) 기준으로 가운데 정렬시킴 */
-  transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth hover effects */
+  align-items: center; /* 텍스트 수직 정렬 */
+}
+
+.navItem ul {
+  display: none; /* 기본적으로 숨김 */
+  position: absolute; /* 부모(navItem) 기준으로 위치 */
+  top: 100%; /* 부모 아래에 위치 */
+  left: 0;
+  background-color: #58595be2;
+  list-style-type: none; /* 리스트 스타일 제거 */
+  padding: 10px 0;
+  margin: 0;
+  width: 100%;
+  z-index: -1; /* 다른 요소 위에 표시되도록 */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navItem ul li {
+  padding: 10px 20px;
+  color: #767c8b;
+  font-family: 'DNFBitBitv2';
+  font-size: 14px;
+  white-space: nowrap; /* 긴 텍스트가 줄바꿈되지 않도록 설정 */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navItem ul li:hover {
+  background-color:  #1E90FF;
+  color: #fff;
+}
+
+.navItem:hover ul {
+  display: block; /* 드롭다운 메뉴 표시 */
 }
 
 .navContainer a {
+  display: flex;
+  justify-self: center;
   padding: 0 50px;
   text-decoration: none;
   color: #767c8b;
   font-family:'DNFBitBitv2' ;
   font-size: 15px;
   font-weight: 400;
+  height: 100%;
+  line-height: 4.5;
   transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
