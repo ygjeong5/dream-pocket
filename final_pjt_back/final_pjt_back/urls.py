@@ -24,5 +24,6 @@ urlpatterns = [
     path('articles/', include('articles.urls')),
     path('chatbot/', include('chatbot.urls')),
     path('financial-posts/', include('financepost.urls')),
+    path('api/v1/quiz_game/', include('quiz_game.urls')),
 
 ]

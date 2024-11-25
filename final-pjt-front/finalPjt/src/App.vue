@@ -59,6 +59,9 @@
           <div>
             <RouterLink :to="{ name:'ProductsView'}">금융 상품 리스트</RouterLink>
           </div>
+          <div>
+            <RouterLink :to="{ name: 'QuizGame' }">퀴즈 게임</RouterLink>
+          </div>
         </div>
         
         <div class="mainLogo navItem">
