@@ -1,0 +1,392 @@
+[
+  {
+      "model": "quiz_game.quiz",
+      "pk": 1,
+      "fields": {
+          "title": "금리의 정의",
+          "body": "은행에서 대출을 받을 때 내야 하는 이자율을 무엇이라고 할까요?",
+          "choice_a": "수수료",
+          "choice_b": "금리",
+          "choice_c": "배당",
+          "choice_d": "대출료",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 2,
+      "fields": {
+          "title": "예금의 종류",
+          "body": "은행에 돈을 맡기고 일정 기간 후 원금과 이자를 받는 상품은?",
+          "choice_a": "적금",
+          "choice_b": "예금",
+          "choice_c": "펀드",
+          "choice_d": "보험",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 3,
+      "fields": {
+          "title": "복리의 개념",
+          "body": "원금과 이전 이자에 추가로 이자가 붙는 방식을 무엇이라고 할까요?",
+          "choice_a": "단리",
+          "choice_b": "복리",
+          "choice_c": "이자율",
+          "choice_d": "수익률",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 4,
+      "fields": {
+          "title": "채권의 역할",
+          "body": "정부나 기업이 자금을 조달하기 위해 발행하는 채무증서는?",
+          "choice_a": "주식",
+          "choice_b": "채권",
+          "choice_c": "수표",
+          "choice_d": "어음",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 5,
+      "fields": {
+          "title": "주식의 의미",
+          "body": "기업의 일부를 소유할 수 있는 증서는 무엇일까요?",
+          "choice_a": "채권",
+          "choice_b": "수표",
+          "choice_c": "주식",
+          "choice_d": "어음",
+          "correct_answer": "C"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 6,
+      "fields": {
+          "title": "포트폴리오",
+          "body": "다양한 자산에 분산 투자하여 리스크를 줄이는 것을 무엇이라고 할까요?",
+          "choice_a": "포트폴리오",
+          "choice_b": "헤지펀드",
+          "choice_c": "자산운용",
+          "choice_d": "배당관리",
+          "correct_answer": "A"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 7,
+      "fields": {
+          "title": "가계수지",
+          "body": "가구의 수입과 지출을 비교하여 남거나 부족한 금액을 무엇이라고 할까요?",
+          "choice_a": "가계소득",
+          "choice_b": "가계수지",
+          "choice_c": "저축율",
+          "choice_d": "부채",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 8,
+      "fields": {
+          "title": "경제성장률",
+          "body": "한 나라의 경제가 일정 기간 동안 얼마나 성장했는지 나타내는 지표는?",
+          "choice_a": "환율",
+          "choice_b": "경제성장률",
+          "choice_c": "소비자물가지수",
+          "choice_d": "금리",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 9,
+      "fields": {
+          "title": "환율의 개념",
+          "body": "한 나라의 돈을 다른 나라의 돈으로 교환할 때 적용되는 비율은?",
+          "choice_a": "환율",
+          "choice_b": "금리",
+          "choice_c": "GDP",
+          "choice_d": "수익률",
+          "correct_answer": "A"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 10,
+      "fields": {
+          "title": "금융상품의 이해",
+          "body": "정해진 기간 동안 일정 금액을 매달 납입하는 상품은?",
+          "choice_a": "예금",
+          "choice_b": "적금",
+          "choice_c": "채권",
+          "choice_d": "주식",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 11,
+      "fields": {
+          "title": "인플레이션",
+          "body": "상품과 서비스의 가격이 전반적으로 상승하는 현상을 무엇이라 할까요?",
+          "choice_a": "디플레이션",
+          "choice_b": "인플레이션",
+          "choice_c": "스태그플레이션",
+          "choice_d": "리세션",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 12,
+      "fields": {
+          "title": "채권의 안정성",
+          "body": "다음 중 안정적인 수익을 추구하는 투자 방법은?",
+          "choice_a": "주식",
+          "choice_b": "채권",
+          "choice_c": "선물",
+          "choice_d": "파생상품",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 13,
+      "fields": {
+          "title": "대출의 개념",
+          "body": "금융기관에서 돈을 빌리고 이자를 갚는 행위를 무엇이라 할까요?",
+          "choice_a": "투자",
+          "choice_b": "대출",
+          "choice_c": "보험",
+          "choice_d": "예금",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 14,
+      "fields": {
+          "title": "금융기관의 역할",
+          "body": "돈을 빌려주거나 보관해주는 기관은?",
+          "choice_a": "금융기관",
+          "choice_b": "회계사무소",
+          "choice_c": "주식회사",
+          "choice_d": "자산관리사",
+          "correct_answer": "A"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 15,
+      "fields": {
+          "title": "리스크의 의미",
+          "body": "투자에서 발생할 수 있는 손실의 가능성을 무엇이라고 할까요?",
+          "choice_a": "이익",
+          "choice_b": "리스크",
+          "choice_c": "배당",
+          "choice_d": "수익률",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 16,
+      "fields": {
+          "title": "GDP의 정의",
+          "body": "한 나라에서 일정 기간 동안 생산된 모든 재화와 서비스의 총 가치를 나타내는 지표는?",
+          "choice_a": "환율",
+          "choice_b": "GDP",
+          "choice_c": "금리",
+          "choice_d": "경제성장률",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 17,
+      "fields": {
+          "title": "자산운용",
+          "body": "개인이 보유한 자산을 효율적으로 관리하고 운용하는 행위를 무엇이라고 할까요?",
+          "choice_a": "리스크",
+          "choice_b": "자산운용",
+          "choice_c": "분산투자",
+          "choice_d": "대출",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 18,
+      "fields": {
+          "title": "헤지펀드",
+          "body": "고위험 고수익을 목표로 다양한 투자 전략을 사용하는 펀드는?",
+          "choice_a": "헤지펀드",
+          "choice_b": "적금",
+          "choice_c": "공모펀드",
+          "choice_d": "채권펀드",
+          "correct_answer": "A"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 19,
+      "fields": {
+          "title": "분산투자",
+          "body": "하나의 자산에 투자하기보다 여러 자산에 투자하여 위험을 줄이는 전략은?",
+          "choice_a": "집중투자",
+          "choice_b": "분산투자",
+          "choice_c": "리스크관리",
+          "choice_d": "헤지펀드",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 20,
+      "fields": {
+          "title": "인플레이션과 디플레이션",
+          "body": "상품과 서비스의 가격이 전반적으로 하락하는 현상은?",
+          "choice_a": "인플레이션",
+          "choice_b": "디플레이션",
+          "choice_c": "스태그플레이션",
+          "choice_d": "리세션",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 21,
+      "fields": {
+          "title": "펀드의 정의",
+          "body": "투자자들이 자금을 모아 전문가가 운용하는 금융상품은?",
+          "choice_a": "채권",
+          "choice_b": "펀드",
+          "choice_c": "적금",
+          "choice_d": "보험",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 22,
+      "fields": {
+          "title": "소비자물가지수(CPI)",
+          "body": "소비자가 구매하는 상품과 서비스의 가격 변동을 측정하는 지표는?",
+          "choice_a": "PPI",
+          "choice_b": "GDP",
+          "choice_c": "CPI",
+          "choice_d": "금리",
+          "correct_answer": "C"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 23,
+      "fields": {
+          "title": "생산자물가지수(PPI)",
+          "body": "생산자가 만든 상품들의 가격 변동을 측정하는 지표는?",
+          "choice_a": "CPI",
+          "choice_b": "PPI",
+          "choice_c": "금리",
+          "choice_d": "환율",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 24,
+      "fields": {
+          "title": "통화정책",
+          "body": "중앙은행이 금리와 통화량을 조절하여 경제를 관리하는 정책은?",
+          "choice_a": "재정정책",
+          "choice_b": "통화정책",
+          "choice_c": "환율조정",
+          "choice_d": "경제성장률 관리",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 25,
+      "fields": {
+          "title": "저축률",
+          "body": "가계 소득 중 얼마나 저축했는지를 나타내는 비율은?",
+          "choice_a": "소비율",
+          "choice_b": "저축률",
+          "choice_c": "수익률",
+          "choice_d": "배당률",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 26,
+      "fields": {
+          "title": "가계수지",
+          "body": "가계의 수입과 지출을 비교해 남는 금액을 무엇이라 할까요?",
+          "choice_a": "가계흑자",
+          "choice_b": "가계수지",
+          "choice_c": "가계재정",
+          "choice_d": "자산배분",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 27,
+      "fields": {
+          "title": "신용의 중요성",
+          "body": "대출 가능성과 상환 능력을 평가하는 기준은?",
+          "choice_a": "수익률",
+          "choice_b": "신용",
+          "choice_c": "자산관리",
+          "choice_d": "금리",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 28,
+      "fields": {
+          "title": "배당금",
+          "body": "기업이 주주에게 지급하는 이익의 일부를 무엇이라고 할까요?",
+          "choice_a": "이자",
+          "choice_b": "배당금",
+          "choice_c": "이익률",
+          "choice_d": "수익률",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 29,
+      "fields": {
+          "title": "자본시장",
+          "body": "기업이나 정부가 자금을 조달하고 투자자들이 자산을 거래하는 시장은?",
+          "choice_a": "주식시장",
+          "choice_b": "자본시장",
+          "choice_c": "채권시장",
+          "choice_d": "환율시장",
+          "correct_answer": "B"
+      }
+  },
+  {
+      "model": "quiz_game.quiz",
+      "pk": 30,
+      "fields": {
+          "title": "목돈 관리",
+          "body": "목돈을 한번에 맡기고 약정 기간 후 이자를 받는 금융 상품은?",
+          "choice_a": "적금",
+          "choice_b": "예금",
+          "choice_c": "펀드",
+          "choice_d": "보험",
+          "correct_answer": "B"
+      }
+  }
+]
