@@ -9,7 +9,7 @@ class FinancialOptionsSerializer(serializers.ModelSerializer):
 
 
 class FinancialProductsSerializer(serializers.ModelSerializer):
-    options = FinancialOptionsSerializer(source='financialoptions', many=True)
+    # options = FinancialOptionsSerializer(source='financialoptions', many=True)
     class Meta:
         model = FinancialProducts
         fields = '__all__'
@@ -21,7 +21,7 @@ class SavingOptionsSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class SavingProductsSerializer(serializers.ModelSerializer):
-    options = SavingOptionsSerializer(source='savingoptions', many=True)
+    # options = SavingOptionsSerializer(source='savingoptions', many=True)
 
     class Meta:
         model = SavingProducts
