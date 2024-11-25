@@ -213,3 +213,87 @@ watch(selectedBank, (newValue, oldValue) => {
 
 </script>
 
+
+<style scoped>
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+label {
+  font-family: 'DNFBitBitv2';
+  color: #34343f;
+  margin-right: 1rem;
+}
+
+select {
+  padding: 0.5rem 1rem;
+  border: 3px solid #87ceeb;
+  border-radius: 10px;
+  background: white;
+  font-family: 'DNFBitBitv2';
+  cursor: pointer;
+  box-shadow: 0 4px 0 #add8e6;
+  transition: all 0.2s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: #1E90FF;
+  box-shadow: 0 4px 0 #145999;
+}
+
+button {
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(145deg, #00bfff, #1E90FF);
+  border: 3px solid #87ceeb;
+  border-radius: 19px;
+  color: white;
+  font-family: 'DNFBitBitv2';
+  cursor: pointer;
+  box-shadow: 0 4px 0 #145999;
+  transition: all 0.2s ease;
+  margin-left: 1rem;
+}
+
+button:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #145999;
+}
+
+input[type="text"] {
+  padding: 0.5rem 1rem;
+  border: 3px solid #87ceeb;
+  border-radius: 10px;
+  background: white;
+  font-family: 'Pretendard-Regular';
+  box-shadow: 0 4px 0 #add8e6;
+  transition: all 0.2s ease;
+  margin-right: 0.5rem;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #1E90FF;
+  box-shadow: 0 4px 0 #145999;
+}
+
+/* 검색 컨테이너 */
+.search-container {
+  background: #f0f8ff;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 0 #add8e6;
+  margin-bottom: 2rem;
+}
+
+/* 지도 컨테이너 */
+.map-container {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+}
+</style>
+
