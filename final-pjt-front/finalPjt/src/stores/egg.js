@@ -5,210 +5,229 @@ import router from '@/router'
 import { faL } from '@fortawesome/free-solid-svg-icons'
 
 
-export const useEggStore = defineStore('counter', () => {
-  const count = ref(0)
-  const articles = ref([])
-  const article = ref(null)
-  const API_URL = ref('http://127.0.0.1:8000/')
-  const token = ref(null)
+export const useEggStore = defineStore('egg', {
+  state: () => ({
+    count: 0,
+    articles: [],
+    article: null,
+    API_URL: 'http://127.0.0.1:8000/',
+    token: null,
+    financialCartList: [],
+    savingCartList: []
+  }),
 
-  const getArticles = function() {
-    axios({
-      method: 'get',
-      url: `${API_URL.value}articles/`,
-      headers: {
-        Authorization: `Token ${token.value}`
+  getters: {
+    isLogin: (state) => {
+      return state.token !== null
+    }
+  },
+
+  actions: {
+    async getArticles() {
+      try {
+        const response = await axios({
+          method: 'get',
+          url: `${this.API_URL}articles/`,
+          headers: this.token ? { Authorization: `Token ${this.token}` } : {}
+        })
+        this.articles = response.data
+      } catch (error) {
+        if (error.response && error.response.status === 401) {
+          const response = await axios.get(`${this.API_URL}articles/`)
+          this.articles = response.data
+        } else {
+          console.error('게시글 로딩 실패:', error)
+          this.articles = []
+        }
       }
-    })
-    .then(res=>{
-      console.log('성공')
-      articles.value = res.data
-    })
-  }
+    },
 
-  // 게시글 상세 정보 불러오기
-  const getArticleDetail = function(articleId) {
-    console.log('요청 URL:', `${API_URL.value}articles/${articleId}`)  // URL 확인용
-    return axios({
-      method: 'get',
-      url: `${API_URL.value}articles/${articleId}`,
-      headers: {
-        Authorization: `Token ${token.value}`
+    async getArticleDetail(articleId) {
+      try {
+        const response = await axios({
+          method: 'get',
+          url: `${this.API_URL}articles/${articleId}`,
+          headers: this.token ? { Authorization: `Token ${this.token}` } : {}
+        })
+        this.article = response.data
+        return this.article
+      } catch (error) {
+        if (error.response && error.response.status === 401) {
+          const response = await axios.get(`${this.API_URL}articles/${articleId}`)
+          this.article = response.data
+          return this.article
+        } else {
+          console.error('게시글 상세 조회 실패:', error)
+          throw error
+        }
       }
-    })
-    .then(res => {
-      console.log('서버 응답:', res.data)  // 응답 데이터 확인용
-      article.value = res.data
-      return article.value
-    })
-    .catch(error => {
-      console.error('API 요청 에러:', error.response)  // 자세한 에러 정보 확인
-      throw error
-    })
-  }
+    },
 
-  // 게시글 삭제
-  const deleteArticle = function(articleId) {
-    return axios({
-      method: 'delete',
-      url: `${API_URL.value}articles/${articleId}`,
-      headers: {
-        Authorization: `Token ${token.value}`
-      }
-    })
-    .then(() => {
-      console.log('게시글 삭제 성공')
-      // 게시글 목록 새로고침
-      return this.getArticles()
-    })
-  }
+    deleteArticle(articleId) {
+      return axios({
+        method: 'delete',
+        url: `${this.API_URL}articles/${articleId}`,
+        headers: {
+          Authorization: `Token ${this.token}`
+        }
+      })
+      .then(() => {
+        console.log('게시글 삭제 성공')
+        // 게시글 목록 새로고침
+        this.getArticles()
+      })
+    },
 
-  // 게시글 수정
-  const updateArticle = function(articleId, articleData) {
-    return axios({
-      method: 'put',
-      url: `${API_URL.value}articles/${articleId}/`,
-      data: articleData,
-      headers: {
-        Authorization: `Token ${token.value}`
-      }
-    })
-    .then(res => {
-      console.log('게시글 수정 성공')
-      article.value = res.data
-      return res.data
-    })
-    .catch(error => {
-      console.error('게시글 수정 실패:', error)
-      throw error
-    })
-  }
+    updateArticle(articleId, articleData) {
+      return axios({
+        method: 'put',
+        url: `${this.API_URL}articles/${articleId}/`,
+        data: articleData,
+        headers: {
+          Authorization: `Token ${this.token}`
+        }
+      })
+      .then(res => {
+        console.log('게시글 수정 성공')
+        this.article = res.data
+        return res.data
+      })
+      .catch(error => {
+        console.error('게시글 수정 실패:', error)
+        throw error
+      })
+    },
 
-  // 댓글 작성
-  const createComment = async (commentData) => {
-    try {
-      const response = await axios.post(
-        `${API_URL.value}articles/comments/`,
+    createComment(commentData) {
+      return axios.post(
+        `${this.API_URL}articles/comments/`,
         commentData,
         {
           headers: {
-            Authorization: `Token ${token}`
+            Authorization: `Token ${this.token}`
           }
         }
       )
-      console.log('댓글 작성 성공')
-      return response.data
-    } catch (error) {
-      console.error('댓글 작성 실패:', error)
-      throw error
-    }
-  }
+      .then(response => {
+        console.log('댓글 작성 성공')
+        return response.data
+      })
+      .catch(error => {
+        console.error('댓글 작성 실패:', error)
+        throw error
+      })
+    },
 
-  
-
-  // 댓글 삭제
-  const deleteComment = async (commentId) => {
-    try {
-      await axios({
+    deleteComment(commentId) {
+      return axios({
         method: 'delete',
-        url: `${API_URL.value}/articles/comments/${commentId}/`,
+        url: `${this.API_URL}/articles/comments/${commentId}/`,
         headers: {
-          Authorization: `Token ${token.value}`
+          Authorization: `Token ${this.token}`
         }
       })
-      console.log('댓글 삭제 성공')
-    } catch (error) {
-      console.error('댓글 삭제 실패:', error)
-      throw error
-    }
-  }
+      .then(() => {
+        console.log('댓글 삭제 성공')
+      })
+      .catch(error => {
+        console.error('댓글 삭제 실패:', error)
+        throw error
+      })
+    },
 
-  const logIn = function(payload) {
-    const username = payload.username
-    const password = payload.password
-    axios({
-      method:'post',
-      url: `${API_URL.value}accounts/login/`,
-      data: { 
-        username, password
-      }
-    }) 
-    .then((res)=> {
-      token.value = res.data.key
-      console.log('로그인성공')
-      // 로그인 성공 시 홈으로 이동
-      router.push({ name: 'Home'})
-    })
-  }
+    logIn(payload) {
+      return axios({
+        method: 'post',
+        url: `${this.API_URL}accounts/login/`,
+        data: { 
+          username: payload.username,
+          password: payload.password
+        },
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }) 
+      .then((res) => {
+        this.token = res.data.key
+        console.log('로그인 성공')
+        router.push({ name: 'Home' })
+      })
+      .catch((error) => {
+        console.error('로그인 실패:', error.response?.data || error.message)
+        if (error.response?.data?.non_field_errors) {
+          window.alert(error.response.data.non_field_errors[0])
+        } else {
+          window.alert('아이디 또는 비밀번호를 확인해주세요.')
+        }
+        throw error
+      })
+    },
 
-  // 로그인 상태 표시 
-  const isLogin = computed(() => {
-    if (token.value === null) {
-      return false
-    } else {
-      return true
-    }
-  })
-
-  // 로그아웃
-  const logOut = function () {
-    axios({
-      method: 'post',
-      url: `${API_URL.value}accounts/logout/`,
-    })
+    logOut() {
+      return axios({
+        method: 'post',
+        url: `${this.API_URL}accounts/logout/`,
+      })
       .then((res) => {
         console.log(res.data)
         window.alert('로그아웃 되었습니다.')
-        token.value = null
-        router.push({ name: 'home' })
+        this.token = null
+        router.push({ name: 'Home' })
       })
       .catch((err) => {
         console.log(err)
+        this.token = null
+        router.push({ name: 'Home' })
       })
-  }
+    },
 
-  const financialCartList = ref([])
-  const financialCart = function (productId) {
-    if (!financialCartList.value.includes(productId)) {
-        financialCartList.value.push(productId)
+    financialCart(productId) {
+      if (!this.financialCartList.includes(productId)) {
+        this.financialCartList.push(productId)
+      }
+    },
+
+    financialListDelete(productId) {
+      this.financialCartList = this.financialCartList.filter((id) => id !== productId)
+    },
+
+    savingCart(productId) {
+      if (!this.savingCartList.includes(productId)){
+        this.savingCartList.push(productId)
+      }
+    },
+
+    savingListDelete(productId) {
+      this.savingCartList = this.savingCartList.filter((id) => id !== productId)
+    },
+
+    async createArticle(articleData) {
+      if (!this.token) {
+        throw new Error('로그인이 필요합니다.')
+      }
+
+      try {
+        console.log('전송할 데이터:', articleData) // 디버깅용
+        const response = await axios({
+          method: 'post',
+          url: `${this.API_URL}articles/`,
+          data: {
+            title: articleData.title,
+            content: articleData.content,
+            category: articleData.category
+          },
+          headers: {
+            Authorization: `Token ${this.token}`,
+            'Content-Type': 'application/json'
+          }
+        })
+        // 게시글 생성 후 목록 새로고침
+        await this.getArticles()
+        return response.data
+      } catch (error) {
+        console.error('게시글 생성 실패:', error)
+        throw error
+      }
     }
   }
-  const financialListDelete = function (productId) {
-    financialCartList.value.filter((id) => id !== productId)
-  }
-
-  const savingCartList = ref([])
-  const savingCart = function (productId) {
-    if (!savingCartList.value.includes(productId)){
-      savingCartList.value.push(productId)
-    }
-  }
-  
-  const savingListDelete = function (productId) {
-    savingCartList.value = savingCartList.value.filter((id) => id !== productId)
-  }
-
-   return { 
-    count,
-    articles, 
-    article,
-    getArticles, 
-    getArticleDetail,
-    deleteArticle,
-    updateArticle,
-    createComment,
-    deleteComment,
-    logIn, 
-    logOut,
-    token,
-    isLogin,
-    API_URL,
-    financialCart,
-    financialCartList,
-    savingCart,
-    savingCartList,
-    financialListDelete,
-    savingListDelete
-  }
-
-}, { persist: true})
+})

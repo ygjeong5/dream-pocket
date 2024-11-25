@@ -168,10 +168,25 @@ import GameView from '@/views/GameView.vue'
 
 router.beforeEach((to, from) => {
   const store = useEggStore()
-  if ((to.name !== 'LogInView' && to.name !== 'SignUpView' && to.name !== 'Home' && to.name !== 'QuizGame') && !store.isLogin) {
+  
+  // 로그인 없이 접근 가능한 페이지 목록
+  const publicPages = [
+    'LogInView', 
+    'SignUpView', 
+    'Home', 
+    'QuizGame',
+    'ArticleView',
+    'ArticleList',
+    'ArticleListDetail'  // 게시글 상세 보기도 추가
+  ]
+
+  // 로그인이 필요한지 체크
+  if (!publicPages.includes(to.name) && !store.isLogin) {
     window.alert('로그인이 필요합니다.')
     return { name: 'LogInView'}
   }
+
+  // 이미 로그인한 사용자가 로그인/회원가입 페이지 접근 시
   if ((to.name === 'LogInView' || to.name === 'SignUpView') && store.isLogin) {
     window.alert('로그인 되어 있습니다.')
     return { name: 'Home'}

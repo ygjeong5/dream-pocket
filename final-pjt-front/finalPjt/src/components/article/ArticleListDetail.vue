@@ -9,31 +9,67 @@
     </div>
 
     <div class="article-header">
-      <h2>{{ article.title }}</h2>
-      <button 
-        @click="toggleLike" 
-        class="like-button"
-        :class="{ 'liked': article.is_liked }"
-      >
-        {{ article.is_liked ? '❤️' : '🤍' }}
-        <span>{{ article.like_count || 0 }}</span>
-      </button>
+      <div class="title-category">
+        <span class="category-tag">{{ getCategoryName(article.category) }}</span>
+        <h2>{{ article.title }}</h2>
+      </div>
+      <div class="like-section">
+        <button 
+          v-if="store.token"
+          @click="toggleLike" 
+          class="like-button"
+          :class="{ 'liked': article.is_liked }"
+        >
+          {{ article.is_liked ? '❤️' : '🤍' }}
+          <span>{{ article.like_count || 0 }}</span>
+        </button>
+        <div v-else class="like-count-only">
+          ❤️ {{ article.like_count || 0 }}
+        </div>
+      </div>
     </div>
 
-    <p>{{ article.content }}</p>
+    <div class="article-content">
+      <p>{{ article.content }}</p>
+    </div>
 
     <div class="article-info">
       <p>작성자: {{ article.user.username }}</p>
       <p>작성일: {{ formatDate(article.created_at) }}</p>
     </div>
 
-    <ArticleComment 
-      :article="article" 
-      :comments="article.comments"
-      @comment-added="refreshArticle" 
-    />
-  </div>  
-  <div v-else>
+    <div class="comments-section">
+      <div v-if="store.token">
+        <ArticleComment 
+          :article="article" 
+          :comments="article.comments"
+          @comment-added="refreshArticle" 
+        />
+      </div>
+      <div v-else>
+        <div class="comments-list">
+          <div v-if="article.comments?.length > 0">
+            <div 
+              v-for="comment in article.comments" 
+              :key="comment.id"
+              class="comment-item"
+            >
+              <div class="comment-header">
+                <span class="comment-author">{{ comment.user.username }}</span>
+                <span class="comment-date">{{ formatDate(comment.created_at) }}</span>
+              </div>
+              <p class="comment-content">{{ comment.content }}</p>
+            </div>
+          </div>
+          <p v-else>아직 댓글이 없습니다.</p>
+        </div>
+        <p class="login-message">
+          댓글을 작성하려면 <RouterLink to="/login">로그인</RouterLink>이 필요합니다.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div v-else class="loading">
     <p>게시글을 불러오는 중...</p>
   </div>
 </template>
@@ -54,6 +90,8 @@ const { article } = storeToRefs(store)
 const currentUsername = ref(null)
 
 const getCurrentUser = async () => {
+  if (!store.token) return
+  
   try {
     const response = await axios({
       method: 'get',
@@ -133,6 +171,18 @@ const toggleLike = async () => {
   }
 }
 
+const categories = [
+  { name: '자유게시판', value: 'free' },
+  { name: '금융지식 나누기', value: 'knowledge' },
+  { name: '상품 추천', value: 'recommendation' },
+  { name: '공지사항', value: 'notice' }
+]
+
+const getCategoryName = (categoryValue) => {
+  const category = categories.find(cat => cat.value === categoryValue)
+  return category ? category.name : '기타'
+}
+
 onMounted(async () => {
   await getCurrentUser()
   await getArticleDetail()
@@ -159,7 +209,7 @@ onMounted(async () => {
 .article-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 20px;
 }
 
@@ -182,5 +232,69 @@ onMounted(async () => {
   gap: 20px;
   color: #666;
   margin: 15px 0;
+}
+
+.title-category {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.category-tag {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: #e8eaf6;
+  color: #1a237e;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  align-self: flex-start;
+}
+
+.article-header h2 {
+  margin: 0;
+}
+
+.comments-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.comment-author {
+  font-weight: 500;
+}
+
+.comment-date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.comment-content {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.login-message {
+  text-align: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.login-message a {
+  color: #1a237e;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-message a:hover {
+  text-decoration: underline;
 }
 </style>

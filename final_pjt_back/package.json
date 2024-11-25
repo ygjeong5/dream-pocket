@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "marked": "^15.0.2",
-    "vue3-kakao-maps": "^2.3.10"
-  }
-}

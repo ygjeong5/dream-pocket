@@ -4,14 +4,23 @@ from django.conf import settings
 
 # 게시글 모델
 class Article(models.Model):
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, 
-        on_delete=models.CASCADE
-    )
+    CATEGORY_CHOICES = [
+        ('free', '자유게시판'),
+        ('knowledge', '금융지식 나누기'),
+        ('recommendation', '상품 추천'),
+        ('notice', '공지사항'),
+    ]
+    
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    category = models.CharField(
+        max_length=20,
+        choices=CATEGORY_CHOICES,
+        default='free'
+    )
 
 
 # 댓글 모델
