@@ -1,9 +1,8 @@
-from django.contrib import admin
 from django.urls import path
-from .views import chat_message
+from . import views
 
 app_name = 'chatbot'
 urlpatterns = [
-    path('chat_message/', chat_message, name='chat_message'),
-
+    path('chat_message/', views.chat_message, name='chat_message'),
+    path('recommend/', views.recommend, name='recommend'),
 ]
