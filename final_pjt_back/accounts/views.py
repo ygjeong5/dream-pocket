@@ -27,13 +27,43 @@ def user_info(request):
             return Response(serializer.data)
 
 
-class LedgerViewSet(viewsets.ModelViewSet):
-    queryset = Ledger.objects.all()
-    serializer_class = LedgerSerializer
-    permission_classes = [IsAuthenticated]
+@api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])
+def ledger_list_create(request):
+    # GET: 사용자 Ledger 목록 조회
+    if request.method == 'GET':
+        ledgers = Ledger.objects.filter(user=request.user)
+        serializer = LedgerSerializer(ledgers, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
-    def get_queryset(self):
-        return self.queryset.filter(user=self.request.user)
+    # POST: Ledger 생성
+    elif request.method == 'POST':
+        serializer = LedgerSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+@api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes([IsAuthenticated])
+def ledger_detail(request, pk):
+    try:
+        ledger = Ledger.objects.get(pk=pk, user=request.user)
+    except Ledger.DoesNotExist:
+        return Response({'error': 'Ledger not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    # GET: Ledger 상세 조회
+    if request.method == 'GET':
+        serializer = LedgerSerializer(ledger)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    # PUT: Ledger 업데이트
+    elif request.method == 'PUT':
+        serializer = LedgerSerializer(ledger, data=request.data, partial=True)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+    # DELETE: Ledger 삭제
+    elif request.method == 'DELETE':
+        ledger.delete()
+        return Response({'message': 'Ledger deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
