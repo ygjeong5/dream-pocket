@@ -17,7 +17,7 @@ def chat_message(request):
         
         # 금융상품 정보 문자열로 변환
         product_info = []
-        for product in products[:5]:  # 상위 5개 상품
+        for product in products[:5]:  # 상위 3개 상품
             options = FinancialOptions.objects.filter(product=product.id)
             max_rate = max([opt.intr_rate2 for opt in options if opt.intr_rate2 != -1], default=0)
             product_info.append(
