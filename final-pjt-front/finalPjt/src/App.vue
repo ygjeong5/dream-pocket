@@ -1,13 +1,20 @@
 <template>
-  <div>
+  <div class="mainPage">
     <!-- 최상단  -->
     <div class="top"> 
       <div class="topContent">
-       
+        <!-- 메인 로고  -->
         <div class="topMiddle">
-          베너 넣을 예정
+          
+          <div class="logo">
+            <img src="@/assets/coin.png" alt="">
+            <h1>
+              DREAM POCKET</h1>
+          </div>
         </div>
   
+
+        
         <div class="topRight">
           <div id="beforeLogIn" v-if="!store.isLogin">
             <div class="signUp">
@@ -141,10 +148,17 @@
 
 <style  scoped>
 
-.top {
-  position: relative;
-  z-index: 1000;
 
+.mainPage{
+  background-color: rgb(247, 253, 254);
+  min-height: 100vh;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+  align-items: center;
 }
 
 .topContent{
@@ -153,15 +167,46 @@
   width: 100%;
   vertical-align: text-top;
   text-align: center;
+  margin-right: 60px;
 }
 
 .topMiddle {
-  margin-top: 3px;
-  width: 200px;
-  height: 50px;
-  border: 1px solid black;
-  display: inline-block;
+  width: 100%; /* 전체 폭 사용 */
+  display: flex; /* 가운데 정렬을 위한 flex 사용 */
+  align-items: center;
+  justify-content: center; /* 중앙 정렬 */
 }
+
+.logo{
+  display: flex; /* 플렉스 사용 */
+  position: relative;
+  width: 230px;
+  align-items: center; /* 세로 정렬 */
+  justify-content: center; /* 가로 정렬 */
+}
+
+.topMiddle h1 {
+  width: 130px;
+  font-size: 23px;
+  font-family: 'DNFBitBitv2', sans-serif;
+  margin-left: 50px;
+  -webkit-text-stroke: 2px rgba(39, 54, 154, 0.726);
+  letter-spacing: .01rem;
+  background: linear-gradient(to left top, #81aef6, #41eb2e);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.topMiddle img{
+  position: absolute;
+  width: 60px; /* SVG 크기 */
+  left: 35px;
+  height: 70px;
+  margin-right: 0px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+}
+
 
 .topRight {
   position: absolute;
@@ -279,6 +324,16 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Mungyeong-Gamhong-Apple';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-2@1.0/Mungyeong-Gamhong-Apple.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+font-family:'DNFBitBitv2';
+font-style:normal;font-weight:400;src:url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')}
 
 
 </style>
