@@ -66,7 +66,7 @@ const newLedger = ref({
 const fetchLedgers = () => {
     axios({
         method: 'get',
-        url: 'http://127.0.0.1:8000/accouts/ledgers/',
+        url: 'http://127.0.0.1:8000/accounts/ledgers/',
         headers: {
             Authorization: `Token ${store.token}`,
         },
@@ -83,7 +83,7 @@ const fetchLedgers = () => {
 const addLedger = () => {
     axios({
         method: 'post',
-        url: 'http://127.0.0.1:8000/accouts/ledgers/',
+        url: 'http://127.0.0.1:8000/accounts/ledgers/',
         headers: {
             Authorization: `Token ${store.token}`,
         },
@@ -107,7 +107,7 @@ const addLedger = () => {
 const deleteLedger = (id) => {
     axios({
         method: 'delete',
-        url: `http://127.0.0.1:8000/accouts/ledgers/${id}/`,
+        url: `http://127.0.0.1:8000/accounts/ledgers/${id}/`,
         headers: {
             Authorization: `Token ${store.token}`,
         },
