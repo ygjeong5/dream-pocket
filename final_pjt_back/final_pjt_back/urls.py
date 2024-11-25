@@ -16,6 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from accounts.views import LedgerViewSet
+
+
+router = DefaultRouter()
+router.register(r'ledgers', LedgerViewSet, basename='ledger')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +31,6 @@ urlpatterns = [
     path('chatbot/', include('chatbot.urls')),
     path('financial-posts/', include('financepost.urls')),
     path('api/v1/quiz_game/', include('quiz_game.urls')),
+    path('ledgers/', include(router.urls)),  # Router에 정의된 URL 포함
 
 ]
