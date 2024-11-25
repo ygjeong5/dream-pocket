@@ -24,6 +24,7 @@ import ProductComparison from '@/components/financialproduct/ProductComparison.v
 import QuizGame from '@/views/QuizGameView.vue'
 import Ledger from '@/components/profile/Ledger.vue'
 import ProductRecommend from '@/views/ProductRecommend.vue'
+import GameView from '@/views/GameView.vue'
 // Define Routes
 
  const router = createRouter({
@@ -156,6 +157,11 @@ import ProductRecommend from '@/views/ProductRecommend.vue'
       path: '/product-recommend',
       name: 'ProductRecommend',
       component: ProductRecommend,
+    },
+    {
+      path: '/game',
+      name: 'GameView',
+      component: GameView,
     },
   ],  
 })
