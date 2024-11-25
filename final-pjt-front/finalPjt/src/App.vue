@@ -124,7 +124,7 @@
   background-color: rgb(255, 255, 255);
   min-height: 100vh;
   min-width: 1000px; /* Set the minimum width */
-  margin: 0 200px;
+  
 }
 
 .top {
@@ -132,7 +132,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 20px;
-  height: 120px;
+  height: 100px;
   width: 1080;
   padding-bottom: 0;
 }
@@ -188,7 +188,7 @@
   width: 50px; /* 이미지 크기 조정 */
   height: auto; /* 비율 유지 */
   position: absolute; /* 절대 위치 설정 */
-  left: 8%; /* 부모의 왼쪽에 배치 */
+  left: 9%; /* 부모의 왼쪽에 배치 */
   top: 38%; /* 세로 중앙 정렬 */
   transform: translateY(-50%);
 }
@@ -259,7 +259,7 @@
   width: 800px;
   min-width: 100%;
   border: 1px solid black;
-  height: 60px;
+  height: 70px;
   padding: 0;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -318,17 +318,26 @@
   margin: 0;
 }
 
-/* .d-flex{
-  display: flex;
-  width: 10px;
-  gap: 10px;
-  justify-content: flex-end;
-} */
-
 .mainContent {
-  border: 2px solid black;
-  border-top: 0;
+  position: relative; /* 부모 요소에 위치 설정 */
+  width: 100%;
+  height: 500px; /* 높이 필수 */
+  z-index: 1;
 }
+
+.mainContent::before{
+    content: '';
+    background: url(@/assets/bg.png); 
+    background-size: contain;
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    opacity: 0.4;
+  }
+
   
 @font-face {
     font-family: 'Pretendard-Regular';
