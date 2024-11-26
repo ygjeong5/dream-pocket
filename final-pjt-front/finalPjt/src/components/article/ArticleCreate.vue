@@ -95,35 +95,67 @@ onMounted(() => {
 
 <style scoped>
 .create-form {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 1000px;
+  margin: 3rem auto;
   padding: 2rem;
+  background: linear-gradient(145deg, #e8f1f8, #d4e6f1);
+  border: 3px solid #2980b9;
+  border-radius: 15px;
+  box-shadow: 0 6px 0 #85929e;
+}
+
+h1 {
+  font-family: 'DNFBitBitv2';
+  font-size: 2.5rem;
+  background: linear-gradient(to left top, #2980b9, #3498db);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 2px rgba(39, 54, 154, 0.726);
+  color: transparent;
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: titleFloat 3s ease-in-out infinite;
 }
 
 .form-group {
   margin-bottom: 1.5rem;
+  background: white;
+  padding: 1.2rem;
+  border: 3px solid #7fb3d5;
+  border-radius: 15px;
+  box-shadow: 0 4px 0 #85929e;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: #333;
+  margin-bottom: 0.8rem;
+  font-family: 'DNFBitBitv2';
+  font-size: 1.2rem;
+  color: #2980b9;
 }
 
 input[type="text"],
 select,
 textarea {
   width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 1rem;
+  border: 2px solid #7fb3d5;
+  border-radius: 10px;
   font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2980b9;
+  box-shadow: 0 0 0 2px rgba(41, 128, 185, 0.2);
 }
 
 select {
   background-color: white;
   cursor: pointer;
+  font-family: 'DNFBitBitv2';
 }
 
 textarea {
@@ -135,32 +167,62 @@ textarea {
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
+  justify-content: center;
 }
 
 .submit-btn, .cancel-btn {
   padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 4px;
+  border: 3px solid #7fb3d5;
+  border-radius: 19px;
   cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  font-family: 'DNFBitBitv2';
+  font-size: 15px;
+  box-shadow: 0 4px 0 #85929e;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .submit-btn {
-  background-color: #1a237e;
+  background: linear-gradient(145deg, #2980b9, #3498db);
   color: white;
 }
 
-.submit-btn:hover {
-  background-color: #0d47a1;
-}
-
 .cancel-btn {
-  background-color: #e0e0e0;
-  color: #333;
+  background: white;
+  color: #2980b9;
 }
 
+.submit-btn::before,
+.cancel-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.submit-btn:hover::before,
+.cancel-btn:hover::before {
+  left: 100%;
+}
+
+.submit-btn:hover,
 .cancel-btn:hover {
-  background-color: #bdbdbd;
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #85929e;
+}
+
+@keyframes titleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 </style>

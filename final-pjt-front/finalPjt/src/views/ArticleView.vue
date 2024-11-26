@@ -84,38 +84,6 @@
     <div v-else class="empty-state">
       <p>아직 작성된 게시글이 없습니다.</p>
     </div>
-
-    <!-- YouTube 섹션 수정 -->
-    <div class="youtube-section">
-      <h2>추천 금융 영상</h2>
-      <div class="youtube-container">
-        <button class="slider-btn prev" @click="prevSlide" :disabled="currentSlide === 0">
-          &#10094;
-        </button>
-        
-        <div class="youtube-slider">
-          <div 
-            class="youtube-wrapper"
-            :style="{ transform: `translateX(-${currentSlide * 100}%)` }"
-          >
-            <div v-for="video in videos" :key="video.id" class="youtube-item">
-              <a :href="video.url" target="_blank" rel="noopener noreferrer" class="video-link">
-                <div class="video-card">
-                  <img :src="video.thumbnail" :alt="video.title" class="video-thumbnail" />
-                  <div class="video-overlay">
-                    <div class="video-title">{{ video.title }}</div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <button class="slider-btn next" @click="nextSlide" :disabled="currentSlide >= maxSlides">
-          &#10095;
-        </button>
-      </div>
-    </div>
   </div>
 </template>
 

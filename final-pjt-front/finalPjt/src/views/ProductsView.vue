@@ -74,11 +74,12 @@ import { RouterLink } from 'vue-router'
 }
 
 .products-section {
-  min-height: calc(100vh - 200px);
   background: white;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .list-header {
@@ -105,7 +106,7 @@ import { RouterLink } from 'vue-router'
 .product-item {
   display: flex;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1.2rem;
   background: #f8f9fa;
   border-radius: 15px;
   transition: all 0.3s ease;
@@ -119,9 +120,9 @@ import { RouterLink } from 'vue-router'
 }
 
 .product-icon {
-  font-size: 2rem;
-  margin-right: 1.5rem;
-  width: 50px;
+  font-size: 1.7rem;
+  margin-right: 1.2rem;
+  width: 45px;
   text-align: center;
 }
 
@@ -131,9 +132,9 @@ import { RouterLink } from 'vue-router'
 
 .product-title {
   display: block;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #2c3e50;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .product-desc {
