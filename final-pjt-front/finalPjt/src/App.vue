@@ -90,13 +90,12 @@
         </div>
       </div>
     </nav>
-
-  <div class="mainContent">
-    <RouterView/>
-    <ChatBot />
-    <!-- 챗봇 버튼 및 창 추가 -->
-  </div>
-
+    
+    <div class="mainContent">
+      <RouterView/>
+      <!-- 챗봇 버튼 및 창 추가 -->
+    </div>
+    
 
 
 </div>
@@ -106,7 +105,6 @@
   import { RouterLink, RouterView } from 'vue-router';
   import { useEggStore } from './stores/egg';
   import { ref } from 'vue';
-  import ChatBot from './components/chatbot/Chatbot.vue';
 
   const store = useEggStore()
 

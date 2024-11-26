@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mainpage">
     <div class="container">
       <div>
         <label>검색하고 싶은 은행:</label>
@@ -23,7 +23,7 @@
     </div>
 
     <!-- 카카오 지도 -->
-    <KakaoMap :lat="centerLat" :lng="centerLng" @onLoadKakaoMap="onLoadKakaoMap">
+    <KakaoMap width=98% :height="1000" :lat="centerLat" :lng="centerLng" @onLoadKakaoMap="onLoadKakaoMap">
       <KakaoMapMarker
         v-for="(marker, index) in markerList"
         :key="marker.key === undefined ? index : marker.key"
@@ -209,6 +209,15 @@ watch(selectedBank, (newValue, oldValue) => {
 
 
 <style scoped>
+.mainpage{
+  padding: 10px;
+  padding-top: 20px;
+  display: flex;
+  align-content: center;
+  margin: 10px;
+}
+
+
 .container {
   position: absolute;
   top: 20px;
@@ -223,6 +232,7 @@ watch(selectedBank, (newValue, oldValue) => {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  
 }
 
 .container > div {

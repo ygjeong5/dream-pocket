@@ -5,20 +5,20 @@
        <div id="carousel" class="carousel slide" data-bs-ride="carousel">
          <!-- 하단 버튼 -->
          <div class="carousel-indicators">
-           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+           <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+           <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+           <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
          </div>
          
        <div class="carousel-inner">
-         <div class="carousel-item active " data-bs-interval="8000">
-           <img src="@/assets/test1.png" alt="mainbanner">
+         <div class="carousel-item active ">
+           <img src="@/assets/test1.png" alt="mainbanner" class="d-block">
          </div>
    
-         <div class="carousel-item" data-bs-interval="8000">
+         <div class="carousel-item">
            <img src="@/assets/test1.png"  alt="mainbanner">
          </div>
-         <div class="carousel-item" data-bs-interval="8000">
+         <div class="carousel-item" >
            <img src="@/assets/test1.png"  alt="mainbanner">
          </div>
        </div>
@@ -30,20 +30,33 @@
          <span class="carousel-control-next-icon" aria-hidden="true"></span>
          <span class="visually-hidden">Next</span>
        </button>
-       
-
      </div>
-      
     </div>
   </div>
-
-  <div class="mainContent">
-    
-    <div class="chatbot">
-      chatbot
+  <div class="chatbot">
+    <div class="chatbot-container">
+      챗봇
+      <ChatBot/>
     </div>
-    <div class="mypage">
-      mypage
+  </div>
+  <div class="mainContent">
+    <div class="ad">
+      <h3>
+        Q.{{ body }}
+      </h3>
+      <RouterLink :to="{ name: 'QuizGame' }">문제풀러 가기</RouterLink>
+    </div>
+    <div class="ad">
+      <h3>
+        금융 게임하러 가기
+      </h3>
+      <RouterLink :to="{ name: 'GameView' }">게임</RouterLink>
+    </div>
+    <div class="ad">
+      <h3>
+        주변에 은행 찾으러 가기
+        <RouterLink :to="{name: 'map'}">지도 </RouterLink>
+      </h3>
     </div>
   </div>
   <div class="youtube">
@@ -103,27 +116,61 @@
       <img :src="video[10].thumbnail" alt="">
     </a></swiper-slide>
   </swiper>
-  </div>
+  </div >
  
 </template>
 
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import axios from 'axios';
 
 // Import required modules
 import { Pagination, Navigation } from 'swiper/modules';
+
+import ChatBot from '@/components/chatbot/Chatbot.vue';
+import { useEggStore } from '@/stores/egg';
+
+const quizInfo = ref([]);
+
+const body = ref('')
+const store = useEggStore()
+const fetchQuizInfo = () => {
+  axios({
+    method: 'GET',
+    url: 'http://localhost:8000/api/v1/quiz_game/quiz-info/',
+    headers: {
+      Authorization: `Token ${store.token}`,
+    },
+  })
+    .then((res) => {
+      quizInfo.value = res.data;
+      body.value = quizInfo.value[randomInt].body
+      
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  };
+
+  onMounted(() => {
+    fetchQuizInfo();
+  });
+
+const n = 90; // 원하는 범위의 상한값
+const randomInt = Math.floor(Math.random() * n);
+console.log(randomInt);
 
 // Swiper에 필요한 modules 설정
 const modules = [Pagination, Navigation];
   
   const video = ref([
-    { id: "video_id_1", title: "[부자되는 재테크] 은행원도 알려주지 않는 예금과 적금 활용법!! - 1억을 모으는 방법 #.13", url: 'https://youtu.be/aZxYnGO_7wo?si=yhlR5X_A_k8cmnxC', thumbnail: "thumbnail/thumbnail1.jpg" },
+    { id: "video_id_1", title: "[부자되는 재테크] 은행원도 알려주지 않는 예금과 적금 활용법!! - 1을 모으는 방법 #.13", url: 'https://youtu.be/aZxYnGO_7wo?si=yhlR5X_A_k8cmnxC', thumbnail: "thumbnail/thumbnail1.jpg" },
     { id: "video_id_2", title: "재테크, 지금도 늦었다.", url: 'https://youtu.be/SpWz5Q4OS1A?si=eGkVJKJBXKmyajtt', thumbnail: "thumbnail/thumbnail2.jpg" },
     { id: "video_id_3", title: '슈카쌤 "설마 이걸 모르지는 않겠지"', url: 'https://youtu.be/X1L5w_pBRhY?si=5kH_OPKp4AZkfG2n', thumbnail: "thumbnail/thumbnail3.jpg" },
     { id: "video_id_4", title: "[경제가 군금해?!] EP 02. 투자성향이 군금해?!", url: 'https://www.youtube.com/watch?v=FGUUw2Jw_qs', thumbnail: "thumbnail/thumbnail4.jpg" },
@@ -148,6 +195,9 @@ const modules = [Pagination, Navigation];
 .mainPage {
   position: relative;
   height: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner {
@@ -206,7 +256,7 @@ const modules = [Pagination, Navigation];
 }
 
 .carousel-control-next {
-  /* background: linear-gradient(-90deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%); */
+  background: linear-gradient(-90deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
 }
 
 @media (max-width: 768px) {
@@ -228,36 +278,111 @@ const modules = [Pagination, Navigation];
 
 .mainContent {
   display: flex;
-  height: 300px;
+  min-height: 300px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 40px 0;
+  background: linear-gradient(145deg, #f8f9fa, #e8f1f8);
 }
 
-.chatbot{
-  width: 50%;
-  border: 1px black solid;
+.chatbot {
+  width: 100%;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.mypage{
-  border: 1px black solid;
-  width: 50%;
+.chatbot-container {
+  width: 80%;
+  max-width: 1200px;
+  border: none;
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.ad {
+  border: none;
+  height: 220px;
+  width: 500px;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 0 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ad:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.ad h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ad a {
+  padding: 12px 24px;
+  background: linear-gradient(145deg, #3498db, #2980b9);
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ad a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.youtube {
+  height: 450px;
+  max-height: 450px;
+  margin: 60px 10%;
+  background: linear-gradient(145deg, #2c3e50, #34495e);
+  padding: 30px 60px;
+  border-radius: 25px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  position: relative;
 }
 
 .swiper {
   width: 100%;
   height: 100%;
-  padding: 20px 0;
 }
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: transparent;
-  height: 280px;
+  height: 300px;
   width: calc(20% - 20px) !important;
   margin: 0 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .swiper-slide:hover {
@@ -267,20 +392,20 @@ const modules = [Pagination, Navigation];
 .swiper-slide img {
   display: block;
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* 네비게이션 버튼 스타일 수정 */
 .swiper-button-next,
 .swiper-button-prev {
-  color: white !important;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 40px !important;
-  height: 40px !important;
-  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #2c3e50 !important;
+  width: 45px !important;
+  height: 45px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   position: absolute;
   top: 50%;
