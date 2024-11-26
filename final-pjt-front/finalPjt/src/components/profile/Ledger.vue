@@ -94,7 +94,7 @@ const ledgers = ref([]) // 전체 가계부 항목
 const filteredLedgers = ref([]) // 필터링된 가계부 항목
 const newLedger = ref({
     date: '',
-    category: 'income',
+    category: 'expense',
     amount: '',
     description: '',
 })
@@ -131,10 +131,12 @@ const addLedger = () => {
     })
     .then(res => {
         ledgers.value.push(res.data)
-        filteredLedgers.value.push(res.data) // 필터링된 목록에도 추가
+        if (!selectedMonth.value || res.data.date.slice(5, 7) === selectedMonth.value) {
+            filteredLedgers.value = [...ledgers.value]
+        }
         newLedger.value = {
             date: '',
-            category: 'income',
+            category: 'expense',
             amount: '',
             description: '',
         }

@@ -29,6 +29,9 @@
           </div>        
           
           <div id="afterLogIn" v-if="store.isLogin">
+            <div class="ledger-btn">
+              <RouterLink :to="{ name: 'Ledger' }">가계부작성</RouterLink>
+            </div>
             <div class="profile">
               <RouterLink :to="{ name: 'ProfileView' }">회원정보</RouterLink>
             </div>
@@ -441,5 +444,32 @@ font-family:'DNFBitBitv2';
 font-style:normal;
 font-weight:400;
 src:url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')}
+
+.ledger-btn {
+  display: inline-block;
+  margin-right: 15px;
+  font-family: 'Pretendard-Regular';
+  font-size: 15px;
+  font-weight: 1000;
+}
+
+.ledger-btn a {
+  color: rgb(106, 107, 121);
+  text-decoration-line: none;
+}
+
+.ledger-btn a:hover {
+  color: #2980b9;
+  font-weight: 1000;
+  font-size: 16px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* afterLogIn의 display를 flex로 변경하여 요소들을 가로로 정렬 */
+#afterLogIn {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* 요소들 사이의 간격 */
+}
 
 </style>
