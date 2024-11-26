@@ -36,6 +36,13 @@ import { useKakao } from 'vue3-kakao-maps/@utils';
 useKakao('5c601815580290a95eddff0a6a13f52c', ['clusterer', 'services', 'drawing']);
 
 
+// import Swiper JS
+import Swiper from 'swiper';
+// import Swiper styles
+import 'swiper/css';
+
+
+
 
 library.add(faUserSecret)
 

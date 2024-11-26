@@ -84,6 +84,38 @@
     <div v-else class="empty-state">
       <p>아직 작성된 게시글이 없습니다.</p>
     </div>
+
+    <!-- YouTube 섹션 수정 -->
+    <div class="youtube-section">
+      <h2>추천 금융 영상</h2>
+      <div class="youtube-container">
+        <button class="slider-btn prev" @click="prevSlide" :disabled="currentSlide === 0">
+          &#10094;
+        </button>
+        
+        <div class="youtube-slider">
+          <div 
+            class="youtube-wrapper"
+            :style="{ transform: `translateX(-${currentSlide * 100}%)` }"
+          >
+            <div v-for="video in videos" :key="video.id" class="youtube-item">
+              <a :href="video.url" target="_blank" rel="noopener noreferrer" class="video-link">
+                <div class="video-card">
+                  <img :src="video.thumbnail" :alt="video.title" class="video-thumbnail" />
+                  <div class="video-overlay">
+                    <div class="video-title">{{ video.title }}</div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <button class="slider-btn next" @click="nextSlide" :disabled="currentSlide >= maxSlides">
+          &#10095;
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -176,6 +208,32 @@ onMounted(async () => {
     console.error('게시글 로딩 실패:', error)
   }
 })
+
+// YouTube 관련 코드 수정
+const currentSlide = ref(0)
+const videos = ref([
+  { 
+    id: "video_id_1", 
+    title: "[부자되는 재테크] 은행원도 알려주지 않는 예금과 적금 활용법!!",
+    url: 'https://youtu.be/aZxYnGO_7wo?si=yhlR5X_A_k8cmnxC',
+    thumbnail: "thumbnail/thumbnail1.jpg"
+  },
+  // ... Youtube.vue의 videos 배열 내용 복사
+])
+
+const maxSlides = computed(() => Math.max(0, Math.ceil(videos.value.length / 5) - 1))
+
+const nextSlide = () => {
+  if (currentSlide.value < maxSlides.value) {
+    currentSlide.value++
+  }
+}
+
+const prevSlide = () => {
+  if (currentSlide.value > 0) {
+    currentSlide.value--
+  }
+}
 </script>
 
 <style scoped>
@@ -416,5 +474,138 @@ onMounted(async () => {
 .page-numbers {
   display: flex;
   gap: 0.5rem;
+}
+
+.youtube-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: linear-gradient(145deg, #FFF0F5, #FFE4E1);
+  border: 3px solid var(--primary-color);
+  border-radius: 15px;
+  box-shadow: 0 6px 0 var(--shadow-color);
+}
+
+.youtube-section h2 {
+  font-family: 'DNFBitBitv2';
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(to left top, var(--primary-dark), var(--primary-color));
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--primary-dark);
+}
+
+.youtube-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.youtube-slider {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 40px;
+}
+
+.youtube-wrapper {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.youtube-item {
+  flex: 0 0 20%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.video-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.video-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.video-thumbnail {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+}
+
+.video-card:hover .video-overlay {
+  opacity: 1;
+}
+
+.video-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-family: 'DNFBitBitv2';
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: white;
+  border: 3px solid var(--primary-light);
+  color: var(--primary-dark);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 0 var(--shadow-color);
+  transition: all 0.2s ease;
+}
+
+.slider-btn.prev {
+  left: 0;
+}
+
+.slider-btn.next {
+  right: 0;
+}
+
+.slider-btn:hover:not(:disabled) {
+  background: linear-gradient(145deg, var(--primary-dark), var(--primary-color));
+  color: white;
+  transform: translateY(-50%) translateY(2px);
+  box-shadow: 0 2px 0 var(--shadow-color);
+}
+
+.slider-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 </style>
