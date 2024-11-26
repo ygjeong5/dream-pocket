@@ -62,7 +62,7 @@
           <span>경제 탐구하기</span>
           <ul>
             <li><RouterLink :to="{ name: 'FinancialPostView', query: { tab: 'news' }}">금융 뉴스</RouterLink></li>
-            <li><RouterLink :to="{ name: 'FinancialPostView', query: { tab: 'education' }}">온라인 교육</RouterLink></li>
+            <li><RouterLink :to="{ name: 'FinancialPostView', query: { tab: 'education' }}">유튜브 교육</RouterLink></li>
           </ul>
         </div>
         <div class="navItem">

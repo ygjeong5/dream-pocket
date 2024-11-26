@@ -4,11 +4,7 @@
      <div class="banner">
        <div id="carousel" class="carousel slide" data-bs-ride="carousel">
          <!-- 하단 버튼 -->
-         <div class="carousel-indicators">
-           <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-           <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-           <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-         </div>
+         
          
        <div class="carousel-inner">
          <div class="carousel-item active ">
@@ -74,8 +70,14 @@
   </div>
   <div class="youtube">
     <swiper
-    :slidesPerView="5"
-    :spaceBetween="30"
+    :style="{
+      
+      '--swiper-navigation-color': '#fff',
+      '--swiper-pagination-color': '#fff',
+    }"
+    :lazy="true"
+    :slidesPerView="4"
+    :spaceBetween="5"
     :loop="true"
     :pagination="{
       clickable: true,
@@ -127,10 +129,9 @@
     <swiper-slide> 
     <a :href="video[10].url">
       <img :src="video[10].thumbnail" alt="">
-    </a></swiper-slide>
+    </a></swiper-slide>    
   </swiper>
   </div >
- 
 </template>
 
 <script setup>
@@ -193,7 +194,7 @@ const modules = [Pagination, Navigation];
     { id: "video_id_8", title: "[재테크의 정석] 파킹통장이 뭐지?? (예적금을 이븐하게 곁들인..)", url: 'https://www.youtube.com/watch?v=bJjN2vrp-Oc', thumbnail: "thumbnail/thumbnail8.jpg" },
     { id: "video_id_9", title: "재테크, 지금도 안늦었다.", url: 'https://www.youtube.com/watch?v=7VDvW1zCZ8c', thumbnail: "thumbnail/thumbnail9.jpg" },
     { id: "video_id_10", title: "[주식] 드디어 배운 '재무제표' 읽는법(홍진경,슈카) [공부왕찐천재]", url: 'https://www.youtube.com/watch?v=bE1iSUYA0KI', thumbnail: "thumbnail/thumbnail10.jpg" },
-    { id: "video_id_11", title: "[경제가 군금해?!] EP 03. 신용이 군금해?!", url: 'https://www.youtube.com/watch?v=_khYfd7zDSk', thumbnail: "thumbnail/thumbnail11.jpg" },
+    { id: "video_id_11", title: "[경제가 금해?!] EP 03. 신용이 군금해?!", url: 'https://www.youtube.com/watch?v=_khYfd7zDSk', thumbnail: "thumbnail/thumbnail11.jpg" },
     { id: "video_id_12", title: "주식 초보라면 꼭 알아둬야 할 차트 보는 방법", url: 'https://www.youtube.com/watch?v=hI3pzjLbOzY', thumbnail: "thumbnail/thumbnail12.jpg" },
     { id: "video_id_13", title: "[2024 미국 대선-반도체산업] 美 대선 이후 반도체 산업 영향과 그에 따른 대응방안에 대해 알아봤습니다🧐", url: 'https://www.youtube.com/watch?v=ZZ-weu_Ck7A', thumbnail: "thumbnail/thumbnail13.jpg" },
     { id: "video_id_14", title: "가장 기본적인 투자방법", url: 'https://www.youtube.com/watch?v=5lHHAxyXI_g', thumbnail: "thumbnail/thumbnail14.jpg" }
@@ -207,17 +208,18 @@ const modules = [Pagination, Navigation];
 
 .mainPage {
   position: relative;
-  height: 1000px;
+  height: auto;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .banner {
-  margin: 20px 10%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .carousel {
@@ -233,7 +235,8 @@ const modules = [Pagination, Navigation];
 }
 
 .carousel-item, .carousel-item > img {
-  width: 100%;
+  width: 100vw;
+  height: 500px;
   object-fit: cover;
 }
 
@@ -274,7 +277,7 @@ const modules = [Pagination, Navigation];
 
 @media (max-width: 768px) {
   .carousel-item, .carousel-item > img {
-    height: 400px;
+    height: 300px;
 }
 }
 
@@ -301,7 +304,7 @@ const modules = [Pagination, Navigation];
 .chatbot-section {
   width: 100%;
   padding: 60px 0;
-  background: linear-gradient(145deg, #2c3e50, #34495e);
+  background: #202d3b24;
   position: relative;
   overflow: hidden;
 }
@@ -371,19 +374,19 @@ const modules = [Pagination, Navigation];
 }
 
 .youtube {
-  height: 450px;
-  max-height: 450px;
-  margin: 60px 10%;
-  background: linear-gradient(145deg, #2c3e50, #34495e);
-  padding: 30px 60px;
+  height: 300px;
+  max-height: 280px;
+  margin: 30px 0;
+  background: #698eb695;
+  padding: 30px 40px;
   border-radius: 25px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   position: relative;
 }
 
 .swiper {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 300px;
 }
 
 .swiper-slide {
@@ -391,7 +394,7 @@ const modules = [Pagination, Navigation];
   font-size: 18px;
   background: transparent;
   height: 300px;
-  width: calc(20% - 20px) !important;
+  width: calc(30% -10px ) !important;
   margin: 0 10px;
   display: flex;
   justify-content: center;
@@ -404,12 +407,21 @@ const modules = [Pagination, Navigation];
 }
 
 .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.mySwiper {
+  padding: 0 10%;
 }
 
 /* 네비게이션 버튼 스타일 수정 */

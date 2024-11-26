@@ -1,7 +1,7 @@
 <template>
   <div class="youtube-view">
     <div class="title">
-      <h2>금융 교육</h2>
+      <h2>유튜브 교육</h2>
     </div>
     <div class="video-list">
       <div 
