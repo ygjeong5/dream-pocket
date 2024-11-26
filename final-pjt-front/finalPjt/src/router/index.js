@@ -180,10 +180,11 @@ router.beforeEach((to, from) => {
     'LogInView', 
     'SignUpView', 
     'Home', 
-    'QuizGame',
     'ArticleView',
     'ArticleList',
     'ArticleListDetail',
+    'FinancialPostView',
+    'FinancialPostDetail',
     'YoutubeView'  // 게시글 상세 보기도 추가
   ]
 
