@@ -72,20 +72,95 @@ const goBack = () => {
 
 <style scoped>
 .article-update {
-  max-width: 800px;
-  margin: 20px auto;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: linear-gradient(145deg, #e8f1f8, #d4e6f1);
+  border: 3px solid #2980b9;
+  border-radius: 15px;
+  box-shadow: 0 6px 0 #85929e;
 }
+
+h2 {
+  font-family: 'DNFBitBitv2';
+  font-size: 2.5rem;
+  background: linear-gradient(to left top, #2980b9, #3498db);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 2px rgba(39, 54, 154, 0.726);
+  color: transparent;
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: titleFloat 3s ease-in-out infinite;
+}
+
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
+  background: white;
+  padding: 1.2rem;
+  border: 3px solid #7fb3d5;
+  border-radius: 15px;
+  box-shadow: 0 4px 0 #85929e;
 }
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-family: 'DNFBitBitv2';
+  font-size: 1.2rem;
+  color: #2980b9;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #7fb3d5;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+textarea {
+  min-height: 200px;
+  resize: vertical;
+}
+
 .form-actions {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
 }
+
 .btn-submit, .btn-cancel {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
+  padding: 0.8rem 1.5rem;
+  border: 3px solid #7fb3d5;
+  border-radius: 19px;
+  font-family: 'DNFBitBitv2';
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #85929e;
+  transition: all 0.2s ease;
+}
+
+.btn-submit {
+  background: linear-gradient(145deg, #2980b9, #3498db);
+  color: white;
+}
+
+.btn-cancel {
+  background: white;
+  color: #2980b9;
+}
+
+.btn-submit:hover,
+.btn-cancel:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #85929e;
+}
+
+@keyframes titleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 </style>

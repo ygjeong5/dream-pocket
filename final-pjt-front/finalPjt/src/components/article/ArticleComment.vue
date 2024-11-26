@@ -132,7 +132,7 @@ const updateComment = async (commentId) => {
     
     editingCommentId.value = null
     editContent.value = ''
-    emit('comment-added')  // 부모 컴포넌트에 댓글 수정 알림
+    emit('comment-added')  // 부모 컴포넌트에 ���글 수정 알림
     
   } catch (error) {
     console.error('댓글 수정 실패:', error)
@@ -176,27 +176,147 @@ const formatDate = (dateString) => {
 </script>
 
 <style scoped>
-/* 댓글 작성 폼 스타일 */
-.comment-form {
-  margin: 20px 0;
+h3 {
+  font-family: 'DNFBitBitv2';
+  font-size: 1.5rem;
+  background: linear-gradient(to left top, #2980b9, #3498db);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px rgba(39, 54, 154, 0.726);
+  color: transparent;
+  margin-bottom: 1rem;
 }
 
-/* 댓글 작성 텍스트영역 스타일 */
+/* 댓글 작성 폼 스타일 */
+.comment-form {
+  background: white;
+  padding: 1rem;
+  border: 2px solid #7fb3d5;
+  border-radius: 12px;
+  box-shadow: 0 3px 0 #85929e;
+  margin-bottom: 1.5rem;
+}
+
 .comment-form textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 0.8rem;
+  border: 2px solid #7fb3d5;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  min-height: 80px;
+  resize: vertical;
+  margin-bottom: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.comment-form textarea:focus {
+  outline: none;
+  border-color: #2980b9;
+  box-shadow: 0 0 0 2px rgba(41, 128, 185, 0.1);
+}
+
+.comment-form button {
+  padding: 0.5rem 1rem;
+  border: 2px solid #7fb3d5;
+  border-radius: 15px;
+  font-family: 'DNFBitBitv2';
+  font-size: 13px;
+  cursor: pointer;
+  background: linear-gradient(145deg, #2980b9, #3498db);
+  color: white;
+  box-shadow: 0 3px 0 #85929e;
+  transition: all 0.2s ease;
+}
+
+.comment-form button:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #85929e;
+}
+
+/* 댓글 목록 스타일 */
+.comments-list {
+  background: white;
+  padding: 1rem;
+  border: 2px solid #7fb3d5;
+  border-radius: 12px;
+  box-shadow: 0 3px 0 #85929e;
+}
+
+.comment-item {
+  padding: 0.8rem;
+  border-bottom: 1px solid #e8f1f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.comment-item:last-child {
+  border-bottom: none;
+}
+
+.comment-content {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.comment-content p:first-child {
+  font-family: 'DNFBitBitv2';
+  color: #2980b9;
+  margin-bottom: 0.3rem;
+}
+
+.comment-content textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 2px solid #7fb3d5;
+  border-radius: 8px;
+  margin: 0.3rem 0;
+  min-height: 60px;
   resize: vertical;
 }
 
-/* 댓글 아이템 스타일 */
+.comment-content p:last-child {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+/* 댓글 버튼 스타일 */
+.comment-item button {
+  padding: 0.4rem 0.8rem;
+  border: 2px solid #7fb3d5;
+  border-radius: 12px;
+  font-family: 'DNFBitBitv2';
+  font-size: 12px;
+  cursor: pointer;
+  background: white;
+  color: #2980b9;
+  margin-left: 0.3rem;
+  box-shadow: 0 2px 0 #85929e;
+  transition: all 0.2s ease;
+}
+
+.comment-item button:hover {
+  background: linear-gradient(145deg, #2980b9, #3498db);
+  color: white;
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #85929e;
+}
+
+/* 빈 댓글 메시지 */
+.comments-list > p {
+  text-align: center;
+  padding: 1.5rem;
+  color: #666;
+  font-family: 'DNFBitBitv2';
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .comment-item {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
+  animation: fadeIn 0.3s ease-out;
 }
 </style>

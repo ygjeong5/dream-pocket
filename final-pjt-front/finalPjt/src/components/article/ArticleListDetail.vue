@@ -191,110 +191,142 @@ onMounted(async () => {
 
 <style scoped>
 .article-detail {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border: 2px solid #7fb3d5;
+  border-radius: 12px;
+  box-shadow: 0 4px 0 #85929e;
 }
 
 .article-actions {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
+}
+
+.article-actions button {
+  padding: 0.6rem 1.2rem;
+  border: 2px solid #7fb3d5;
+  border-radius: 12px;
+  font-family: 'Pretendard-Regular';
+  font-size: 0.9rem;
+  background: white;
+  color: #2980b9;
+  box-shadow: 0 2px 0 #85929e;
+  transition: all 0.2s ease;
+}
+
+.article-actions button:hover {
+  background: linear-gradient(145deg, #2980b9, #3498db);
+  color: white;
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #85929e;
 }
 
 .article-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 20px;
-}
-
-.like-button {
-  padding: 8px 16px;
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  background-color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.like-button.liked {
-  background-color: #ffe0e0;
-  border-color: #ff4444;
-}
-
-.article-info {
-  display: flex;
-  gap: 20px;
-  color: #666;
-  margin: 15px 0;
+  background: #f8f9fa;
+  padding: 1.2rem;
+  border: 2px solid #7fb3d5;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
 }
 
 .title-category {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
 }
 
-.category-tag {
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  background: #e8eaf6;
-  color: #1a237e;
-  border-radius: 15px;
-  font-size: 0.9rem;
-  align-self: flex-start;
-}
-
-.article-header h2 {
+.title-category h2 {
+  font-family: 'Pretendard-Regular';
+  font-size: 1.5rem;
+  color: #2c3e50;
   margin: 0;
+  font-weight: 600;
+}
+
+.like-button {
+  padding: 0.4rem 0.8rem;
+  border: 2px solid #7fb3d5;
+  border-radius: 8px;
+  font-family: 'Pretendard-Regular';
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.like-button.liked {
+  background: #ff6b6b;
+  color: white;
+  border-color: #ff4444;
+}
+
+.article-content {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  line-height: 1.7;
+  font-family: 'Pretendard-Regular';
+  font-size: 1rem;
+  color: #34495e;
 }
 
 .comments-section {
   margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid #eee;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border: 2px solid #7fb3d5;
+  border-radius: 12px;
+}
+
+.comment-item {
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  font-family: 'Pretendard-Regular';
 }
 
 .comment-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
-}
-
-.comment-author {
-  font-weight: 500;
-}
-
-.comment-date {
-  color: #666;
+  color: #495057;
   font-size: 0.9rem;
-}
-
-.comment-content {
-  margin: 0;
-  line-height: 1.5;
+  margin-bottom: 0.5rem;
 }
 
 .login-message {
   text-align: center;
+  color: #495057;
+  font-family: 'Pretendard-Regular';
   margin-top: 1rem;
-  padding: 1rem;
-  background: #f5f5f5;
-  border-radius: 8px;
 }
 
 .login-message a {
-  color: #1a237e;
-  text-decoration: none;
-  font-weight: 500;
+  color: #2980b9;
+  text-decoration: underline;
 }
 
-.login-message a:hover {
-  text-decoration: underline;
+.article-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  margin: 1rem 0;
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+  font-family: 'Pretendard-Regular';
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.article-info p {
+  margin: 0;
+}
+
+.article-info .author {
+  font-weight: 500;
+  color: #2980b9;
 }
 </style>
