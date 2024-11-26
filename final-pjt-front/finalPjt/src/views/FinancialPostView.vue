@@ -11,7 +11,7 @@
         :class="['tab-button', { active: activeTab === 'education' }]" 
         @click="switchTab('education')"
       >
-        온라인 교육
+        유튜브 교육
       </button>
     </div>
 

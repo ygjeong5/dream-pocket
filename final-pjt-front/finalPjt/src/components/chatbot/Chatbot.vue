@@ -106,10 +106,10 @@ const chatSubmit = () => {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   background: white;
   border-radius: 20px;
-  padding: 2rem;
+  padding: 1.5rem;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
@@ -140,13 +140,13 @@ const chatSubmit = () => {
 
 .chat-area {
   flex: 1;
-  min-height: 400px;
-  max-height: 600px;
+  min-height: 300px;
+  max-height: 400px;
   overflow-y: auto;
-  padding: 1.5rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.8rem;
   background: linear-gradient(145deg, #f8f9fa, #e8f1f8);
   border-radius: 15px;
 }
@@ -183,11 +183,11 @@ const chatSubmit = () => {
 .chat-input-container {
   display: flex;
   gap: 1rem;
-  padding: 1rem;
+  padding: 0.8rem;
   background: white;
   border-radius: 15px;
-  border: 3px solid #7fb3d5;
-  box-shadow: 0 4px 0 #85929e;
+  border: 3px solid #88C9F2;
+  box-shadow: 0 4px 0 #a5c6e1;
 }
 
 .chat-input {
