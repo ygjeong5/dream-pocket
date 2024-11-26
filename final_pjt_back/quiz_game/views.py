@@ -12,8 +12,11 @@ import random
 @permission_classes([AllowAny])
 def random_quiz(request, count):
     try:
-        level = request.GET.get('level', 'beginner')  # 기본값은 초급
-        total_quizzes = Quiz.objects.filter(level=level)
+        level = request.GET.get('level', 'beginner')
+        total_quizzes = Quiz.objects.filter(level__iexact=level)
+        
+        print(f"Requested level: {level}")
+        print(f"Found quizzes: {total_quizzes.count()}")
         
         if not total_quizzes.exists():
             return Response(
@@ -23,6 +26,10 @@ def random_quiz(request, count):
         
         available_count = min(total_quizzes.count(), count)
         random_quizzes = random.sample(list(total_quizzes), available_count)
+        
+        for quiz in random_quizzes:
+            print(f"Selected quiz - ID: {quiz.id}, Level: {quiz.level}, Title: {quiz.title}")
+            
         serializer = QuizSerializer(random_quizzes, many=True)
         return Response(serializer.data)
         
