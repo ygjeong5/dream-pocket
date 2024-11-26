@@ -66,6 +66,7 @@ const closeGame = () => {
   margin: 2rem auto;
   padding: 2rem;
   font-family: 'DNFBitBitv2';
+  padding-top: 100px;
 }
 
 .game-header {

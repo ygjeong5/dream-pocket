@@ -1,7 +1,9 @@
 <template>
   <div class="mainpage">
-    <div class="container">
-      <div>
+    <div class="search-container">
+      <h2>🏦 주변 은행 찾기</h2>
+      
+      <div class="form-group">
         <label>검색하고 싶은 은행:</label>
         <select id="bankSelector" v-model="selectedBank">
           <option value="" disabled selected>은행을 선택하세요</option>
@@ -12,18 +14,18 @@
           <option value="우리은행">우리은행</option>
           <option value="NH농협은행">NH농협은행</option>
         </select>
-        <button onclick="confirmBank()">확인</button>
       </div>
 
-      <div>
+      <div class="form-group">
         <label>장소 검색:</label>
-        <input type="text" v-model="placeKeyword" placeholder="장소를 입력하세요" />
-        <button @click="searchPlace">검색</button>
+        <div class="search-input">
+          <input type="text" v-model="placeKeyword" placeholder="장소를 입력하세요" />
+          <button @click="searchPlace" class="search-button">검색</button>
+        </div>
       </div>
     </div>
 
-    <!-- 카카오 지도 -->
-    <KakaoMap width=98% :height="1000" :lat="centerLat" :lng="centerLng" @onLoadKakaoMap="onLoadKakaoMap">
+    <KakaoMap width=70% :height="500" :lat="centerLat" :lng="centerLng" @onLoadKakaoMap="onLoadKakaoMap">
       <KakaoMapMarker
         v-for="(marker, index) in markerList"
         :key="marker.key === undefined ? index : marker.key"
@@ -37,7 +39,6 @@
     </KakaoMap>
   </div>
 </template>
-
 
 <script setup lang="ts">
 import { KakaoMap, KakaoMapMarker, type KakaoMapMarkerListItem } from 'vue3-kakao-maps';
@@ -209,7 +210,7 @@ watch(selectedBank, (newValue, oldValue) => {
 
 
 <style scoped>
-.mainpage{
+.mainpage {
   padding: 10px;
   padding-top: 20px;
   display: flex;
@@ -217,80 +218,68 @@ watch(selectedBank, (newValue, oldValue) => {
   margin: 10px;
 }
 
-
-.container {
+.search-container {
   position: absolute;
   top: 20px;
-  right: 40px;
+  right: 5%;
   z-index: 10;
   width: 350px;
-  background: linear-gradient(145deg, #e8f1f8, #d4e6f1);
-  padding: 20px;
-  border-radius: 15px;
-  border: 3px solid #2980b9;
-  box-shadow: 0 4px 0 #85929e;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  
-}
-
-.container > div {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-
-
-label {
-  font-family: 'DNFBitBitv2';
-  font-size: 1.1rem;
-  background: linear-gradient(to left top, #2980b9, #3498db);
-  -webkit-background-clip: text;
-  -webkit-text-stroke: 1px rgba(39, 54, 154, 0.5);
-  color: transparent;
-}
-
-select {
-  width: 100%;
-  padding: 8px 12px;
-  border: 2px solid #7fb3d5;
-  border-radius: 8px;
-  margin: 5px 0;
-  font-family: 'Pretendard-Regular';
-  box-shadow: 0 2px 0 #85929e;
-}
-
-button {
-  width: 100%;
-  padding: 8px 12px;
   background: white;
-  border: 2px solid #7fb3d5;
-  border-radius: 8px;
-  color: #2980b9;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.search-container h2 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
   font-family: 'DNFBitBitv2';
-  cursor: pointer;
-  transition: all 0.2s ease;
 }
 
-button:hover {
-  background: linear-gradient(145deg, #2980b9, #3498db);
-  color: white;
+.form-group {
+  margin-bottom: 1.5rem;
 }
 
-input[type="text"] {
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  font-family: 'DNFBitBitv2';
+}
+
+select, input {
   width: 100%;
-  padding: 8px 12px;
-  border: 2px solid #7fb3d5;
-  border-radius: 8px;
-  margin: 5px 0;
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  background: white;
+  margin-bottom: 0.5rem;
   font-family: 'Pretendard-Regular';
-  box-shadow: 0 2px 0 #85929e;
+}
+
+.search-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search-button {
+  padding: 0.8rem 1.5rem;
+  background: #88C9F2;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'DNFBitBitv2';
+}
+
+.search-button:hover {
+  background: #7fb3d5;
 }
 
 @media (max-width: 768px) {
-  .container {
+  .search-container {
     position: relative;
     top: 0;
     right: 0;
@@ -298,7 +287,6 @@ input[type="text"] {
     margin-bottom: 10px;
   }
 }
-
 
 /* 지도 컨테이너 스타일 추가 */
 :deep(.kakao-map-container) {

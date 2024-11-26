@@ -1,5 +1,8 @@
 <template>
   <div class="youtube-view">
+    <div class="title">
+      <h2>금융 교육</h2>
+    </div>
     <div class="video-list">
       <div 
         v-for="video in videos" 
@@ -8,7 +11,12 @@
       >
         <a :href="video.url" target="_blank" rel="noopener noreferrer" class="video-link">
           <div class="video-card">
-            <img :src="video.thumbnail" :alt="video.title" class="video-thumbnail" />
+            <div class="thumbnail-wrapper">
+              <img :src="video.thumbnail" :alt="video.title" class="video-thumbnail" />
+              <div class="play-button">
+                <div class="play-icon">▶</div>
+              </div>
+            </div>
             <div class="video-overlay">
               <div class="video-title">{{ video.title }}</div>
             </div>
@@ -40,38 +48,54 @@ const videos = [
 
 <style scoped>
 .youtube-view {
+  max-width: 1080px;
+  margin: 0 auto;
   padding: 20px;
-  background-color: #f7f9fc;
 }
 
-.page-title {
+.title {
   text-align: center;
-  font-size: 28px;
-  margin-bottom: 30px;
+  width: 100%;
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 1080px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title h2 {
   color: #2c3e50;
-  font-family: 'Pretendard', sans-serif;
+  font-family: 'DNFBitBitv2';
+  font-size: 24px;
+  margin: 0;
 }
 
 .video-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 한 줄에 4개 */
-  gap: 20px;
-  justify-items: center;
+  grid-template-columns: repeat(3, 1fr); /* 4개에서 3개로 변경 */
+  gap: 25px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .video-item {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
   width: 100%;
-  text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background: #fff;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
 }
 
 .video-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-color: #7fb3d5;
 }
 
 .video-link {
@@ -82,13 +106,19 @@ const videos = [
 
 .video-card {
   position: relative;
+  overflow: hidden;
 }
 
 .video-thumbnail {
   width: 100%;
-  height: 250px; /* 카드의 높이를 크게 조정 */
+  height: 180px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px 10px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.video-item:hover .video-thumbnail {
+  transform: scale(1.05);
 }
 
 .video-overlay {
@@ -97,25 +127,68 @@ const videos = [
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease;
-  border-radius: 8px;
-}
-
-.video-card:hover .video-overlay {
-  opacity: 1;
 }
 
 .video-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: #fff;
   text-align: center;
-  margin-top: 10px;
-  padding: 10px;
+  padding: 15px;
+  font-family: 'DNFBitBitv2';
+}
+
+.video-item:hover .video-overlay {
+  opacity: 1;
+}
+
+.thumbnail-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.play-icon {
+  color: #3b82f6;
+  font-size: 24px;
+  margin-left: 4px;
+}
+
+.video-item:hover .play-button {
+  opacity: 1;
+}
+
+@media (max-width: 1200px) {
+  .video-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .video-list {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
