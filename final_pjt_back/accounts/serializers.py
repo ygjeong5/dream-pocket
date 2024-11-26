@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'age', 'gender', 'goal_amount', 'products')
+        fields = ('id', 'username', 'age', 'gender', 'goal_amount', 'products', 'point')
 
 
 class LedgerSerializer(serializers.ModelSerializer):

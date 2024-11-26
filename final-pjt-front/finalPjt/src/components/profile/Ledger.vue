@@ -72,7 +72,7 @@ const newLedger = ref({
     amount: '',
     description: '',
 })
-
+const userInfo = ref({})
 // 가계부 항목 가져오기
 const fetchLedgers = () => {
     axios({
@@ -87,6 +87,19 @@ const fetchLedgers = () => {
     })
     .catch(err => {
         console.log('Error fetching ledgers:', err)
+    })
+    axios({
+        method: 'get',
+        url: 'http://127.0.0.1:8000/accounts/user-info/',
+        headers: {
+            Authorization: `Token ${store.token}`,
+        },
+    })
+    .then(res => {
+        userInfo.value = res.data
+    })
+    .catch(err => {
+        console.log(err)
     })
 }
 
@@ -111,6 +124,16 @@ const addLedger = () => {
     })
     .catch(err => {
         console.log('Error adding ledger:', err)
+    })
+    axios({
+        method: 'put',
+        url: 'http://127.0.0.1:8000/accounts/user-info/',
+        headers: {
+            Authorization: `Token ${store.token}`,
+        },
+        data: {
+            point: userInfo.value.point + 10,
+        },
     })
 }
 
