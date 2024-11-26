@@ -24,6 +24,7 @@
             <h3>{{ level.label }}</h3>
             <p>{{ level.description }}</p>
           </div>
+  
         </button>
       </div>
 

@@ -8,14 +8,17 @@
         <div class="post-title answer-column">정답</div>
         <div class="post-title content-column">내용</div>
       </div>
-      <div class="post-list">
-        <div class="post" v-for="(quiz, index) in quizInfo" :key="quiz.id">
-          <div class="post-item no-column">{{ index + 1 }}</div>
-          <div class="post-item answer-column">{{ quiz.title }}</div>
-          <div class="post-item content-column">{{ quiz.body }}</div>
+      <slot>
+
+        <div class="post-list">
+          <div class="post" v-for="(quiz, index) in quizInfo" :key="quiz.id">
+            <div class="post-item no-column">{{ index + 1 }}</div>
+            <div class="post-item answer-column">{{ quiz.title }}</div>
+            <div class="post-item content-column">{{ quiz.body }}</div>
+          </div>
         </div>
+      </slot>
       </div>
-    </div>
   </div>
 </template>
 
