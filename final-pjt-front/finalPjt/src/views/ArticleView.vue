@@ -1,23 +1,27 @@
 <template>
   <div class="article-container">
     <div class="header-section">
-      <h1>게시판</h1>
-      <div class="category-buttons">
-        <button 
-          v-for="category in categories" 
-          :key="category.value"
-          :class="['category-btn', { active: currentCategory === category.value }]"
-          @click="filterByCategory(category.value)"
-        >
-          {{ category.name }}
-        </button>
+      <div class="header-left">
+        <h1>게시판</h1>
       </div>
-      <RouterLink v-if="store.token" :to="{ name: 'ArticleCreate' }">
-        <button class="create-btn">게시글 작성</button>
-      </RouterLink>
-      <RouterLink v-else :to="{ name: 'LogInView' }">
-        <button class="create-btn">로그인하고 글쓰기</button>
-      </RouterLink>
+      <div class="header-right">
+        <div class="category-buttons">
+          <button 
+            v-for="category in categories" 
+            :key="category.value"
+            :class="['category-btn', { active: currentCategory === category.value }]"
+            @click="filterByCategory(category.value)"
+          >
+            {{ category.name }}
+          </button>
+        </div>
+        <RouterLink v-if="store.token" :to="{ name: 'ArticleCreate' }">
+          <button class="create-btn">게시글 작성</button>
+        </RouterLink>
+        <RouterLink v-else :to="{ name: 'LogInView' }">
+          <button class="create-btn">로그인하고 글쓰기</button>
+        </RouterLink>
+      </div>
     </div>
 
     <div v-if="filteredArticles.length > 0" class="article-list">
@@ -186,38 +190,178 @@ onMounted(async () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-  background: #e8f1f8;
-  padding: 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 0 #7fb3d5;
+  background: linear-gradient(145deg, #e8f1f8, #d4e6f1);
   border: 3px solid #2980b9;
+  border-radius: 15px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 6px 0 #85929e;
+  margin-bottom: 2rem;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .header-section h1 {
-  font-family: 'DNFBitBitv2', sans-serif;
+  font-family: 'DNFBitBitv2';
   font-size: 2.5rem;
-  margin: 0;
-  color: transparent;
-  background: linear-gradient(to left top, #1E90FF, #00bfff);
+  background: linear-gradient(to left top, #2980b9, #3498db);
   -webkit-background-clip: text;
-  -webkit-text-stroke: 2px #1e90ff;
+  -webkit-text-stroke: 2px rgba(39, 54, 154, 0.726);
+  color: transparent;
+  animation: titleFloat 3s ease-in-out infinite;
+}
+
+@keyframes titleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.category-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  background: white;
+  border: 3px solid #7fb3d5;
+  color: #2980b9;
+  border-radius: 19px;
+  padding: 8px 16px;
+  font-family: 'DNFBitBitv2';
+  font-size: 14px;
+  box-shadow: 0 4px 0 #85929e;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.category-btn:hover::before {
+  left: 100%;
+}
+
+.category-btn:hover, .category-btn.active {
+  background: linear-gradient(145deg, #2980b9, #3498db);
+  color: white;
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #85929e;
+}
+
+.article-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  background: white;
+  border: 3px solid #7fb3d5;
+  border-radius: 15px;
+  padding: 1.2rem 2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 6px 0 #85929e;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.article-item::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 50%);
+  opacity: 0;
+  transition: 0.5s;
+  transform: scale(0.5);
+}
+
+.article-item:hover::after {
+  opacity: 0.3;
+  transform: scale(1);
+}
+
+.article-item:hover {
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 #85929e;
+  border-color: #2980b9;
+}
+
+.category-tag {
+  background: linear-gradient(145deg, #2980b9, #3498db);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-family: 'DNFBitBitv2';
+  font-size: 0.9rem;
+  box-shadow: 0 2px 0 #85929e;
+  animation: tagPulse 2s infinite;
+}
+
+@keyframes tagPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 .create-btn {
   background: linear-gradient(145deg, #2980b9, #3498db);
   color: white;
-  border: none;
+  border: 3px solid #7fb3d5;
   padding: 0.8rem 1.5rem;
   border-radius: 19px;
   font-family: 'DNFBitBitv2';
   font-size: 15px;
   cursor: pointer;
-  transition: all 0.2s ease;
   box-shadow: 0 4px 0 #1a5f7a;
-  border: 3px solid #7fb3d5;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.create-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.create-btn:hover::before {
+  left: 100%;
 }
 
 .create-btn:hover {
@@ -225,119 +369,52 @@ onMounted(async () => {
   box-shadow: 0 2px 0 #145999;
 }
 
-.category-btn {
-  padding: 0.5rem 1rem;
-  border: 3px solid #87ceeb;
-  border-radius: 19px;
-  background: white;
-  color: #1E90FF;
-  font-family: 'DNFBitBitv2';
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 0 #5a5d68;
-}
-
-.category-btn.active {
-  background: linear-gradient(145deg, #1E90FF, #1a75cc);
-  color: white;
-  border-color: transparent;
-  box-shadow: 0 4px 0 #145999;
-}
-
-.category-btn:hover {
-  transform: translateY(2px);
-  box-shadow: 0 2px 0 #5a5d68;
-}
-
-.article-item {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 3px solid #7fb3d5;
-  box-shadow: 0 6px 0 #85929e;
-  margin-bottom: 8px;
-}
-
-.article-item:hover {
-  transform: translateY(2px);
-  box-shadow: 0 4px 0 #d0d0d0;
-  border-color: #2980b9;
-}
-
-.article-content h3 {
-  font-family: 'DNFBitBitv2';
-  color: #34343f;
-  margin: 0.5rem 0;
-  font-size: 1.2rem;
-}
-
-.category-tag {
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  background: linear-gradient(145deg, #e8eaf6, #c5cae9);
-  color: #1a237e;
-  border-radius: 15px;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  font-family: 'DNFBitBitv2';
-  box-shadow: 0 2px 0 #b2b5cc;
-}
-
-.stats-info {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-family: 'DNFBitBitv2';
-}
-
-/* 페이지네이션 스타일 수정 */
-.page-btn, .page-num-btn {
-  border: 3px solid #767c8b;
-  border-radius: 19px;
-  background: white;
-  color: #767c8b;
-  font-family: 'DNFBitBitv2';
-  padding: 0.5rem 1rem;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 0 #5a5d68;
-}
-
-.page-btn:hover:not(:disabled), 
-.page-num-btn:hover:not(.active) {
-  transform: translateY(2px);
-  box-shadow: 0 2px 0 #5a5d68;
-  background: linear-gradient(145deg, #1E90FF, #1a75cc);
-  color: white;
-  border-color: transparent;
-}
-
-.page-num-btn.active {
-  background: linear-gradient(145deg, #1E90FF, #1a75cc);
-  color: white;
-  border-color: transparent;
-  box-shadow: 0 4px 0 #145999;
-}
-
-/* 좋아요/댓글 아이콘 스타일 */
-.like-info, .comment-info {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background: #f5f5f5;
-  padding: 0.3rem 0.8rem;
-  border-radius: 15px;
-  box-shadow: 0 2px 0 #e0e0e0;
-}
-
 .empty-state {
   text-align: center;
   font-family: 'DNFBitBitv2';
   color: #767c8b;
-  padding: 2rem;
-  background: #f5f5f5;
-  border-radius: 12px;
-  box-shadow: 0 4px 0 #e0e0e0;
+  padding: 3rem;
+  background: linear-gradient(145deg, #f5f7fa, #e3e6ed);
+  border-radius: 15px;
+  box-shadow: 0 6px 0 #d1d4db;
+  animation: emptyStateFloat 3s ease-in-out infinite;
+}
+
+@keyframes emptyStateFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.article-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stats-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.page-numbers {
+  display: flex;
+  gap: 0.5rem;
 }
 </style>

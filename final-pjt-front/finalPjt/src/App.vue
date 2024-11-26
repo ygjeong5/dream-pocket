@@ -22,10 +22,12 @@
             </div> 
             <div class="logIn">
               <button type="button" class="logInBtn" @mouseover="changeColor" @mouseout="resetColor">
+
                 <RouterLink :to="{ name: 'LogInView'}">로그인</RouterLink>
               </button>
             </div>
           </div>        
+          
           <div id="afterLogIn" v-if="store.isLogin">
             <div class="profile">
               <RouterLink :to="{ name: 'ProfileView' }">회원정보</RouterLink>
@@ -82,7 +84,9 @@
           </ul>
         </div>
         <div class="navItem">
-          <RouterLink :to="{ name: 'ArticleView'}">게시판</RouterLink>
+          <span>
+            <RouterLink :to="{ name: 'ArticleView'}">게시판</RouterLink>
+          </span>
         </div>
       </div>
     </nav>
@@ -132,7 +136,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 20px;
-  height: 100px;
+  height: 110px;
   width: 1080;
   padding-bottom: 0;
   background: #e8f1f8;
@@ -220,7 +224,9 @@
 }
 
 .signUp a:hover, .profile a:hover{
-  color: #1e40ff;
+  color: #2980b9;
+  font-weight: 1000;
+  font-size: 16px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -262,45 +268,64 @@
   top: 0; 
   z-index: 1001; 
   background: linear-gradient(145deg, #e8f1f8, #d4e6f1);
-  width: 800px;
-  min-width: 100%;
+  width: 100%;
+  min-width: 1000px;
   border: none;
   border-bottom: 3px solid #7fb3d5;
   height: 70px;
   padding: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
 }
 
 .navContainer {
-  display: flex; /* Makes navigation items align horizontally */
-  gap: 20px; /* Adds space between navigation items */
-  text-align: center;
-  width: 100%;
-  justify-content: center; /* Centers items horizontally */
-  align-items: center; /* Ensures vertical alignment */
-  height: 100%; /* Ensures nav items take full height of the navbar */
+  display: flex;
+  width: 1080px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0;
 }
 
-.navItem{
+.navItem {
   position: relative;
-  padding: 0 10px;
-  cursor: pointer;
-  height: 100%; /* 기본 높이를 유지 */
+  height: 100%;
   display: flex;
-  align-items: center; /* 텍스트 수직 정렬 */
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+}
+
+.navItem span {
+  padding: 0 50px;
+  color: #34343f;
+  font-family: 'DNFBitBitv2';
+  font-size: 15px;
+  font-weight: 400;
+  height: 100%;
+  line-height: 4.5;
+  min-width: 192px;
+  transition: color 0.3s ease;
+  text-align: center;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .navItem ul {
-  display: none; /* 기본적으로 숨김 */
-  position: absolute; /* 부모(navItem) 기준으로 위치 */
-  top: 100%; /* 부모 아래에 위치 */
-  left: 0;
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #f8f9fa;
-  list-style-type: none; /* 리스트 스타일 제거 */
+  list-style-type: none;
   padding: 10px 0;
   margin: 0;
-  width: 100%;
-  z-index: -1; /* 다른 요소 위에 표시되도록 */
+  width: 192px;
+  z-index: 1002;
   border: 3px solid #7fb3d5;
   border-radius: 0 0 15px 15px;
   box-shadow: 0 4px 0 #85929e;
@@ -310,58 +335,49 @@
   padding: 10px 20px;
   color: #34343f;
   font-family: 'DNFBitBitv2';
-  font-size: 14px;
-  white-space: nowrap; /* 긴 텍스트가 줄바꿈되지 않도록 설정 */
+  font-size: 15px;
+  white-space: nowrap;
   transition: all 0.2s ease;
+  text-align: center;
+  width: 100%;
 }
 
-.navItem ul li:hover {
-  background: linear-gradient(145deg, #2980b9, #3498db);
-  color: white;
+.navItem ul li a {
+  color: #34343f;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: block;
+  text-align: center;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .navItem:hover ul {
-  display: block; /* 드롭다운 메뉴 표시 */
+  display: block;
 }
 
 .navContainer a {
-  display: flex;
-  justify-self: center;
-  padding: 0 50px;
   text-decoration: none;
   color: #34343f;
-  font-family:'DNFBitBitv2' ;
+  font-family: 'DNFBitBitv2';
   font-size: 15px;
   font-weight: 400;
-  height: 100%;
-  line-height: 4.5;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
+  transition: color 0.3s ease;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .navItem:hover {
-  border-bottom: 5px solid #1E90FF;
+  border-bottom: 6px solid #10467c;
 }
 
-.navItem a:hover {
-  color: #1E90FF;
+.navItem:hover span,
+.navItem:hover a {
+  /* color: #1E90FF; */
   font-size: 16px;
-  transition: color 0.1s ease, font-size 0.1s ease;
+  transition: all 0.1s ease;
 }
 
-.navLeftItem{
-  display: flex;
-  gap: 20px;
-  justify-content: flex-start;
-  height: 100%;
-  
-}
-
-.mainLogo {
-  text-align: center;
-  height: 100%;
-  padding: 0;
-  margin: 0;
-}
 
 .mainContent {
   position: relative; /* 부모 요소에 위치 설정 */
@@ -384,6 +400,26 @@
     height: 2000px;
   }
 
+.navItem span{
+  padding: 0 50px;
+  color: #34343f;
+  font-family: 'DNFBitBitv2';
+  font-size: 15px;
+  font-weight: 400;
+  height: 100%;
+  line-height: 4.5;
+  min-width: 192px;
+  transition: color 0.3s ease;
+}
+
+.navItem:hover span {
+  color: #1E90FF;
+  font-size: 16px;
+  transition: color 0.1s ease, font-size 0.1s ease;
+}
+
+
+
   
 @font-face {
     font-family: 'Pretendard-Regular';
@@ -404,22 +440,5 @@ font-family:'DNFBitBitv2';
 font-style:normal;
 font-weight:400;
 src:url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')}
-
-.navItem span {
-  padding: 0 50px;
-  color: #34343f;
-  font-family: 'DNFBitBitv2';
-  font-size: 15px;
-  font-weight: 400;
-  height: 100%;
-  line-height: 4.5;
-  transition: color 0.3s ease;
-}
-
-.navItem:hover span {
-  color: #1E90FF;
-  font-size: 16px;
-  transition: color 0.1s ease, font-size 0.1s ease;
-}
 
 </style>
