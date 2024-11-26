@@ -1,9 +1,9 @@
 <template>
-  <div class="rate-converter">
-    <h3 class="page-title">환율 변환기</h3>
+  <div class="converter-container">
+    <h2>💱 환율 변환기</h2>
     <div class="form-group">
-      <label for="country" class="form-label">나라 선택:</label>
-      <select v-model="selectedCurrency" id="country" class="form-select">
+      <label>🌏 나라 선택</label>
+      <select v-model="selectedCurrency" class="form-select">
         <option 
           v-for="currency in exchangeList" 
           :key="currency.cur_unit" 
@@ -15,10 +15,9 @@
     </div>
 
     <div class="form-group">
-      <label for="amount" class="form-label">환전할 금액:</label>
+      <label>💵 환전할 금액 (KRW)</label>
       <input 
         type="number" 
-        id="amount" 
         v-model.number="inputAmount" 
         class="form-input"
         placeholder="금액을 입력하세요"
@@ -26,11 +25,13 @@
       />
     </div>
 
-    <div class="result">
-      <h4>환전 결과:</h4>
-      <p v-if="selectedCurrency">
-        {{ inputAmount }} 원 ➡️ {{ convertedAmount }} {{ selectedCurrency.cur_unit }}
-      </p>
+    <div class="result-card" v-if="selectedCurrency">
+      <div class="result-label">환전 결과</div>
+      <div class="result-value">
+        {{ inputAmount.toLocaleString() }} KRW
+        <div class="arrow">➡️</div>
+        {{ convertedAmount }} {{ selectedCurrency.cur_unit }}
+      </div>
     </div>
   </div>
 </template>
@@ -67,67 +68,62 @@ watch(
 </script>
 
 <style scoped>
-.rate-converter {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 30px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.converter-container {
+    color: #2c3e50;
 }
 
-.page-title {
-  text-align: center;
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 20px;
-  font-family: 'Pretendard', sans-serif;
+.converter-container h2 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.5rem;
 }
 
 .form-group {
-  margin-bottom: 20px;
+    margin-bottom: 1.5rem;
 }
 
-.form-label {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 8px;
-  display: inline-block;
-  font-family: 'Pretendard', sans-serif;
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
 }
 
 .form-select,
 .form-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
-  font-family: 'Pretendard', sans-serif;
-  background-color: #fff;
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 .form-select:focus,
 .form-input:focus {
-  border-color: #1e90ff;
-  outline: none;
+    border-color: #88C9F2;
+    outline: none;
 }
 
-.result h4 {
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 10px;
-  font-family: 'Pretendard', sans-serif;
+.result-card {
+    background: linear-gradient(135deg, #88C9F2, #9CD95F);
+    padding: 1.5rem;
+    border-radius: 15px;
+    color: white;
+    margin-top: 1.5rem;
 }
 
-.result p {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  background-color: #f1f8ff;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #87ceeb;
-  text-align: center;
+.result-label {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.result-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.arrow {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
 }
 </style>

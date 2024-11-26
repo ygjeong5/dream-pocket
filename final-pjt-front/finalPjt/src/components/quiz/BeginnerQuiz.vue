@@ -1,5 +1,10 @@
 <template>
   <div class="quiz-content">
+    <!-- 상단 네비게이션 추가 -->
+    <button @click="$emit('game-end')" class="back-btn">
+      레벨 선택으로
+    </button>
+
     <!-- 퀴즈 진행 화면 -->
     <div v-if="!showResult">
       <div class="quiz-header">
@@ -167,19 +172,54 @@ onMounted(() => {
 .quiz-content {
   max-width: 800px;
   margin: 2rem auto;
-  padding: 2rem;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  padding: 2.5rem;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  position: relative;
+  font-family: 'DNFBitBitv2';
 }
 
 .quiz-header {
+  background: linear-gradient(135deg, #6B8CFF, #7D5FFF);
+  padding: 2rem;
+  border-radius: 20px;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #eee;
+}
+
+/* 폰트 설정 추가 */
+@font-face {
+  font-family: 'DNFBitBitv2';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf') format('opentype');
+}
+
+/* 뒤로가기 버튼 추가 */
+.back-btn {
+  position: absolute;
+  top: -3rem;
+  left: 0;
+  padding: 0.8rem 1.2rem;
+  background: white;
+  border: none;
+  border-radius: 16px;
+  color: #2D3436;
+  font-family: 'DNFBitBitv2';
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.back-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(107, 140, 255, 0.15);
 }
 
 .quiz-info h2 {
