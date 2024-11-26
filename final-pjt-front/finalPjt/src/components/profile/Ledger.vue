@@ -28,8 +28,27 @@
             </form>
         </div>
 
-        <div v-if="ledgers.length" class="table-container">
-            <h2>가계부 항목</h2>
+        
+        <h2>가계부 항목</h2>
+        <div class="filter-container">
+            <label for="month">월 선택</label>
+            <select id="month" v-model="selectedMonth" @change="filterLedgers">
+                <option value="">전체</option>
+                <option value="01">1월</option>
+                <option value="02">2월</option>
+                <option value="03">3월</option>
+                <option value="04">4월</option>
+                <option value="05">5월</option>
+                <option value="06">6월</option>
+                <option value="07">7월</option>
+                <option value="08">8월</option>
+                <option value="09">9월</option>
+                <option value="10">10월</option>
+                <option value="11">11월</option>
+                <option value="12">12월</option>
+            </select>
+        </div>
+        <div v-if="filteredLedgers.length" class="table-container">
             <table>
                 <thead>
                     <tr>
@@ -41,7 +60,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="ledger in ledgers" :key="ledger.id">
+                    <tr v-for="ledger in filteredLedgers" :key="ledger.id">
                         <td>{{ ledger.date }}</td>
                         <td>{{ ledger.category === 'income' ? '수입' : '지출' }}</td>
                         <td>{{ ledger.amount }}원</td>
@@ -52,7 +71,11 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="total-amount">
+                <h3>총 금액: {{ totalAmount }}원</h3>
+            </div>
         </div>
+
         <div v-else>
             <p>등록된 가계부 항목이 없습니다.</p>
         </div>
@@ -61,11 +84,12 @@
 
 <script setup>
 import axios from 'axios'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useEggStore } from "@/stores/egg"
 
 const store = useEggStore()
-const ledgers = ref([])
+const ledgers = ref([]) // 전체 가계부 항목
+const filteredLedgers = ref([]) // 필터링된 가계부 항목
 const newLedger = ref({
     date: '',
     category: 'income',
@@ -73,6 +97,8 @@ const newLedger = ref({
     description: '',
 })
 const userInfo = ref({})
+const selectedMonth = ref('') // 선택된 달
+
 // 가계부 항목 가져오기
 const fetchLedgers = () => {
     axios({
@@ -84,22 +110,10 @@ const fetchLedgers = () => {
     })
     .then(res => {
         ledgers.value = res.data
+        filteredLedgers.value = res.data // 초기화 시 모든 항목을 표시
     })
     .catch(err => {
         console.log('Error fetching ledgers:', err)
-    })
-    axios({
-        method: 'get',
-        url: 'http://127.0.0.1:8000/accounts/user-info/',
-        headers: {
-            Authorization: `Token ${store.token}`,
-        },
-    })
-    .then(res => {
-        userInfo.value = res.data
-    })
-    .catch(err => {
-        console.log(err)
     })
 }
 
@@ -115,6 +129,7 @@ const addLedger = () => {
     })
     .then(res => {
         ledgers.value.push(res.data)
+        filteredLedgers.value.push(res.data) // 필터링된 목록에도 추가
         newLedger.value = {
             date: '',
             category: 'income',
@@ -124,16 +139,6 @@ const addLedger = () => {
     })
     .catch(err => {
         console.log('Error adding ledger:', err)
-    })
-    axios({
-        method: 'put',
-        url: 'http://127.0.0.1:8000/accounts/user-info/',
-        headers: {
-            Authorization: `Token ${store.token}`,
-        },
-        data: {
-            point: userInfo.value.point + 10,
-        },
     })
 }
 
@@ -148,11 +153,33 @@ const deleteLedger = (id) => {
     })
     .then(() => {
         ledgers.value = ledgers.value.filter(ledger => ledger.id !== id)
+        filteredLedgers.value = filteredLedgers.value.filter(ledger => ledger.id !== id) // 필터링된 목록에서 삭제
     })
     .catch(err => {
         console.log('Error deleting ledger:', err)
     })
 }
+
+// 필터링된 가계부 항목 업데이트
+const filterLedgers = () => {
+    if (selectedMonth.value) {
+        filteredLedgers.value = ledgers.value.filter(ledger => ledger.date.slice(5, 7) === selectedMonth.value)
+    } else {
+        filteredLedgers.value = [...ledgers.value] // 전체 항목으로 돌아가기
+    }
+}
+
+// 총 금액 계산 (수입은 더하고, 지출은 빼는 방식)
+const totalAmount = computed(() => {
+    return filteredLedgers.value.reduce((sum, ledger) => {
+        if (ledger.category === 'income') {
+            return sum + parseInt(ledger.amount) // 수입은 더함
+        } else if (ledger.category === 'expense') {
+            return sum - parseInt(ledger.amount) // 지출은 뺌
+        }
+        return sum
+    }, 0)
+})
 
 // 페이지 로드 시 가계부 항목 가져오기
 onMounted(() => {
