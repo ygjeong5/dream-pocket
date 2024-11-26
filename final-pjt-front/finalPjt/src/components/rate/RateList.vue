@@ -5,7 +5,20 @@
     </div>
     <RateConverter :exchange-list="exchangeList" />
     <div class="exchange-info">
-      <pre>{{ exchangeList }}</pre>
+      <table>
+        <thead>
+          <tr>
+            <th>통화명</th>
+            <th>환율</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in exchangeList" :key="index">
+            <td>{{ item.cur_nm }}</td>
+            <td>{{ item.deal_bas_r }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -30,7 +43,11 @@ const getExchangRate = function () {
     }
   })
     .then(res => {
-      exchangeList.value = res.data
+      exchangeList.value = res.data.map((item) => ({
+        cur_nm: item.cur_nm, // 통화명
+        deal_bas_r: item.deal_bas_r, // 환율 기준값
+        cur_unit: item.cur_unit // 통화 단위
+      }))
     })
     .catch(err => {
       console.log(err)
@@ -44,9 +61,13 @@ onMounted(() => {
 
 <style scoped>
 .rate-container {
-  max-width: 1200px;
+  max-width: 1136px; /* 너비를 App.vue와 동일하게 설정 */
   margin: 2rem auto;
   padding: 2rem;
+  background: #e8f1f8; /* 배경색을 App.vue와 유사하게 설정 */
+  border-radius: 15px;
+  box-shadow: 0 8px 0 #7fb3d5;
+  border: 3px solid #2980b9;
 }
 
 .rate-header {
@@ -73,9 +94,25 @@ onMounted(() => {
   font-family: 'Pretendard-Regular';
 }
 
-pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  color: #34343f;
+h1 {
+  text-align: center;
+  color: #2980b9;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #f8f9fa;
+  color: #2980b9; /* 제목 색상 설정 */
 }
 </style>
