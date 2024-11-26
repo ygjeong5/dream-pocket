@@ -223,6 +223,7 @@ export const useEggStore = defineStore('egg', () => {
   }
 
   return {
+    API_URL,
     count,
     articles,
     article,

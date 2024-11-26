@@ -25,7 +25,7 @@ import QuizGame from '@/views/QuizGameView.vue'
 import Ledger from '@/components/profile/Ledger.vue'
 import ProductRecommend from '@/views/ProductRecommend.vue'
 import GameView from '@/views/GameView.vue'
-import YoutubeView from '@/views/YoutubeView.vue'
+import Youtube from '@/components/post/Youtube.vue'
 // Define Routes
 
  const router = createRouter({
@@ -166,8 +166,8 @@ import YoutubeView from '@/views/YoutubeView.vue'
     },
     {
       path: '/videos',
-      name: 'YoutubeView',
-      component: YoutubeView,
+      name: 'Youtube',
+      component: Youtube,
     },
   ],  
 })

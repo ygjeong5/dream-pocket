@@ -1,34 +1,15 @@
 <template>
     <div>
-        <h1>금융 정보 게시판</h1>
-
-        <div v-if="posts.length">
-            <h2>게시글 목록</h2>
-            <ul>
-                <li v-for="post in posts" :key="post.id" @click="goToDetail(post.id)" style="cursor: pointer;">
-                    <h3>{{ post.title }}</h3>
-                    <p>{{ post.content }}</p>
-                </li>
-            </ul>
-        </div>
-        <div v-else>
-            <p>게시글이 없습니다.</p>
-        </div>
-
-        <h2>관련 유튜브 영상</h2>
-        <div v-if="videos.length">
-            <ul>
-                <li v-for="video in videos" :key="video.id.videoId">
-                    <a :href="`https://www.youtube.com/watch?v=${video.id.videoId}`" target="_blank">
-                        {{ video.snippet.title }}
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <h2>금융 뉴스</h2>
+        <FinancialNews />
+        <h2>금융 영상</h2>
+        <Youtube />
     </div>
 </template>
 
 <script setup>
+import Youtube from '@/components/post/Youtube.vue'
+import FinancialNews from '@/components/post/FinancialNews.vue'
 import axios from 'axios'
 import { ref, onMounted } from 'vue'
 import { useEggStore } from "@/stores/egg"
@@ -56,32 +37,10 @@ const fetchPosts = () => {
     })
 }
 
-const fetchYouTubeVideos = () => {
-    const apiKey = 'YOUR_YOUTUBE_API_KEY'
-    const defaultQuery = '금융 정보'
-
-    axios({
-        method: 'get',
-        url: `https://www.googleapis.com/youtube/v3/search`,
-        params: {
-            part: 'snippet',
-            q: defaultQuery,
-            type: 'video',
-            key: apiKey
-        }
-    })
-    .then(res => {
-        videos.value = res.data.items || []
-    })
-    .catch(err => {
-        console.log('Error fetching YouTube videos:', err)
-    })
-}
 
 // 페이지 로드 시 초기 데이터 가져오기
 onMounted(() => {
     fetchPosts()
-    fetchYouTubeVideos()
 })
 
 const goToDetail = (id) => {
