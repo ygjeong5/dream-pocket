@@ -25,6 +25,7 @@ import QuizGame from '@/views/QuizGameView.vue'
 import Ledger from '@/components/profile/Ledger.vue'
 import ProductRecommend from '@/views/ProductRecommend.vue'
 import GameView from '@/views/GameView.vue'
+import YoutubeView from '@/views/YoutubeView.vue'
 // Define Routes
 
  const router = createRouter({
@@ -163,6 +164,11 @@ import GameView from '@/views/GameView.vue'
       name: 'GameView',
       component: GameView,
     },
+    {
+      path: '/videos',
+      name: 'YoutubeView',
+      component: YoutubeView,
+    },
   ],  
 })
 
@@ -179,6 +185,7 @@ router.beforeEach((to, from) => {
     'ArticleListDetail',
     'FinancialPostView',
     'FinancialPostDetail',
+    'YoutubeView'  // 게시글 상세 보기도 추가
   ]
 
   // 로그인이 필요한지 체크
