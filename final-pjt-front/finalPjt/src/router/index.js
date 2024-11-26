@@ -25,7 +25,10 @@ import QuizGame from '@/views/QuizGameView.vue'
 import Ledger from '@/components/profile/Ledger.vue'
 import ProductRecommend from '@/views/ProductRecommend.vue'
 import GameView from '@/views/GameView.vue'
-import YoutubeView from '@/views/YoutubeView.vue'
+import IntroduceView from '@/views/IntroduceView.vue'
+import FirstStepFinanceView from '@/views/FirstStepFinanceView.vue'
+import Youtube from '@/components/post/Youtube.vue'
+
 // Define Routes
 
  const router = createRouter({
@@ -36,7 +39,16 @@ import YoutubeView from '@/views/YoutubeView.vue'
     name: 'Home',
     component: MainView,
     },
-    
+    {
+      path: '/introduce',
+      name: 'IntroduceView',
+      component: IntroduceView,
+    },
+    {
+      path: '/first-step-finance',
+      name: 'FirstStepFinanceView',
+      component: FirstStepFinanceView,
+    },
     {
       path: '/signup/license',
       name: 'LicenseView',
@@ -166,8 +178,8 @@ import YoutubeView from '@/views/YoutubeView.vue'
     },
     {
       path: '/videos',
-      name: 'YoutubeView',
-      component: YoutubeView,
+      name: 'Youtube',
+      component: Youtube,
     },
   ],  
 })
@@ -177,6 +189,7 @@ router.beforeEach((to, from) => {
   
   // 로그인 없이 접근 가능한 페이지 목록
   const publicPages = [
+    'IntroduceView',
     'LogInView', 
     'SignUpView', 
     'Home', 

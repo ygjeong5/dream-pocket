@@ -48,8 +48,8 @@
         <div class="navItem">
           <span>페이지 소개</span>
           <ul>
-            <li>DreamPocket이란?</li>
-            <li>금융의 첫걸음</li>
+            <li><RouterLink :to="{ name: 'IntroduceView'}">DreamPocket이란?</RouterLink></li>
+            <li><RouterLink :to="{ name: 'FirstStepFinanceView'}">금융의 첫걸음</RouterLink></li>
           </ul>
         </div>
         <div class="navItem">
@@ -312,6 +312,7 @@
   text-align: center;
   white-space: nowrap;
   display: inline-block;
+
 }
 
 .navItem ul {
