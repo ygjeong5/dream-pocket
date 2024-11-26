@@ -28,7 +28,7 @@ import GameView from '@/views/GameView.vue'
 import IntroduceView from '@/views/IntroduceView.vue'
 import FirstStepFinanceView from '@/views/FirstStepFinanceView.vue'
 import Youtube from '@/components/post/Youtube.vue'
-
+import QuizInfo from '@/components/quiz/QuizInfo.vue'
 // Define Routes
 
  const router = createRouter({
@@ -180,6 +180,11 @@ import Youtube from '@/components/post/Youtube.vue'
       path: '/videos',
       name: 'Youtube',
       component: Youtube,
+    },
+    {
+      path: '/quiz-info',
+      name: 'QuizInfo',
+      component: QuizInfo,
     },
   ],  
 })

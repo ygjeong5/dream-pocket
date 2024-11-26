@@ -62,7 +62,7 @@
         <div class="navItem">
           <span>금융 어드벤처</span>
           <ul>
-            <li>금융 용어 사전</li>
+            <li><RouterLink :to="{ name: 'QuizInfo' }">금융 용어 사전</RouterLink></li>
             <li><RouterLink :to="{ name: 'QuizGame' }">금융 퀴즈</RouterLink></li>
             <li><RouterLink :to="{ name: 'GameView' }">금융 게임</RouterLink></li>
           </ul>
