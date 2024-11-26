@@ -12,11 +12,11 @@
          
        <div class="carousel-inner">
          <div class="carousel-item active " data-bs-interval="8000">
-           <img src="@/assets/mainbanner1.png" alt="mainbanner">
+           <img src="@/assets/test1.png" alt="mainbanner">
          </div>
    
          <div class="carousel-item" data-bs-interval="8000">
-           <img src="@/assets/mainbanner2.png"  alt="mainbanner">
+           <img src="@/assets/test1.png"  alt="mainbanner">
          </div>
          <div class="carousel-item" data-bs-interval="8000">
            <img src="@/assets/test1.png"  alt="mainbanner">
@@ -36,6 +36,27 @@
       
     </div>
   </div>
+  <div class="youtube">
+    <swiper
+    :slidesPerView="6"
+    :spaceBetween="30"
+    :loop="true"
+    :pagination="{
+      clickable: true,
+    }"
+    :navigation="true"
+    :modules="modules"
+    class="mySwiper"
+  > 
+  <swiper-slide>Slide 1</swiper-slide>
+    <swiper-slide>Slide 2</swiper-slide><swiper-slide>Slide 3</swiper-slide>
+    <swiper-slide>Slide 4</swiper-slide><swiper-slide>Slide 5</swiper-slide>
+    <swiper-slide>Slide 6</swiper-slide><swiper-slide>Slide 7</swiper-slide>
+    <swiper-slide>Slide 8</swiper-slide><swiper-slide>Slide 9</swiper-slide>
+  </swiper>
+
+
+  </div>
   <div>chatbot</div>
   <div class="mainContent">
     
@@ -46,13 +67,31 @@
       mypage
     </div>
   </div>
-  <div class="youtube">
-    youtube
-  </div>
 </template>
 
-<script setup>
+<script>
+import { Swiper, SwiperSlide } from 'swiper/vue';
 
+  // Import Swiper styles
+  import 'swiper/css';
+
+  import 'swiper/css/pagination';
+  import 'swiper/css/navigation';
+
+  // import required modules
+  import { Pagination, Navigation } from 'swiper/modules';
+
+  export default {
+    components: {
+      Swiper,
+      SwiperSlide,
+    },
+    setup() {
+      return {
+        modules: [Pagination, Navigation],
+      };
+    },
+  };
 </script>
 
 <style scoped>
@@ -63,13 +102,14 @@
 }
 
 .banner {
-  margin: 0 20px;
+  margin: 20px 10%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .carousel {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -77,11 +117,11 @@
 
 .carousel-inner > .carousel-item {
   text-align: center;
-  width: 80%;
+  /* width: 100%; */
 }
 
 .carousel-item, .carousel-item > img {
-  height: 500px;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -113,7 +153,7 @@
 }
 
 .carousel-control-prev {
-  /* background: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%); */
+  background: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%);
 }
 
 .carousel-control-next {
@@ -126,6 +166,14 @@
 }
 }
 
+.youtube{
+  border: 1px black solid;
+  height: 300px;
+  max-height: 300px;
+  margin: 0 5%;
+  background-color: rgb(61, 61, 63);
+  padding: 20px;
+}
 .mainContent {
   display: flex;
   height: 300px;
@@ -141,8 +189,32 @@
   width: 50%;
 }
 
-.youtube{
-  border: 1px black solid;
-  height: 300px;
+.swiper {
+  width: 100%;
+  height: 100%;
 }
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 </style>
