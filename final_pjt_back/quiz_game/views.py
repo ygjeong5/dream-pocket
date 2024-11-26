@@ -32,3 +32,12 @@ def random_quiz(request, count):
             {"error": f"서버 오류가 발생했습니다: {str(e)}"}, 
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
         )
+
+
+@api_view(['GET'])
+@authentication_classes([])
+@permission_classes([AllowAny])
+def quiz_info(request):
+    serializer = QuizSerializer(Quiz.objects.all(), many=True)
+    return Response(serializer.data)
+
