@@ -43,41 +43,49 @@
     <!-- Nav bar  -->
     <nav class="navbar">
       <div class="navContainer">
-          <div class="navItem ">
-            <RouterLink :to="{ name: 'ArticleView'}">Articles</RouterLink>
-            <ul>
-              <li>금융 뉴스</li>
-              <li>온라인 교육</li>
-              <li>환율이란?</li>
-            </ul>
-          </div>
-          <div class="navItem">
-            <RouterLink :to="{ name: 'LicenseView'}">라이센스</RouterLink>
-            <ul>
-              <li>금융 상식</li>
-              <li>금융 퀴즈</li>
-              <li>금융 게임</li>
-            </ul>
-          </div>
-          <div class="navItem">
-            <RouterLink :to="{ name: 'RateConvertView' }">환율 계산</RouterLink>
-          </div>
-          <div class="navItem">
-            <RouterLink :to="{ name:'ProductsView'}">금융 상품 리스트</RouterLink>
-            <ul>
-              <li>예적금 리스트</li>
-              <li>금융상품 추천</li>
-              <li>가계부 작성</li>
-            </ul>
-          </div>
-          <div class="navItem">
-            <RouterLink :to="{ name: 'QuizGame' }">퀴즈 게임</RouterLink>
-          </div>
-          <div class="navItem">
-            <RouterLink :to="{name: 'map'}">map</RouterLink>
-          </div>
+        <div class="navItem">
+          <span>페이지 소개</span>
+          <ul>
+            <li>DreamPocket이란?</li>
+            <li>금융의 첫걸음</li>
+          </ul>
         </div>
-      </nav>
+        <div class="navItem">
+          <span>경제 탐구하기</span>
+          <ul>
+            <li><RouterLink :to="{ name: 'FinancialPostView'}">금융 뉴스</RouterLink></li>
+            <li><RouterLink :to="{ name: 'FinancialPostView'}">온라인 교육</RouterLink></li>
+          </ul>
+        </div>
+        <div class="navItem">
+          <span>금융 어드벤처</span>
+          <ul>
+            <li>금융 용어 사전</li>
+            <li><RouterLink :to="{ name: 'QuizGame' }">금융 퀴즈</RouterLink></li>
+            <li><RouterLink :to="{ name: 'GameView' }">금융 게임</RouterLink></li>
+          </ul>
+        </div>
+        <div class="navItem">
+          <span>실전 금융</span>
+          <ul>
+            <li><RouterLink :to="{ name: 'map'}">주변 은행 찾기</RouterLink></li>
+            <li><RouterLink :to="{ name: 'ProductsView'}">예적금 둘러보기</RouterLink></li>
+            <li><RouterLink :to="{ name: 'ProductRecommend'}">금융상품 추천받기</RouterLink></li>
+            <li><RouterLink :to="{ name: 'Ledger'}">가계부 작성</RouterLink></li>
+          </ul>
+        </div>
+        <div class="navItem">
+          <span>환율 모험</span>
+          <ul>
+            <li>환율이란?</li>
+            <li><RouterLink :to="{ name: 'RateConvertView' }">환율 계산기</RouterLink></li>
+          </ul>
+        </div>
+        <div class="navItem">
+          <RouterLink :to="{ name: 'ArticleView'}">게시판</RouterLink>
+        </div>
+      </div>
+    </nav>
 
   <div class="mainContent">
     <RouterView/>
@@ -397,5 +405,21 @@ font-style:normal;
 font-weight:400;
 src:url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')}
 
+.navItem span {
+  padding: 0 50px;
+  color: #34343f;
+  font-family: 'DNFBitBitv2';
+  font-size: 15px;
+  font-weight: 400;
+  height: 100%;
+  line-height: 4.5;
+  transition: color 0.3s ease;
+}
+
+.navItem:hover span {
+  color: #1E90FF;
+  font-size: 16px;
+  transition: color 0.1s ease, font-size 0.1s ease;
+}
 
 </style>

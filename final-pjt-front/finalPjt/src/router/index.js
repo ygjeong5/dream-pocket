@@ -174,10 +174,11 @@ router.beforeEach((to, from) => {
     'LogInView', 
     'SignUpView', 
     'Home', 
-    'QuizGame',
     'ArticleView',
     'ArticleList',
-    'ArticleListDetail'  // 게시글 상세 보기도 추가
+    'ArticleListDetail',
+    'FinancialPostView',
+    'FinancialPostDetail',
   ]
 
   // 로그인이 필요한지 체크
