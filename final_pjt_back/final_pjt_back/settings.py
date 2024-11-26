@@ -47,6 +47,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django_extensions',
     'financepost',
     'accounts',
     'finlife',
@@ -71,6 +72,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True
+}
 
 SITE_ID = 1
 
