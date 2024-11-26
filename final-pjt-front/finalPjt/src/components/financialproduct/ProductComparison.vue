@@ -41,5 +41,10 @@ watch(
 </script>
 
 <style scoped>
-
+div {
+  max-width: 1200px;  /* 최대 너비 설정 */
+  margin: 0 auto;     /* 중앙 정렬 */
+  padding: 0 20px;    /* 좌우 여백 */
+  width: 100%;        /* 반응형 너비 */
+}
 </style>

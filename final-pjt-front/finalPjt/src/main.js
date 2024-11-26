@@ -25,6 +25,10 @@ const vuetify = createVuetify({
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { faPiggyBank } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+
 
 // bootstrap
 import 'bootstrap'
@@ -40,11 +44,12 @@ useKakao('5c601815580290a95eddff0a6a13f52c', ['clusterer', 'services', 'drawing'
 import Swiper from 'swiper';
 // import Swiper styles
 import 'swiper/css';
+import { far } from '@fortawesome/free-regular-svg-icons'
 
 
 
 
-library.add(faUserSecret)
+library.add(faUserSecret, faPiggyBank, fas, faUser)
 
 const app = createApp(App)
 

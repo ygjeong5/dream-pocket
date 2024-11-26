@@ -1,84 +1,163 @@
 <template>
-  <div class="products-container">
-    <h1>금융 상품 리스트</h1>
-    <div class="products-nav">
-      <RouterLink :to="{ name:'FinancialProductsView' }" class="product-link">
-        <div class="product-button">
-          <span>예금 상품</span>
+  <div class="products-content">
+    <div class="products-header">
+      <h1>금융 상품 리스트</h1>
+      <div class="header-placeholder"></div>
+    </div>
+
+    <div class="products-grid">
+      <div class="products-section">
+        <div class="list-header">
+          <h2>📋 상품 카테고리</h2>
         </div>
-      </RouterLink>
-      
-      <RouterLink :to="{ name:'SavingProductsView' }" class="product-link">
-        <div class="product-button">
-          <span>적금 상품</span>
+        
+        <div class="products-list">
+          <RouterLink :to="{ name:'FinancialProductsView' }" class="product-link">
+            <div class="product-item">
+              <div class="product-icon">💰</div>
+              <div class="product-info">
+                <span class="product-title">예금 상품</span>
+                <span class="product-desc">안정적인 수익을 원하시나요?</span>
+              </div>
+            </div>
+          </RouterLink>
+          
+          <RouterLink :to="{ name:'SavingProductsView' }" class="product-link">
+            <div class="product-item">
+              <div class="product-icon">🏦</div>
+              <div class="product-info">
+                <span class="product-title">적금 상품</span>
+                <span class="product-desc">목표를 위해 저축하세요</span>
+              </div>
+            </div>
+          </RouterLink>
+          
+          <RouterLink :to="{ name:'ProductComparison'}" class="product-link">
+            <div class="product-item">
+              <div class="product-icon">📊</div>
+              <div class="product-info">
+                <span class="product-title">상품 비교</span>
+                <span class="product-desc">최적의 상품을 찾아보세요</span>
+              </div>
+            </div>
+          </RouterLink>
         </div>
-      </RouterLink>
-      
-      <RouterLink :to="{ name:'ProductComparison'}" class="product-link">
-        <div class="product-button">
-          <span>상품 비교</span>
-        </div>
-      </RouterLink>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 import { RouterLink } from 'vue-router'
-
 </script>
 
 <style scoped>
-.products-container {
-  max-width: 1200px;
+.products-content {
+  max-width: 1400px;
   margin: 2rem auto;
   padding: 2rem;
-  text-align: center;
+  font-family: 'DNFBitBitv2';
 }
 
-h1 {
-  font-family: 'DNFBitBitv2';
-  color: transparent;
-  background: linear-gradient(to left top, #1E90FF, #00bfff);
-  -webkit-background-clip: text;
-  -webkit-text-stroke: 2px #1e90ff;
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  height: 80px;
+}
+
+.products-header h1 {
+  font-size: 2.5rem;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.products-section {
+  min-height: calc(100vh - 200px);
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.list-header {
   margin-bottom: 2rem;
 }
 
-.products-nav {
+.list-header h2 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.products-list {
+  height: 100%;
   display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .product-link {
   text-decoration: none;
 }
 
-.product-button {
+.product-item {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
   background: #f8f9fa;
-  border: 3px solid #7fb3d5;
-  color: #2c3e50;
-  box-shadow: 0 4px 0 #85929e;
-  border-radius: 19px;
-  padding: 1rem 2rem;
-  font-family: 'DNFBitBitv2';
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  min-width: 150px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  border-left: 4px solid #88C9F2;
 }
 
-.product-button:hover {
-  background: linear-gradient(145deg, #2980b9, #3498db);
-  border-color: #7fb3d5;
-  transform: translateY(2px);
-  box-shadow: 0 2px 0 #85929e;
+.product-item:hover {
+  transform: translateX(5px);
+  background: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.product-button span {
-  display: block;
+.product-icon {
+  font-size: 2rem;
+  margin-right: 1.5rem;
+  width: 50px;
   text-align: center;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-title {
+  display: block;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.product-desc {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .products-content {
+    padding: 1rem;
+  }
+  
+  .product-item {
+    padding: 1rem;
+  }
+  
+  .product-icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+}
+
+.header-placeholder {
+  width: 200px;
 }
 </style>

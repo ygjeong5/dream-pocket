@@ -33,30 +33,43 @@
      </div>
     </div>
   </div>
-  <div class="chatbot">
+  <div class="chatbot-section">
     <div class="chatbot-container">
-      챗봇
       <ChatBot/>
     </div>
   </div>
   <div class="mainContent">
-    <div class="ad">
-      <h3>
-        Q.{{ body }}
-      </h3>
-      <RouterLink :to="{ name: 'QuizGame' }">문제풀러 가기</RouterLink>
+    <div class="content-card quiz">
+      <div class="card-icon">❓</div>
+      <div class="card-info">
+        <h3>오늘의 퀴즈</h3>
+        <p class="quiz-question">{{ body }}</p>
+        <RouterLink :to="{ name: 'QuizGame' }" class="card-button">
+          문제풀러 가기
+        </RouterLink>
+      </div>
     </div>
-    <div class="ad">
-      <h3>
-        금융 게임하러 가기
-      </h3>
-      <RouterLink :to="{ name: 'GameView' }">게임</RouterLink>
+
+    <div class="content-card game">
+      <div class="card-icon">🎮</div>
+      <div class="card-info">
+        <h3>금융 게임</h3>
+        <p>재미있게 배우는 금융 게임!</p>
+        <RouterLink :to="{ name: 'GameView' }" class="card-button">
+          게임하러 가기
+        </RouterLink>
+      </div>
     </div>
-    <div class="ad">
-      <h3>
-        주변에 은행 찾으러 가기
-        <RouterLink :to="{name: 'map'}">지도 </RouterLink>
-      </h3>
+
+    <div class="content-card map">
+      <div class="card-icon">🗺️</div>
+      <div class="card-info">
+        <h3>주변 은행 찾기</h3>
+        <p>가까운 은행을 찾아보세요</p>
+        <RouterLink :to="{name: 'map'}" class="card-button">
+          지도 보기
+        </RouterLink>
+      </div>
     </div>
   </div>
   <div class="youtube">
@@ -278,37 +291,38 @@ const modules = [Pagination, Navigation];
 
 .mainContent {
   display: flex;
-  min-height: 300px;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 40px 0;
+  align-items: stretch;
+  gap: 2rem;
+  padding: 3rem 10%;
   background: linear-gradient(145deg, #f8f9fa, #e8f1f8);
 }
 
-.chatbot {
+.chatbot-section {
   width: 100%;
-  padding: 40px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 60px 0;
+  background: linear-gradient(145deg, #2c3e50, #34495e);
+  position: relative;
+  overflow: hidden;
+}
+
+.chatbot-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('@/assets/pattern.png') repeat; /* 필요한 경우 패턴 이미지 추가 */
+  opacity: 0.1;
 }
 
 .chatbot-container {
   width: 80%;
   max-width: 1200px;
-  border: none;
-  border-radius: 15px;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  background: linear-gradient(145deg, #ffffff, #f0f0f0);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .ad {
@@ -442,6 +456,94 @@ const modules = [Pagination, Navigation];
 .youtube {
   margin-left: calc(10% + 50px);
   margin-right: calc(10% + 50px);
+}
+
+.content-card {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #e8f1f8, #d4e6f1);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.card-info {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-info h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin: 0;
+  font-family: 'DNFBitBitv2';
+}
+
+.card-info p {
+  color: #666;
+  margin: 0;
+  flex: 1;
+}
+
+.quiz-question {
+  font-size: 1.1rem;
+  color: #2980b9;
+  font-weight: 500;
+}
+
+.card-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(145deg, #3498db, #2980b9);
+  color: white;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  font-family: 'DNFBitBitv2';
+}
+
+.card-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(145deg, #2980b9, #2472a4);
+}
+
+@media (max-width: 1024px) {
+  .mainContent {
+    flex-direction: column;
+    padding: 2rem 5%;
+  }
+
+  .content-card {
+    width: 100%;
+  }
 }
 
 </style>

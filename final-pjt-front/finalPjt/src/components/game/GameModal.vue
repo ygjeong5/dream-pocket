@@ -1,18 +1,17 @@
 <template>
-    <div class="modal-overlay">
-        <div class="game-modal">
-            <div class="game-frame">
-                <iframe 
-                    :src="gameUrl" 
-                    frameborder="0" 
-                    allowfullscreen
-                ></iframe>
-            </div>
-            <button @click="$emit('close')" class="close-btn">
-                게임 종료
-            </button>
-        </div>
+  <div class="modal">
+    <div class="modal-content">
+      <button class="close-button" @click="$emit('close')">×</button>
+      <iframe 
+        :src="gameUrl" 
+        frameborder="0" 
+        class="game-frame"
+        width="1024"
+        height="768"
+        scrolling="no"
+      ></iframe>
     </div>
+  </div>
 </template>
 
 <script setup>
@@ -27,108 +26,76 @@ defineEmits(['close'])
 </script>
 
 <style scoped>
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
 }
 
-.game-modal {
-    background: white;
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 0 50px rgba(0,0,0,0.3);
-    border: 4px solid #88C9F2;
-    position: relative;
-    width: 95%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  position: relative;
+  width: 90vw;  /* 뷰포트 너비의 90% */
+  height: 90vh; /* 뷰포트 높이의 90% */
+  max-width: 1300px; /* 최대 너비 */
+  max-height: 900px; /* 최대 높이 */
+  display: flex;
+  flex-direction: column;
 }
 
 .game-frame {
-    width: 100%;
-    height: calc(85vh - 100px);
-    overflow: hidden;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
 }
 
-iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    max-width: 1200px;
-    max-height: 800px;
+.close-button {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: #F25E86;
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 3px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.close-btn {
-    position: relative;
-    margin-top: 1.5rem;
-    background: linear-gradient(145deg, #F25E86, #F29F05);
-    color: white;
-    border: none;
-    padding: 0.8rem 1.8rem;
-    border-radius: 12px;
-    font-family: 'DNFBitBitv2';
-    font-size: 1.1rem;
-    cursor: pointer;
-    border: 3px solid #F2B705;
-    box-shadow: 0 4px 0 #F25E86;
-    transition: all 0.3s ease;
-    z-index: 1001;
-    white-space: nowrap;
+.close-button:hover {
+  transform: scale(1.1);
+  background: #ff4d7d;
 }
 
-.close-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 0 #F25E86;
-}
-
-.close-btn::before {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    border-radius: 15px;
-    background: linear-gradient(145deg, #F25E86, #F29F05);
-    z-index: -1;
-    opacity: 0.5;
-}
-
-@media (max-width: 1280px) {
-    .game-frame {
-        height: calc(80vh - 100px);
-    }
+/* 반응형 디자인을 위한 미디어 쿼리 */
+@media (max-width: 1400px) {
+  .modal-content {
+    width: 95vw;
+    height: 95vh;
+  }
 }
 
 @media (max-width: 768px) {
-    .game-modal {
-        width: 98%;
-        padding: 1rem;
-    }
-
-    .game-frame {
-        height: calc(70vh - 80px);
-    }
-
-    .close-btn {
-        margin-top: 1rem;
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
-    }
+  .close-button {
+    top: 10px;
+    right: 10px;
+  }
 }
 </style>

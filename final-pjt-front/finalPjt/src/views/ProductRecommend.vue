@@ -147,7 +147,11 @@ const submitForm = async () => {
 }
 
 .recommender-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
     margin-bottom: 2rem;
+    height: 80px;
 }
 
 .recommender-header h1 {

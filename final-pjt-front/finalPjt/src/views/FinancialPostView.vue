@@ -1,50 +1,80 @@
 <template>
-    <div>
-        <h2>금융 뉴스</h2>
-        <FinancialNews />
-        <h2>금융 영상</h2>
-        <Youtube />
+  <div class="post-container">
+    <div class="tab-container">
+      <button 
+        :class="['tab-button', { active: activeTab === 'news' }]" 
+        @click="switchTab('news')"
+      >
+        금융 뉴스
+      </button>
+      <button 
+        :class="['tab-button', { active: activeTab === 'education' }]" 
+        @click="switchTab('education')"
+      >
+        온라인 교육
+      </button>
     </div>
+
+    <FinancialNews v-show="activeTab === 'news'" />
+    <Youtube v-show="activeTab === 'education'" />
+  </div>
 </template>
 
 <script setup>
-import Youtube from '@/components/post/Youtube.vue'
-import FinancialNews from '@/components/post/FinancialNews.vue'
-import axios from 'axios'
 import { ref, onMounted } from 'vue'
-import { useEggStore } from "@/stores/egg"
-import { useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
+import FinancialNews from '@/components/post/FinancialNews.vue'
+import Youtube from '@/components/post/Youtube.vue'
 
+const route = useRoute()
+const activeTab = ref('news')
 
-const router = useRouter()
-const store = useEggStore()
-const posts = ref([])
-const videos = ref([])
-
-const fetchPosts = () => {
-    axios({
-        method: 'get',
-        url: 'http://127.0.0.1:8000/financial-posts/',
-        headers: {
-            Authorization: `Token ${store.token}`,
-            },
-    })
-    .then(res => {
-        posts.value = res.data
-    })
-    .catch(err => {
-        console.log('Error fetching posts:', err)
-    })
+const switchTab = (tab) => {
+  activeTab.value = tab
 }
 
-
-// 페이지 로드 시 초기 데이터 가져오기
 onMounted(() => {
-    fetchPosts()
+  // URL의 query parameter에 따라 초기 탭 설정
+  if (route.query.tab === 'education') {
+    activeTab.value = 'education'
+  }
 })
+</script>
 
-const goToDetail = (id) => {
-    router.push(`/financial-posts/${id}`) // 상세 페이지로 이동
+<style scoped>
+.post-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-</script>
+.tab-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: flex-end;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  font-family: 'DNFBitBitv2';
+  transition: all 0.3s ease;
+}
+
+.tab-button.active {
+  background-color: #7fb3d5;
+  color: white;
+}
+
+.tab-button:hover {
+  background-color: #e0e0e0;
+}
+
+.tab-button.active:hover {
+  background-color: #6b99b8;
+}
+</style>

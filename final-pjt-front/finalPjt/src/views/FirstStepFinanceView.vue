@@ -126,6 +126,10 @@
 </script>
 
 <style scoped>
+.finance-education-importance * {
+  font-family: ''Pretendard-Regular'';
+}
+
 .finance-education-importance {
   max-width: 1200px;
   min-width: 1000px;
@@ -273,6 +277,12 @@
   src: url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf') format('opentype');
 }
 
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
 .content-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

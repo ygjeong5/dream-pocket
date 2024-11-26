@@ -1,5 +1,8 @@
 <template>
   <div class="news-view">
+    <div class="title">
+      <h2>금융 뉴스</h2>
+    </div>
     <div class="news-list">
       <div 
         v-for="news in newsList" 
@@ -104,38 +107,52 @@ const error = ref(false)
 
 <style scoped>
 .news-view {
+  max-width: 1080px;
+  margin: 0 auto;
   padding: 20px;
-  background-color: #f7f9fc;
 }
 
-.page-title {
+.title {
   text-align: center;
-  font-size: 28px;
-  margin-bottom: 30px;
+  width: 100%;
+  padding: 20px 0;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 1080px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title h2 {
   color: #2c3e50;
-  font-family: 'Pretendard', sans-serif;
+  font-family: 'DNFBitBitv2';
+  font-size: 24px;
+  margin: 0;
 }
 
 .news-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 한 줄에 4개 */
-  gap: 20px;
-  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .news-item {
   width: 100%;
-  text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background: #fff;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
 .news-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-color: #7fb3d5;
 }
 
 .news-link {
@@ -146,34 +163,69 @@ const error = ref(false)
 
 .news-card {
   position: relative;
+  overflow: hidden;
 }
 
 .news-thumbnail {
   width: 100%;
-  height: 200px; /* 카드의 높이 조정 */
+  height: 180px;
   object-fit: cover;
-  border-radius: 8px 8px 0 0;
+  border-radius: 10px 10px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.news-item:hover .news-thumbnail {
+  transform: scale(1.05);
 }
 
 .news-content {
-  padding: 15px;
+  padding: 20px;
 }
 
 .news-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
+  color: #2c3e50;
+  margin-bottom: 12px;
+  font-family: 'DNFBitBitv2';
+  line-height: 1.4;
+  height: 44px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .news-description {
   font-size: 14px;
   color: #666;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  height: 60px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.4;
 }
 
 .news-source {
+  display: inline-block;
   font-size: 12px;
-  color: #999;
+  color: #7fb3d5;
+  padding: 4px 8px;
+  background-color: rgba(127, 179, 213, 0.1);
+  border-radius: 4px;
+}
+
+@media (max-width: 1200px) {
+  .news-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .news-list {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

@@ -436,4 +436,32 @@ const formatAmount = (amount) => {
         position: static;
     }
 }
+
+select, input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: white;
+    font-size: 1rem;
+    font-family: 'DNFBitBitv2';
+    color: #2c3e50;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+select:focus, input:focus {
+    border-color: #88C9F2;
+    box-shadow: 0 0 0 2px rgba(136, 201, 242, 0.1);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
 </style>
