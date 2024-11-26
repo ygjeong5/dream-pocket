@@ -1,31 +1,26 @@
 <template>
   <div>
     <div class="container">
-    <label style="padding-right: 20px;">검색하고 싶은 은행:</label>
-    <select id="bankSelector" v-model="selectedBank">
-      <option value="" disabled selected>은행을 선택하세요</option>
-      <option value="은행">전체검색</option>
-      <option value="KB국민은행">KB국민은행</option>
-      <option value="신한은행">신한은행</option>
-      <option value="하나은행">하나은행</option>
-      <option value="우리은행">우리은행</option>
-      <option value="NH농협은행">NH농협은행</option>
-    </select>
-    <button onclick="confirmBank()">확인</button>
-    {{  selectedBank }}
-  </div>
-    
+      <div>
+        <label>검색하고 싶은 은행:</label>
+        <select id="bankSelector" v-model="selectedBank">
+          <option value="" disabled selected>은행을 선택하세요</option>
+          <option value="은행">전체검색</option>
+          <option value="KB국민은행">KB국민은행</option>
+          <option value="신한은행">신한은행</option>
+          <option value="하나은행">하나은행</option>
+          <option value="우리은행">우리은행</option>
+          <option value="NH농협은행">NH농협은행</option>
+        </select>
+        <button onclick="confirmBank()">확인</button>
+      </div>
 
-    <!-- 장소 검색 입력 폼 -->
-    <div>
-      <label>
-        장소 검색:
+      <div>
+        <label>장소 검색:</label>
         <input type="text" v-model="placeKeyword" placeholder="장소를 입력하세요" />
-      </label>
-      <button @click="searchPlace">검색</button>
+        <button @click="searchPlace">검색</button>
+      </div>
     </div>
-
-  
 
     <!-- 카카오 지도 -->
     <KakaoMap :lat="centerLat" :lng="centerLng" @onLoadKakaoMap="onLoadKakaoMap">
@@ -34,13 +29,12 @@
         :key="marker.key === undefined ? index : marker.key"
         :lat="marker.lat"
         :lng="marker.lng"
-        :infoWindow= marker.infoWindow
+        :infoWindow="marker.infoWindow"
         :clickable="true"
         @mouseOverKakaoMapMarker="mouseOverKakaoMapMarker(marker)"
         @mouseOutKakaoMapMarker="mouseOutKakaoMapMarker(marker)"
       />
     </KakaoMap>
-
   </div>
 </template>
 
@@ -216,84 +210,101 @@ watch(selectedBank, (newValue, oldValue) => {
 
 <style scoped>
 .container {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 1rem;
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  z-index: 10;
+  width: 350px;
+  background: linear-gradient(145deg, #e8f1f8, #d4e6f1);
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px solid #2980b9;
+  box-shadow: 0 4px 0 #85929e;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
+
+.container > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
 
 label {
   font-family: 'DNFBitBitv2';
-  color: #34343f;
-  margin-right: 1rem;
+  font-size: 1.1rem;
+  background: linear-gradient(to left top, #2980b9, #3498db);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 1px rgba(39, 54, 154, 0.5);
+  color: transparent;
 }
 
 select {
-  padding: 0.5rem 1rem;
-  border: 3px solid #87ceeb;
-  border-radius: 10px;
-  background: white;
-  font-family: 'DNFBitBitv2';
-  cursor: pointer;
-  box-shadow: 0 4px 0 #add8e6;
-  transition: all 0.2s ease;
-}
-
-select:focus {
-  outline: none;
-  border-color: #1E90FF;
-  box-shadow: 0 4px 0 #145999;
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #7fb3d5;
+  border-radius: 8px;
+  margin: 5px 0;
+  font-family: 'Pretendard-Regular';
+  box-shadow: 0 2px 0 #85929e;
 }
 
 button {
-  padding: 0.5rem 1.5rem;
-  background: linear-gradient(145deg, #00bfff, #1E90FF);
-  border: 3px solid #87ceeb;
-  border-radius: 19px;
-  color: white;
+  width: 100%;
+  padding: 8px 12px;
+  background: white;
+  border: 2px solid #7fb3d5;
+  border-radius: 8px;
+  color: #2980b9;
   font-family: 'DNFBitBitv2';
   cursor: pointer;
-  box-shadow: 0 4px 0 #145999;
   transition: all 0.2s ease;
-  margin-left: 1rem;
 }
 
 button:hover {
-  transform: translateY(2px);
-  box-shadow: 0 2px 0 #145999;
+  background: linear-gradient(145deg, #2980b9, #3498db);
+  color: white;
 }
 
 input[type="text"] {
-  padding: 0.5rem 1rem;
-  border: 3px solid #87ceeb;
-  border-radius: 10px;
-  background: white;
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #7fb3d5;
+  border-radius: 8px;
+  margin: 5px 0;
   font-family: 'Pretendard-Regular';
-  box-shadow: 0 4px 0 #add8e6;
-  transition: all 0.2s ease;
-  margin-right: 0.5rem;
+  box-shadow: 0 2px 0 #85929e;
 }
 
-input[type="text"]:focus {
-  outline: none;
-  border-color: #1E90FF;
-  box-shadow: 0 4px 0 #145999;
+@media (max-width: 768px) {
+  .container {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 
-/* 검색 컨테이너 */
-.search-container {
-  background: #f0f8ff;
-  padding: 1.5rem;
+
+/* 지도 컨테이너 스타일 추가 */
+:deep(.kakao-map-container) {
+  width: 100% !important;  /* 지도 너비 조정 */
+  height: 80vh !important;  /* 지도 높이 조정 */
+  margin: 40px auto !important;  /* 상하 여백과 가운데 정렬 */
   border-radius: 15px;
-  box-shadow: 0 8px 0 #add8e6;
-  margin-bottom: 2rem;
+  border: 3px solid #2980b9;
+  box-shadow: 0 6px 0 #85929e;
 }
 
-/* 지도 컨테이너 */
-.map-container {
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  margin-top: 1rem;
+@media (max-width: 768px) {
+  :deep(.kakao-map-container) {
+    width: 95% !important;
+    height: 70vh !important;
+  }
 }
 </style>
 
