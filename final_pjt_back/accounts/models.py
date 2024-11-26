@@ -14,6 +14,7 @@ class User(AbstractUser):
     gender = models.IntegerField(choices=GENDER_CHOICES, default=0)
     goal_amount = models.IntegerField(blank=True, null=True)
     products = models.ManyToManyField(FinancialProducts, blank=True)
+    point = models.IntegerField(default=0)
 
 
 class Ledger(models.Model):

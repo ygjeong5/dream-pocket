@@ -1,80 +1,101 @@
 <template>
   <div class="profile-container">
     <div class="profile-card">
-      <h2>프로필 정보</h2>
+      <h2>프로필</h2>
       <div class="profile-info">
         <div class="info-group">
           <label>사용자 이름</label>
           <p>{{ userInfo.username }}</p>
         </div>
-        <!-- 필요한 다른 사용자 정보 필드들 추가 -->
+        <div class="info-group">
+          <label>나이</label>
+          <p>{{ userInfo.age || '정보 없음' }}</p>
+        </div>
+        <div class="info-group">
+          <label>성별</label>
+          <p>{{ genderLabel }}</p>
+        </div>
+        <div class="info-group">
+          <label>목표 금액</label>
+          <p>{{ userInfo.goal_amount ? `${userInfo.goal_amount.toLocaleString()} 원` : '설정되지 않음' }}</p>
+        </div>
+        <div class="info-group">
+          <label>포인트</label>
+          <p>{{ userInfo.point }}</p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-defineProps({
-  userInfo: Object
+import { computed } from 'vue';
+import { ref } from 'vue'
+
+const props = defineProps({
+  userInfo: Object,
+})
+
+const genderLabel = computed(() => {
+  const genderMap = { 0: '미지정', 1: '남성', 2: '여성' }
+  return genderMap[props.userInfo.gender] || '미지정'
 })
 </script>
 
 <style scoped>
 .profile-container {
-  max-width: 800px;
-  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #d3cce3, #e9e4f0);
   padding: 2rem;
 }
 
 .profile-card {
-  background: #e8f1f8;
-  border: 3px solid #2980b9;
+  background: white;
+  border: 1px solid #ddd;
   border-radius: 15px;
-  padding: 2rem;
-  box-shadow: 0 8px 0 #7fb3d5;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
 }
 
 h2 {
-  font-family: 'DNFBitBitv2';
-  text-align: center;
-  margin-bottom: 2rem;
-  color: transparent;
-  background: linear-gradient(to left top, #2980b9, #3498db);
-  -webkit-background-clip: text;
-  -webkit-text-stroke: 2px #1a5f7a;
-  border-bottom: 3px solid #7fb3d5;
-  padding-bottom: 1rem;
+  font-family: 'Pretendard-Bold';
+  font-size: 1.8rem;
+  color: #34495e;
+  margin-bottom: 1.5rem;
 }
 
 .profile-info {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
 .info-group {
-  background: white;
-  border: 3px solid #7fb3d5;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 4px 0 #85929e;
+  text-align: left;
 }
 
 label {
   display: block;
-  font-family: 'DNFBitBitv2';
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
   font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-bottom: 0.4rem;
+  font-family: 'Pretendard-Medium';
 }
 
 p {
+  font-size: 1rem;
   font-family: 'Pretendard-Regular';
   color: #2c3e50;
-  margin: 0;
-  font-size: 1.1rem;
-  padding: 0.5rem;
   background: #f8f9fa;
-  border-radius: 5px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.8rem;
+  margin: 0;
 }
 </style>

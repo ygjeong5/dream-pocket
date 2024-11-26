@@ -88,6 +88,7 @@ const showResult = ref(false)        // 결과 화면 표시 여부
 const correctAnswers = ref(0)        // 맞힌 문제 개수
 const showAnswer = ref(false)      // 정답 공개 여부
 const wrongAnswers = ref([])       // 틀린 문제 목록
+const userInfo = ref({})
 
 
 const loadQuizzes = async () => {
@@ -145,11 +146,38 @@ const submitAnswer = async (answer) => {
     userAnswer.value = ''
   } else {
     showResult.value = true
+    updateUserPoint()
   }
+}
+
+const updateUserPoint = () => {
+  axios({
+    method: 'put',
+    url: 'http://127.0.0.1:8000/accounts/user-info/',
+    headers: {
+      Authorization: `Token ${store.token}`,
+    },
+    data: {
+      point: userInfo.value.point + Math.floor(score.value / 2),
+    },
+  })
 }
 
 onMounted(() => {
   loadQuizzes()
+  axios({
+    method: 'get',
+    url: 'http://127.0.0.1:8000/accounts/user-info/',
+    headers: {
+      Authorization: `Token ${store.token}`,
+    },
+  })
+    .then(res => {
+      userInfo.value = res.data
+    })
+    .catch(err => {
+      console.log(err)
+    })
 })
 </script>
 

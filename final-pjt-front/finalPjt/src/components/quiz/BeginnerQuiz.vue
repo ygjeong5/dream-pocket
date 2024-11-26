@@ -63,6 +63,7 @@ import { useEggStore } from '@/stores/egg'
 const emit = defineEmits(['game-end'])
 const store = useEggStore()
 
+const userInfo = ref({})
 const quizzes = ref([])
 const currentQuizIndex = ref(0)
 const score = ref(0)
@@ -127,11 +128,38 @@ const submitAnswer = async (answer) => {
     userAnswer.value = ''
   } else {
     showResult.value = true
+    updateUserPoint()
   }
+}
+
+const updateUserPoint = () => {
+  axios({
+    method: 'put',
+    url: 'http://127.0.0.1:8000/accounts/user-info/',
+    headers: {
+      Authorization: `Token ${store.token}`,
+    },
+    data: {
+      point: userInfo.value.point + Math.floor(score.value / 10),
+    },
+  })
 }
 
 onMounted(() => {
   loadQuizzes()
+  axios({
+    method: 'get',
+    url: 'http://127.0.0.1:8000/accounts/user-info/',
+    headers: {
+      Authorization: `Token ${store.token}`,
+    },
+  })
+    .then(res => {
+      userInfo.value = res.data
+    })
+    .catch(err => {
+      console.log(err)
+    })
 })
 </script>
 

@@ -1,79 +1,70 @@
 <template>
-  <div>
-    <h1>회원 정보 수정</h1>
-    <form @submit.prevent="updateProfile">
-      <div>
-        <label for="name">이름</label>
-        <input
-          id="name"
-          v-model="formData.name"
-          type="text"
-          placeholder="이름을 입력하세요"
-        />
-      </div>
-
-      <div>
-        <label for="email">이메일</label>
-        <input
-          id="email"
-          v-model="formData.email"
-          type="email"
-          placeholder="이메일을 입력하세요"
-        />
-      </div>
-
-      <div>
-        <label for="password">비밀번호</label>
-        <input
-          id="password"
-          v-model="formData.password"
-          type="password"
-          placeholder="새 비밀번호를 입력하세요"
-        />
-      </div>
-
-      <button type="submit">수정 완료</button>
-    </form>
+  <div class="edit-profile-container">
+    <div class="edit-profile-card">
+      <h2>프로필 수정</h2>
+      <form @submit.prevent="submitForm">
+        <div class="input-group">
+          <label for="username">사용자 이름</label>
+          <input
+            type="text"
+            id="username"
+            v-model="formData.username"
+            placeholder="사용자 이름을 입력하세요"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <label for="age">나이</label>
+          <input
+            type="number"
+            id="age"
+            v-model="formData.age"
+            placeholder="나이를 입력하세요"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <label for="gender">성별</label>
+          <select id="gender" v-model="formData.gender">
+            <option value="0">미지정</option>
+            <option value="1">남성</option>
+            <option value="2">여성</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="goal_amount">목표 금액</label>
+          <input
+            type="number"
+            id="goal_amount"
+            v-model="formData.goal_amount"
+            placeholder="목표 금액을 입력하세요"
+          />
+        </div>
+        <button type="submit" class="submit-btn">저장</button>
+      </form>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useEggStore } from '@/stores/egg'
 import axios from 'axios'
+import { useEggStore } from '@/stores/egg'
 import { useRouter } from 'vue-router'
 
 const store = useEggStore()
 const router = useRouter()
 
-// 추가적으로 수정 가능하게 만들 데이터 삽입 필요
+// 수정할 데이터 바인딩
 const formData = ref({
-  name: '',
-  email: '',
-  password: ''
+  username: '',
+  age: '',
+  gender: 0,
+  goal_amount: ''
 })
 
-const fetchUserProfile = () => {
-  axios({
-    method: 'get',
-    url: `${store.API_URL}accounts/user-info/`,
-    headers: {
-      Authorization: `Token ${store.token}`
-    }
-  })
-    .then(res => {
-      // 가져온 user정보 초기 값으로 설정
-      formData.value.name = res.data.username
-      formData.value.email = res.data.useremail
-    })
-    .catch(err => {
-      console.error(err)
-      alert('회원 정보를 불러오는 데 실패했습니다.')
-    })
-}
-
-// 사용자 정보 업데이트
-const updateProfile = () => {
+// 폼 제출 처리
+const submitForm = () => {
   axios({
     method: 'put',
     url: `${store.API_URL}accounts/user-info/`,
@@ -82,22 +73,113 @@ const updateProfile = () => {
     },
     data: formData.value
   })
-    .then(res => {
-      alert('회원 정보가 수정되었습니다.')
-      router.push({ name: 'ProfileView' }) 
-      // 수정 완료 후 프로필 페이지로 이동
+    .then(() => {
+      console.log('수정된 데이터:', formData.value)
+      alert('프로필이 업데이트되었습니다.')
+      router.push({ name: 'ProfileView' })
     })
     .catch(err => {
-      console.error(err)
-      alert('회원 정보 수정에 실패했습니다.')
+      console.log(err)
+    })
+}
+
+// 사용자 정보 가져오기
+const userProfile = () => {
+  axios({
+    method: 'get',
+    url: `${store.API_URL}accounts/user-info/`,
+    headers: {
+      Authorization: `Token ${store.token}`
+    }
+  })
+    .then(res => {
+      console.log(res)
+      // 받아온 사용자 정보를 formData에 반영
+      formData.value = {
+        username: res.data.username || '',
+        age: res.data.age || '',
+        gender: res.data.gender || 0,
+        goal_amount: res.data.goal_amount || ''
+      }
+    })
+    .catch(err => {
+      console.log(err)
     })
 }
 
 onMounted(() => {
-  fetchUserProfile()
+  userProfile()
 })
 </script>
 
 <style scoped>
+.edit-profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #f7f8f9, #e9eff1);
+  padding: 2rem;
+}
 
+.edit-profile-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Pretendard-Bold';
+  font-size: 1.8rem;
+  color: #34495e;
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  font-family: 'Pretendard-Medium';
+}
+
+input,
+select {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: #2980b9;
+}
+
+button.submit-btn {
+  background-color: #3498db;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.submit-btn:hover {
+  background-color: #2980b9;
+}
 </style>
