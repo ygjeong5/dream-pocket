@@ -25,7 +25,7 @@ class Ledger(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='ledgers')
     date = models.DateField()
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    amount = models.DecimalField(max_digits=10, decimal_places=0)
     description = models.TextField(blank=True, null=True)
 
     def __str__(self):
