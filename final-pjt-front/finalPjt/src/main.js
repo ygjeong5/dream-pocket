@@ -8,8 +8,6 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
 
-
-
 // vuetify
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
@@ -44,8 +42,6 @@ useKakao('5c601815580290a95eddff0a6a13f52c', ['clusterer', 'services', 'drawing'
 import Swiper from 'swiper';
 // import Swiper styles
 import 'swiper/css';
-
-
 
 
 

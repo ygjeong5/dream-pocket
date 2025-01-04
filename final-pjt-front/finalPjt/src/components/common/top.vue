@@ -284,16 +284,7 @@ import { icon } from '@fortawesome/fontawesome-svg-core';
   left: 100%;
 }
 
-
-
-
-
-
-
-
-
-
-
+/* 로그인 버튼 ============================ */
 
 
 .logInBtn, .logOutBtn {
@@ -323,13 +314,6 @@ import { icon } from '@fortawesome/fontawesome-svg-core';
   border-color: #2563eb;
   box-shadow: 0 6px 12px rgba(59, 130, 246, 0.3);
 }
-
-
-
-
-
-
-
 
 .logInBtn a {
   color: #3b82f6;
@@ -418,9 +402,6 @@ import { icon } from '@fortawesome/fontawesome-svg-core';
   gap: 20px;
   height: 40px;
 }
-
-
-
 
 /* 회원가입 버튼 스타일 */
 .signUp {

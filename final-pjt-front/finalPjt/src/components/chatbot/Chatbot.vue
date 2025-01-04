@@ -3,6 +3,7 @@
     <div class="chat-header">
       <div class="card-icon">🤖</div>
       <h3>AI 금융 상담사</h3>
+  
     </div>
     
     <div class="chat-area" ref="chatContainer">
@@ -103,12 +104,14 @@ const chatSubmit = () => {
 
 <style scoped>
 .chat-container {
+  border-top: 1px solid #f1f2ed;
   width: 100%;
   display: flex;
   flex-direction: column;
+  
   gap: 1rem;
-  background: white;
-  border-radius: 20px;
+  background: rgba(214, 216, 248, 0.09);
+ 
   padding: 1.5rem;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
@@ -116,23 +119,24 @@ const chatSubmit = () => {
 .chat-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
 .card-icon {
   font-size: 2.5rem;
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(145deg, #e8f1f8, #d4e6f1);
+  background: linear-gradient(145deg, #f2f4f6, #edf3f7);
   border-radius: 50%;
 }
 
 .chat-header h3 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #2c3e50;
   margin: 0;
   font-family: 'DNFBitBitv2';
@@ -147,7 +151,7 @@ const chatSubmit = () => {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  background: linear-gradient(145deg, #f8f9fa, #e8f1f8);
+  background: linear-gradient(145deg, #f8f9fa, #edf3f8);
   border-radius: 15px;
 }
 

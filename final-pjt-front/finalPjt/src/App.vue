@@ -2,7 +2,6 @@
   <div class="main">
     <!-- 최상단  -->
     <top/>
-
     <!-- Nav bar  -->
     <nav class="navbar">
       <div class="navContainer">
@@ -52,12 +51,7 @@
       </div>
     </nav>
     
-    <div class="mainContent">
-      <RouterView/>
- 
-    </div>
-    
-
+    <RouterView/>
 
 </div>
 </template>
