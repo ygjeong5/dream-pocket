@@ -3,9 +3,7 @@
     <!-- card -->
      <div class="banner">
        <div id="carousel" class="carousel slide" data-bs-ride="carousel">
-         <!-- 하단 버튼 -->
-         
-         
+         <!-- 하단 버튼 -->   
        <div class="carousel-inner">
          <div class="carousel-item active ">
            <img src="@/assets/test1.png" alt="mainbanner" class="d-block">
@@ -28,53 +26,52 @@
        </button>
      </div>
     </div>
-  </div>
-  <div class="chatbot-section">
-    <div class="chatbot-container">
-      <ChatBot/>
-    </div>
-  </div>
-  <div class="mainContent">
-    <div class="content-card quiz">
-      <div class="card-icon">❓</div>
-      <div class="card-info">
-        <h3>오늘의 퀴즈</h3>
-        <p class="quiz-question">{{ body }}</p>
-        <RouterLink :to="{ name: 'QuizGame' }" class="card-button">
-          문제풀러 가기
-        </RouterLink>
+    <div class="chatbot-section">
+      <div class="chatbot-container">
+        <ChatBot/>
       </div>
     </div>
-
-    <div class="content-card game">
-      <div class="card-icon">🎮</div>
-      <div class="card-info">
-        <h3>금융 게임</h3>
-        <p>재미있게 배우는 금융 게임!</p>
-        <RouterLink :to="{ name: 'GameView' }" class="card-button">
-          게임하러 가기
-        </RouterLink>
+    <div class="mainContentNav">
+      <div class="content-card quiz">
+        <div class="card-icon">❓</div>
+        <div class="card-info">
+          <h3>오늘의 퀴즈</h3>
+          <p class="quiz-question">{{ body }}</p>
+          <RouterLink :to="{ name: 'QuizGame' }" class="card-button">
+            문제풀러 가기
+          </RouterLink>
+        </div>
       </div>
-    </div>
-
-    <div class="content-card map">
-      <div class="card-icon">🗺️</div>
-      <div class="card-info">
-        <h3>주변 은행 찾기</h3>
-        <p>가까운 은행을 찾아보세요</p>
-        <RouterLink :to="{name: 'map'}" class="card-button">
-          지도 보기
-        </RouterLink>
-      </div>
-    </div>
-  </div>
-  <div class="youtube">
-    <swiper
-    :style="{
       
-      '--swiper-navigation-color': '#fff',
-      '--swiper-pagination-color': '#fff',
-    }"
+      <div class="content-card game">
+        <div class="card-icon">🎮</div>
+        <div class="card-info">
+          <h3>금융 게임</h3>
+          <p>재미있게 배우는 금융 게임!</p>
+          <RouterLink :to="{ name: 'GameView' }" class="card-button">
+            게임하러 가기
+          </RouterLink>
+        </div>
+      </div>
+      
+      <div class="content-card map">
+        <div class="card-icon">🗺️</div>
+        <div class="card-info">
+          <h3>주변 은행 찾기</h3>
+          <p>가까운 은행을 찾아보세요</p>
+          <RouterLink :to="{name: 'map'}" class="card-button">
+            지도 보기
+          </RouterLink>
+        </div>
+      </div>
+    </div>
+    <div class="youtube">
+      <swiper
+      :style="{
+        
+        '--swiper-navigation-color': '#fff',
+        '--swiper-pagination-color': '#fff',
+      }"
     :lazy="true"
     :slidesPerView="4"
     :spaceBetween="5"
@@ -85,54 +82,55 @@
     :navigation="true"
     :modules="modules"
     class="mySwiper"
-  > 
+    > 
     <swiper-slide> 
       <a :href="video[0].url">
         <img :src="video[0].thumbnail" alt="">
       </a></swiper-slide>
-    <swiper-slide> 
-    <a :href="video[1].url">
-      <img :src="video[1].thumbnail" alt="">
-    </a></swiper-slide>
-    <swiper-slide> 
-    <a :href="video[2].url">
-      <img :src="video[2].thumbnail" alt="">
-    </a></swiper-slide>
-    <swiper-slide> 
-    <a :href="video[3].url">
-      <img :src="video[3].thumbnail" alt="">
-    </a></swiper-slide>
-    <swiper-slide> 
-    <a :href="video[4].url">
-      <img :src="video[4].thumbnail" alt="">
-    </a></swiper-slide>
-    <swiper-slide> 
-      <a :href="video[5].url">
-        <img :src="video[5].thumbnail" alt="">
-      </a></swiper-slide>
-    <swiper-slide> 
-    <a :href="video[6].url">
-      <img :src="video[6].thumbnail" alt="">
-    </a></swiper-slide>
-    <swiper-slide> 
-    <a :href="video[7].url">
-      <img :src="video[7].thumbnail" alt="">
-    </a></swiper-slide>
-    <swiper-slide> 
-    <a :href="video[8].url">
-      <img :src="video[8].thumbnail" alt="">
-    </a></swiper-slide>
-    <swiper-slide> 
-    <a :href="video[9].url">
-      <img :src="video[9].thumbnail" alt="">
-    </a></swiper-slide>
-    <swiper-slide> 
-    <a :href="video[10].url">
-      <img :src="video[10].thumbnail" alt="">
-    </a></swiper-slide>    
-  </swiper>
-  </div >
-</template>
+      <swiper-slide> 
+        <a :href="video[1].url">
+          <img :src="video[1].thumbnail" alt="">
+        </a></swiper-slide>
+        <swiper-slide> 
+          <a :href="video[2].url">
+            <img :src="video[2].thumbnail" alt="">
+          </a></swiper-slide>
+          <swiper-slide> 
+            <a :href="video[3].url">
+              <img :src="video[3].thumbnail" alt="">
+            </a></swiper-slide>
+            <swiper-slide> 
+              <a :href="video[4].url">
+                <img :src="video[4].thumbnail" alt="">
+              </a></swiper-slide>
+              <swiper-slide> 
+                <a :href="video[5].url">
+                  <img :src="video[5].thumbnail" alt="">
+                </a></swiper-slide>
+                <swiper-slide> 
+                  <a :href="video[6].url">
+                    <img :src="video[6].thumbnail" alt="">
+                  </a></swiper-slide>
+                  <swiper-slide> 
+                    <a :href="video[7].url">
+                      <img :src="video[7].thumbnail" alt="">
+                    </a></swiper-slide>
+                    <swiper-slide> 
+                      <a :href="video[8].url">
+                        <img :src="video[8].thumbnail" alt="">
+                      </a></swiper-slide>
+                      <swiper-slide> 
+                        <a :href="video[9].url">
+                          <img :src="video[9].thumbnail" alt="">
+                        </a></swiper-slide>
+                        <swiper-slide> 
+                          <a :href="video[10].url">
+                            <img :src="video[10].thumbnail" alt="">
+                          </a></swiper-slide>    
+                        </swiper>
+                      </div >
+                    </div>
+                    </template>
 
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -204,11 +202,9 @@ const modules = [Pagination, Navigation];
 
 <style scoped>
 
-
-
 .mainPage {
   position: relative;
-  height: auto;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -292,86 +288,21 @@ const modules = [Pagination, Navigation];
   position: relative;
 }
 
-.mainContent {
+.mainContentNav {
   display: flex;
   justify-content: center;
   align-items: stretch;
   gap: 2rem;
   padding: 3rem 10%;
-  background: linear-gradient(145deg, #f8f9fa, #e8f1f8);
+  background: linear-gradient(145deg, #29527b, #144971);
 }
 
 .chatbot-section {
   width: 100%;
-  padding: 60px 0;
-  background: #202d3b24;
   position: relative;
   overflow: hidden;
 }
 
-.chatbot-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('@/assets/pattern.png') repeat; /* 필요한 경우 패턴 이미지 추가 */
-  opacity: 0.1;
-}
-
-.chatbot-container {
-  width: 80%;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.ad {
-  border: none;
-  height: 220px;
-  width: 500px;
-  border-radius: 20px;
-  padding: 30px;
-  margin: 0 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.ad:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-}
-
-.ad h3 {
-  font-size: 22px;
-  font-weight: 600;
-  color: #2c3e50;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.ad a {
-  padding: 12px 24px;
-  background: linear-gradient(145deg, #3498db, #2980b9);
-  color: white;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.ad a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
 
 .youtube {
   height: 300px;
@@ -548,7 +479,7 @@ const modules = [Pagination, Navigation];
 }
 
 @media (max-width: 1024px) {
-  .mainContent {
+  .mainContentNav {
     flex-direction: column;
     padding: 2rem 5%;
   }
